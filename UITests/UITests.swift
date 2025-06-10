@@ -8,39 +8,42 @@
 import XCTest
 
 class UITests: Runner {
-    // MARK: Static Texts
-    lazy var homeScreenTitle: XCUIElement = app.staticTexts["homeView_title"]
-    lazy var bibleStudyScreenTitle: XCUIElement = app.staticTexts[" Growth in Faith"]
+    // MARK: Screens
+    lazy var homeScreen: HomeScreen = .init(app: app)
+    lazy var bibleStudyScreen: BibleStudyScreen = .init(app: app)
+    lazy var feedScreen: FeedScreen = .init(app: app)
+    lazy var exploreScreen: ExploreScreen = .init(app: app)
     
-    // MARK: Buttons
-    lazy var exploreScreenQuizCell: XCUIElement = app.buttons["📖 Faith-Based Quiz"]
+    // MARK: Common Components
+    lazy var navigationTabBar: NavigationTabBar = .init(app: app)
     
-    // MARK: TextFileds
-    lazy var feedScreenSearchFeild: XCUIElement = app.textFields.firstMatch
-    
-    // MARK: TabBar
-    // Create Home Tab variable
-    lazy var bibleStudyTab: XCUIElement = app.tabBars.buttons["Bible Study"]
-    lazy var feedTab: XCUIElement = app.tabBars.buttons["Feed"]
-    lazy var exploreTab: XCUIElement = app.tabBars.buttons["Explore"]
     
     // MARK: Tests
-    
+
     func testMainScreens() {
-        homeScreenTitle.assertExistence()
+        homeScreen.thenIAssertScreen()
+
+        navigationTabBar.whenINavigateToBibleStudyTab()
+        bibleStudyScreen.thenIAssertScreen()
+
+        navigationTabBar.whenINavigateToFeedTab()
+        feedScreen.thenIAssertScreen()
         
-        bibleStudyTab.assertExistence()
-        bibleStudyTab.tap()
-        bibleStudyScreenTitle.assertExistence()
-        
-        feedTab.assertExistence()
-        feedTab.tap()
-        feedScreenSearchFeild.assertExistence()
-        
-        exploreTab.assertExistence()
-        exploreTab.tap()
-        exploreScreenQuizCell.assertExistence()
+        navigationTabBar.whenINavigateToExploreTab()
+        exploreScreen.thenIAssertScreen()
+
+        navigationTabBar.whenINavigateToHomeTab()
+        homeScreen.thenIAssertScreen()
     }
+    
+    // Give
+    // When
+    // Then
+    // https://github.com/24steps-ios/TestDrivenSwift/blob/main/README.md#following-given-when-then
+    
+    // Test Logic
+    //                                              pre-action   action    assertion
+    // Before When need to do Then and also After ( given  Then  When      Then     )
     
     // MARK: HOME WORK!
     func testNavigationBar() {
