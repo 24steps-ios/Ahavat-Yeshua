@@ -1,0 +1,29 @@
+{
+  "configurations" : [
+    {
+      "id" : "0D77A57F-2528-465D-9E62-504FA0533130",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "codeCoverage" : false,
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:Ahavat Yeshua.xcodeproj",
+      "identifier" : "08AB17312ABBCCE300813AA4",
+      "name" : "Ahavat Yeshua"
+    }
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:Ahavat Yeshua.xcodeproj",
+        "identifier" : "081715AB2B87DEAA00CBC667",
+        "name" : "UITests"
+      }
+    }
+  ],
+  "version" : 1
+}

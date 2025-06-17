@@ -146,6 +146,7 @@
 		08AB17812ABD357800813AA4 /* BibleNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BibleNetwork.swift; sourceTree = "<group>"; };
 		08AB17832ABD360900813AA4 /* BibleVerseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BibleVerseView.swift; sourceTree = "<group>"; };
 		08AB17852ABD397800813AA4 /* BibleVerseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BibleVerseViewModel.swift; sourceTree = "<group>"; };
+		08B494C12E02282B00827AF9 /* Ahavat Yeshua.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Ahavat Yeshua.xctestplan"; sourceTree = "<group>"; };
 		08E6291D2ADF646000891626 /* RequestMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestMaker.swift; sourceTree = "<group>"; };
 		08E6291F2ADF649100891626 /* RequestMaking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestMaking.swift; sourceTree = "<group>"; };
 		08E629212ADF64C100891626 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
@@ -249,6 +250,7 @@
 		08AB17292ABBCCE300813AA4 = {
 			isa = PBXGroup;
 			children = (
+				08B494C12E02282B00827AF9 /* Ahavat Yeshua.xctestplan */,
 				08AB17342ABBCCE300813AA4 /* Ahavat Yeshua */,
 				081715AD2B87DEAA00CBC667 /* UITests */,
 				086EE07A2DB1E86C007515C6 /* Ahavat Yeshua Widget */,
