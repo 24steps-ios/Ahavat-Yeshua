@@ -55,8 +55,6 @@
 		08AB17822ABD357800813AA4 /* BibleNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AB17812ABD357800813AA4 /* BibleNetwork.swift */; };
 		08AB17842ABD360900813AA4 /* BibleVerseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AB17832ABD360900813AA4 /* BibleVerseView.swift */; };
 		08AB17862ABD397800813AA4 /* BibleVerseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AB17852ABD397800813AA4 /* BibleVerseViewModel.swift */; };
-		08B494B02DEE840900827AF9 /* Runner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B494AF2DEE840500827AF9 /* Runner.swift */; };
-		08B494B22DEE848600827AF9 /* Extension+XCUIElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B494B12DEE847400827AF9 /* Extension+XCUIElement.swift */; };
 		08E6291E2ADF646000891626 /* RequestMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E6291D2ADF646000891626 /* RequestMaker.swift */; };
 		08E629202ADF649100891626 /* RequestMaking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E6291F2ADF649100891626 /* RequestMaking.swift */; };
 		08E629222ADF64C100891626 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E629212ADF64C100891626 /* NetworkError.swift */; };
@@ -148,8 +146,7 @@
 		08AB17812ABD357800813AA4 /* BibleNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BibleNetwork.swift; sourceTree = "<group>"; };
 		08AB17832ABD360900813AA4 /* BibleVerseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BibleVerseView.swift; sourceTree = "<group>"; };
 		08AB17852ABD397800813AA4 /* BibleVerseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BibleVerseViewModel.swift; sourceTree = "<group>"; };
-		08B494AF2DEE840500827AF9 /* Runner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Runner.swift; sourceTree = "<group>"; };
-		08B494B12DEE847400827AF9 /* Extension+XCUIElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+XCUIElement.swift"; sourceTree = "<group>"; };
+		08B494C12E02282B00827AF9 /* Ahavat Yeshua.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Ahavat Yeshua.xctestplan"; sourceTree = "<group>"; };
 		08E6291D2ADF646000891626 /* RequestMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestMaker.swift; sourceTree = "<group>"; };
 		08E6291F2ADF649100891626 /* RequestMaking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestMaking.swift; sourceTree = "<group>"; };
 		08E629212ADF64C100891626 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
@@ -187,8 +184,6 @@
 		081715AD2B87DEAA00CBC667 /* UITests */ = {
 			isa = PBXGroup;
 			children = (
-				08B494B12DEE847400827AF9 /* Extension+XCUIElement.swift */,
-				08B494AF2DEE840500827AF9 /* Runner.swift */,
 				081715AE2B87DEAA00CBC667 /* UITests.swift */,
 			);
 			path = UITests;
@@ -255,6 +250,7 @@
 		08AB17292ABBCCE300813AA4 = {
 			isa = PBXGroup;
 			children = (
+				08B494C12E02282B00827AF9 /* Ahavat Yeshua.xctestplan */,
 				08AB17342ABBCCE300813AA4 /* Ahavat Yeshua */,
 				081715AD2B87DEAA00CBC667 /* UITests */,
 				086EE07A2DB1E86C007515C6 /* Ahavat Yeshua Widget */,
@@ -541,8 +537,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				081715AF2B87DEAA00CBC667 /* UITests.swift in Sources */,
-				08B494B02DEE840900827AF9 /* Runner.swift in Sources */,
-				08B494B22DEE848600827AF9 /* Extension+XCUIElement.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
