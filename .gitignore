@@ -38,3 +38,5 @@ fastlane/test_output
 *.swo
 *.tmp
 Ahavat Yeshua.xcodeproj/project.xcworkspace/xcuserdata/iliapavlov.xcuserdatad/UserInterfaceState.xcuserstate
+*.xcuserstate
+*.xcuserstate
