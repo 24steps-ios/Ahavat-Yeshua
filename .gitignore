@@ -35,5 +35,8 @@ fastlane/test_output
 # User-specific files
 .idea/
 *.swp
+*.xcuserstate
+*.xcbkptlist
 *.swo
 *.tmp
+*.UserInterfaceState.xcuserstate
