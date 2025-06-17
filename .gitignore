@@ -35,6 +35,8 @@ fastlane/test_output
 # User-specific files
 .idea/
 *.swp
+*.xcuserstate
+Breakpoints_v2.xcbkptlist
 *.swo
 *.tmp
 Ahavat Yeshua.xcodeproj/project.xcworkspace/xcuserdata/iliapavlov.xcuserdatad/UserInterfaceState.xcuserstate
