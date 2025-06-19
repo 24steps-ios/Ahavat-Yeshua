@@ -46,22 +46,44 @@ class UITests: Runner {
     // Before When need to do Then and also After ( given  Then  When      Then     )
     
     // MARK: HOME WORK!
+    
+    // Before
+    // assert(element, errorMessage) | XCTAssertTrue(app.tabBars.buttons.count == 4)
+
+    // After
+    // give, when, then contains element.assert()
+    
     func testNavigationBar() {
-        // home tab `isSelected`
+        navigationTabBar.thenHomeTabAppears()
+        navigationTabBar.thenHomeTabSelected()
+        navigationTabBar.thenAllTabsAppear()
+
+        navigationTabBar.whenINavigateToBibleStudyTab()
+        navigationTabBar.thenBibleStudyTabSelected()
+        navigationTabBar.thenAllTabsAppear()
+        // TODO: HOME WORK CONTINUATION
+        navigationTabBar.whenINavigateToFeedTab()
+        navigationTabBar.feedTab.assertSelected()
+        navigationTabBar.allTabs.assertEqual(4)
         
-        // bible study tab - tap
-        // app.tabBars.count == 4
-        // bible study tab `isSelected`
+        navigationTabBar.whenINavigateToExploreTab()
+        navigationTabBar.exploreTab.assertExistence()
+        navigationTabBar.allTabs.assertEqual(4)
         
-        // feed tab - tap
-        // app.tabBars.count == 4
-        // feed tab `isSelected`
+        navigationTabBar.whenINavigateToHomeTab()
+        navigationTabBar.homeTab.assertSelected()
+        navigationTabBar.allTabs.assertEqual(4)
+    }
+    
+    // NO PAGE OBJECT
+    func testHomeScreenNavigation() {
+        // when I navigate to Bible Reading
+        // then Bible Reading screen appears
+        // when I tap back button
+        // then home screen appear
         
-        // explore tab - tap
-        // app.tabBars.count == 4
-        // explore tab `isSelected`
-        
-        // home tab - tap
-        // home tab `isSelected`
+        // Same for Profile, Donation, LiveStream, Multi-selection, Holy Places Map
     }
 }
+
+

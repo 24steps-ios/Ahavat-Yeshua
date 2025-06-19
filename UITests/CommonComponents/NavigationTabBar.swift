@@ -13,6 +13,26 @@ final class NavigationTabBar: BaseScreen {
     lazy var feedTab: XCUIElement = app.tabBars.buttons["Feed"]
     lazy var exploreTab: XCUIElement = app.tabBars.buttons["Explore"]
     
+    // MARK: All Elements
+    lazy var allTabs: XCUIElementQuery = app.tabBars.buttons
+    
+    // MARK: Then
+    func thenHomeTabAppears() {
+        homeTab.assertExistence()
+    }
+    
+    func thenHomeTabSelected() {
+        homeTab.assertSelected()
+    }
+    
+    func thenAllTabsAppear() {
+        allTabs.assertEqual(4)
+    }
+    
+    func thenBibleStudyTabSelected() {
+        bibleStudyTab.assertSelected()
+    }
+    
     // MARK: When
     func whenINavigateToHomeTab() {
         homeTab.assertExistence(isElementStatic: true)
