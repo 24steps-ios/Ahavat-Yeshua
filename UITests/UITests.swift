@@ -8,39 +8,44 @@
 import XCTest
 
 class UITests: Runner {
-    // MARK: Static Texts
-    lazy var homeScreenTitle: XCUIElement = app.staticTexts["homeView_title"]
-    lazy var bibleStudyScreenTitle: XCUIElement = app.staticTexts[" Growth in Faith"]
+  //  let app: XCUIApplication = .init()
+
     
-    // MARK: Buttons
-    lazy var exploreScreenQuizCell: XCUIElement = app.buttons["📖 Faith-Based Quiz"]
+    // MARK: Screens
+    lazy var homeScreen: HomeScreen = .init(app: app)  // after creating page objects
+    lazy var bibleStudyScreen: BibleStudyScreen = .init(app: app)
+    lazy var feedScreen: FeedScreen = .init(app: app)
+    lazy var exploreScreen: ExploreScreen = .init(app: app) // after creating page objects
     
-    // MARK: TextFileds
-    lazy var feedScreenSearchFeild: XCUIElement = app.textFields.firstMatch
+    // MARK: Common Components
+    lazy var navigationTabBar: NavigationTabBar = .init(app: app)
     
-    // MARK: TabBar
-    // Create Home Tab variable
-    lazy var bibleStudyTab: XCUIElement = app.tabBars.buttons["Bible Study"]
-    lazy var feedTab: XCUIElement = app.tabBars.buttons["Feed"]
-    lazy var exploreTab: XCUIElement = app.tabBars.buttons["Explore"]
     
-    // MARK: Tests
-    
+    // MARK: Tests after refactorin
+  
     func testMainScreens() {
-        homeScreenTitle.assertExistence()
+       homeScreen.thenIAssertScreen()
+       
+        navigationTabBar.whenINavigateToBibleStudyTab()
+        bibleStudyScreen.thenIAssertScreen()
         
-        bibleStudyTab.assertExistence()
-        bibleStudyTab.tap()
-        bibleStudyScreenTitle.assertExistence()
+        navigationTabBar.whenINavigateToFeedTab()
+        feedScreen.thenIAssertScreen()
         
-        feedTab.assertExistence()
-        feedTab.tap()
-        feedScreenSearchFeild.assertExistence()
+        navigationTabBar.whenINavigateToExploreTab()
+        exploreScreen.thenIAssertScreen()
         
-        exploreTab.assertExistence()
-        exploreTab.tap()
-        exploreScreenQuizCell.assertExistence()
+        navigationTabBar.whenINavigateToHomeTab()
+        homeScreen.thenIAssertScreen()
+
+       
     }
+    //GIVEN
+    // WHEN
+    // THEN
+    
+    // Test logic:   THEN WHEN THEN (THEN b4 and after  WHEN)
+    
     
     // MARK: HOME WORK!
     func testNavigationBar() {
