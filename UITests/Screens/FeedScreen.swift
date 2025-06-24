@@ -11,7 +11,9 @@ final class FeedScreen: BaseScreen {
     lazy var feedScreenSearchFeild: XCUIElement = app.textFields.firstMatch
     
     // MARK: Then
-    func thenIAssertScreen() {
+    @discardableResult
+    func thenIAssertScreen() -> Self {
         feedScreenSearchFeild.assertExistence()
+        return self
     }
 }

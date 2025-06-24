@@ -8,7 +8,10 @@ import XCTest
 
 // Single Element
 extension XCUIElement {
-    func assertExistence(timeout: TimeInterval = 10, isElementStatic: Bool = false) {
+    func assertExistence(
+        timeout: TimeInterval = 10,
+        isElementStatic: Bool = false
+    ) {
         if isElementStatic {
             XCTAssertTrue(self.exists, "Element is not found with")
         } else {
@@ -18,6 +21,11 @@ extension XCUIElement {
     
     func assertSelected(_ state: Bool = true) {
         XCTAssertEqual(state, self.isSelected, "Element is not selected")
+    }
+    
+    func assertExistenceAndTap(timeout: TimeInterval = 5) {
+        self.assertExistence(timeout: timeout)
+        self.tap()
     }
 }
 

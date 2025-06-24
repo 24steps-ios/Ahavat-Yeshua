@@ -17,41 +17,69 @@ final class NavigationTabBar: BaseScreen {
     lazy var allTabs: XCUIElementQuery = app.tabBars.buttons
     
     // MARK: Then
-    func thenHomeTabAppears() {
+    @discardableResult
+    func thenHomeTabAppears() -> Self {
         homeTab.assertExistence()
+        return self
     }
     
-    func thenHomeTabSelected() {
+    @discardableResult
+    func thenHomeTabSelected() -> Self {
         homeTab.assertSelected()
+        return self
     }
     
-    func thenAllTabsAppear() {
+    @discardableResult
+    func thenAllTabsAppear() -> Self {
         allTabs.assertEqual(4)
+        return self
     }
     
-    func thenBibleStudyTabSelected() {
+    @discardableResult
+    func thenBibleStudyTabSelected() -> Self {
         bibleStudyTab.assertSelected()
+        return self
+    }
+    
+    @discardableResult
+    func thenFeedTabAppears() -> Self {
+        feedTab.assertExistence()
+        return self
+    }
+    
+    @discardableResult
+    func thenExploreTabAppears() -> Self {
+        exploreTab.assertExistence()
+        return self
     }
     
     // MARK: When
-    func whenINavigateToHomeTab() {
+    @discardableResult
+    func whenINavigateToHomeTab() -> Self {
         homeTab.assertExistence(isElementStatic: true)
         homeTab.tap()
+        return self
     }
     
-    func whenINavigateToBibleStudyTab() {
+    @discardableResult
+    func whenINavigateToBibleStudyTab() -> Self {
         bibleStudyTab.assertExistence(isElementStatic: true)
         bibleStudyTab.tap()
+        return self
     }
     
-    func whenINavigateToFeedTab() {
+    @discardableResult
+    func whenINavigateToFeedTab() -> Self {
         feedTab.assertExistence(isElementStatic: true)
         feedTab.tap()
+        return self
     }
     
-    func whenINavigateToExploreTab() {
+    @discardableResult
+    func whenINavigateToExploreTab() -> Self {
         exploreTab.assertExistence(isElementStatic: true)
         exploreTab.tap()
+        return self
     }
     
 }

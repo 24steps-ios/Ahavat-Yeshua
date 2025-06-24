@@ -28,6 +28,7 @@
 		086EE0A12DB2C0A6007515C6 /* HolyPlacesMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086EE0A02DB2C0A6007515C6 /* HolyPlacesMapView.swift */; };
 		086EE0A32DB2C0B2007515C6 /* MiniChallengesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086EE0A22DB2C0B2007515C6 /* MiniChallengesView.swift */; };
 		086EE0A52DB2C64F007515C6 /* HolyLandData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086EE0A42DB2C64F007515C6 /* HolyLandData.swift */; };
+		089002212E0A3E0B0006A58D /* BibleReadingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089002202E0A3E030006A58D /* BibleReadingScreen.swift */; };
 		08AB17362ABBCCE300813AA4 /* Ahavat_YeshuaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AB17352ABBCCE300813AA4 /* Ahavat_YeshuaApp.swift */; };
 		08AB17382ABBCCE300813AA4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AB17372ABBCCE300813AA4 /* ContentView.swift */; };
 		08AB173A2ABBCCE400813AA4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 08AB17392ABBCCE400813AA4 /* Assets.xcassets */; };
@@ -126,6 +127,7 @@
 		086EE0A02DB2C0A6007515C6 /* HolyPlacesMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HolyPlacesMapView.swift; sourceTree = "<group>"; };
 		086EE0A22DB2C0B2007515C6 /* MiniChallengesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniChallengesView.swift; sourceTree = "<group>"; };
 		086EE0A42DB2C64F007515C6 /* HolyLandData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HolyLandData.swift; sourceTree = "<group>"; };
+		089002202E0A3E030006A58D /* BibleReadingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BibleReadingScreen.swift; sourceTree = "<group>"; };
 		08AB17322ABBCCE300813AA4 /* Ahavat Yeshua.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Ahavat Yeshua.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		08AB17352ABBCCE300813AA4 /* Ahavat_YeshuaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ahavat_YeshuaApp.swift; sourceTree = "<group>"; };
 		08AB17372ABBCCE300813AA4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -266,6 +268,15 @@
 				086EE0962DB29561007515C6 /* ProfileMainView.swift */,
 			);
 			path = Profile;
+			sourceTree = "<group>";
+		};
+		0890021F2E0A3DF00006A58D /* HomeScreen */ = {
+			isa = PBXGroup;
+			children = (
+				089002202E0A3E030006A58D /* BibleReadingScreen.swift */,
+				08B494CE2E02317800827AF9 /* HomeScreen.swift */,
+			);
+			path = HomeScreen;
 			sourceTree = "<group>";
 		};
 		08AB17292ABBCCE300813AA4 = {
@@ -425,10 +436,10 @@
 		08B494CF2E02317800827AF9 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				0890021F2E0A3DF00006A58D /* HomeScreen */,
 				08B494CB2E02317800827AF9 /* BibleScreen.swift */,
 				08B494CC2E02317800827AF9 /* ExploreScreen.swift */,
 				08B494CD2E02317800827AF9 /* FeedScreen.swift */,
-				08B494CE2E02317800827AF9 /* HomeScreen.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -581,6 +592,7 @@
 				08B494C72E02316300827AF9 /* BaseScreen.swift in Sources */,
 				081715AF2B87DEAA00CBC667 /* UITests.swift in Sources */,
 				08B494D02E02317800827AF9 /* BibleScreen.swift in Sources */,
+				089002212E0A3E0B0006A58D /* BibleReadingScreen.swift in Sources */,
 				08B494D12E02317800827AF9 /* HomeScreen.swift in Sources */,
 				08B494D22E02317800827AF9 /* FeedScreen.swift in Sources */,
 				08B494D32E02317800827AF9 /* ExploreScreen.swift in Sources */,

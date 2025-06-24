@@ -10,7 +10,9 @@ final class ExploreScreen: BaseScreen {
     lazy var exploreScreenQuizCell: XCUIElement = app.buttons["📖 Faith-Based Quiz"]
     
     // MARK: Then
-    func thenIAssertScreen() {
+    @discardableResult
+    func thenIAssertScreen() -> Self {
         exploreScreenQuizCell.assertExistence()
+        return self
     }
 }
