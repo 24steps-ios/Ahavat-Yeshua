@@ -68,6 +68,7 @@
 		08E629222ADF64C100891626 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E629212ADF64C100891626 /* NetworkError.swift */; };
 		08E629242ADF687F00891626 /* RequestSending.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E629232ADF687F00891626 /* RequestSending.swift */; };
 		08E629262ADF6B8C00891626 /* Fetching.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E629252ADF6B8C00891626 /* Fetching.swift */; };
+		D7A64FF82E0DEC9400359022 /* BibleReadingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A64FF72E0DEC7800359022 /* BibleReadingScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -168,6 +169,7 @@
 		08E629212ADF64C100891626 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		08E629232ADF687F00891626 /* RequestSending.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestSending.swift; sourceTree = "<group>"; };
 		08E629252ADF6B8C00891626 /* Fetching.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fetching.swift; sourceTree = "<group>"; };
+		D7A64FF72E0DEC7800359022 /* BibleReadingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BibleReadingScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -425,6 +427,7 @@
 		08B494CF2E02317800827AF9 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				D7A64FF62E0DEC4B00359022 /* HomeScreen */,
 				08B494CB2E02317800827AF9 /* BibleScreen.swift */,
 				08B494CC2E02317800827AF9 /* ExploreScreen.swift */,
 				08B494CD2E02317800827AF9 /* FeedScreen.swift */,
@@ -443,6 +446,14 @@
 				08E629252ADF6B8C00891626 /* Fetching.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		D7A64FF62E0DEC4B00359022 /* HomeScreen */ = {
+			isa = PBXGroup;
+			children = (
+				D7A64FF72E0DEC7800359022 /* BibleReadingScreen.swift */,
+			);
+			path = HomeScreen;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -581,6 +592,7 @@
 				08B494C72E02316300827AF9 /* BaseScreen.swift in Sources */,
 				081715AF2B87DEAA00CBC667 /* UITests.swift in Sources */,
 				08B494D02E02317800827AF9 /* BibleScreen.swift in Sources */,
+				D7A64FF82E0DEC9400359022 /* BibleReadingScreen.swift in Sources */,
 				08B494D12E02317800827AF9 /* HomeScreen.swift in Sources */,
 				08B494D22E02317800827AF9 /* FeedScreen.swift in Sources */,
 				08B494D32E02317800827AF9 /* ExploreScreen.swift in Sources */,

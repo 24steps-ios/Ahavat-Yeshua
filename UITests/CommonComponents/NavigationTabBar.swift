@@ -20,24 +20,29 @@ final class NavigationTabBar: BaseScreen {
     func thenHomeTabAppears() {
         homeTab.assertExistence()
     }
+    
     func thenHomeTabSelected() {
         homeTab.assertSelected()
     }
+    
     func thenAllTabsAppear() {
         allTabs.assertEqual(expectation: 4)
     }
+    
     func thenBibleStudyTabAppears() {
         bibleStudyTab.assertExistence()
     }
+    
     func thenFeedTabAppears() {
         feedTab.assertExistence()
     }
+    
     func thenExploreTabAppears() {
         exploreTab.assertExistence()
     }
     
+    // MARK: WHEN
     
-  // MARK: WHEN
     func whenINavigateToHomeTab() {
         homeTab.assertExistence(isElementStatic: true)
         homeTab.tap()

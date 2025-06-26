@@ -14,27 +14,27 @@ class UITests: Runner {
     lazy var feedScreen: FeedScreen = .init(app: app)
     lazy var exploreScreen: ExploreScreen = .init(app: app)
     
+    lazy var BibleReadingScreen: BibleReadingScreen = .init(app: app)
     // MARK: Common Components
     lazy var navigationTabBar: NavigationTabBar = .init(app: app)
     
     //MARK: HomeScreenNavigation
     
     
-    
     // MARK: Tests
-
+    
     func testMainScreens() {
         homeScreen.thenIAssertScreen()
-
+        
         navigationTabBar.whenINavigateToBibleStudyTab()
         bibleStudyScreen.thenIAssertScreen()
-
+        
         navigationTabBar.whenINavigateToFeedTab()
         feedScreen.thenIAssertScreen()
         
         navigationTabBar.whenINavigateToExploreTab()
         exploreScreen.thenIAssertScreen()
-
+        
         navigationTabBar.whenINavigateToHomeTab()
         homeScreen.thenIAssertScreen()
     }
@@ -82,65 +82,82 @@ class UITests: Runner {
         }
     
     // NO PAGE OBJECT
-    func testHomeScreenNavigation(){
-        // WHEN I nvigate to Bible Reading
-        app.staticTexts["Bible Reading"].tap()
-        // THEN Bible Reading screen appears
-        app.buttons["Show Verse"].assertExistence()
-        // WHEN I tap back button (need to check existence button "Back"?)
-        app.buttons["Back"].tap()
+    func testHomeScreenNavigation() {              //couldn't mute part of code 
+        
+        // WHEN I navigate to Bible Reading:
+        //app.staticTexts["Bible Reading"].assertExistenceAndTap()
+        homeScreen.whenINavigateToBibleReadingScreen()
+        // THEN Bible Reading screen appears:
+         bibleReadingScreen.thenScreenAppears()
+       // app.buttons["Show Verse"].assertExistence()
+        // WHEN I tap back button
+        bibleReadingScreen.whenITapBackButton()
+        //app.buttons["Back"].assertExistenceAndTap()
         // THEN home screen appears
-        navigationTabBar.thenHomeTabAppears()
+        // app.staticTexts["Bible Reading"].assertExistence()
+        homeScreen.thenIAssertBibleReadingGroupAppears()
+      
+        
          
-        
-        // WHEN I nvigate to Profile
-        app.staticTexts["Profile"].tap()
+        // WHEN I navigate to Profile
+        //app.staticTexts["Profile"].assertExistence()
+        app.staticTexts["Profile"].assertExistenceAndTap()
         // THEN Profile screen appears
-        app.buttons["Personal"].assertExistence()
+        app.navigationBars["Profile"].assertExistence() //changed TITLE
         // WHEN I tap back button
-        app.buttons["Back"].tap()
+        //app.buttons["Back"].assertExistence()
+        app.buttons["Back"].assertExistenceAndTap()
         // THEN home screen appears
-        navigationTabBar.thenHomeTabAppears()
+        app.staticTexts["Profile"].assertExistence()
         
-        // WHEN I nvigate to Donation
-        app.staticTexts["Donation"].tap()
+        // WHEN I navigate to Donation
+       // app.staticTexts["Donation"].assertExistence()
+        app.staticTexts["Donation"].assertExistenceAndTap()
         // THEN Donation screen appears
-        app.buttons["Donate"].assertExistence()
+        let totalAmountPredicate:NSPredicate = .init(format: "label CONTAINS 'Total Amount'") //predicate
+        app.staticTexts.matching(totalAmountPredicate).firstMatch.assertExistence()        //predicate
         // WHEN I tap back button
-        app.buttons["Back"].tap()
+       // app.buttons["Back"].assertExistence()
+        app.buttons["Back"].assertExistenceAndTap()
         // THEN home screen appears
-        navigationTabBar.thenHomeTabAppears()
+        app.staticTexts["Donation"].assertExistence()
         
-        // WHEN I nvigate to Live Stream
-        app.staticTexts["Live Stream"].tap()
+        
+        // WHEN I navigate to Live Stream
+       // app.staticTexts["Live Stream"].assertExistence()
+        app.staticTexts["Live Stream"].assertExistenceAndTap()
         // THEN Live Stream screen appears
        // app.staticTexts["Live Stream"].assertExistence(timeout: 10) //?????? nothing appears
         // WHEN I tap back button
-        app.buttons["Back"].tap()
+        //app.buttons["Back"].assertExistence()
+        app.buttons["Back"].assertExistenceAndTap()
         // THEN home screen appears
-        navigationTabBar.thenHomeTabAppears()
+        app.staticTexts["Live Stream"].assertExistence()
         
-        // WHEN I nvigate to Multi-selection
-        app.staticTexts["Multi-selection"].tap()
+        
+        // WHEN I navigate to Multi-selection
+        //app.staticTexts["Multi-selection"].assertExistence()
+        app.staticTexts["Multi-selection"].assertExistenceAndTap()
         // THEN Multi-selection screen appears
         app.staticTexts["Select Activities"].assertExistence()
         // WHEN I tap back button
-        app.buttons["Back"].tap()
+       // app.buttons["Back"].assertExistence()
+        app.buttons["Back"].assertExistenceAndTap()
         // THEN home screen appears
-        navigationTabBar.thenHomeTabAppears()
+        app.staticTexts["Multi-selection"].assertExistence()
         
-        // WHEN I nvigate to Holy Places Map
-        app.staticTexts["Holy Places Map"].tap()
-        let app = XCUIApplication()
-        app.activate()
+        
+        // WHEN I navigate to Holy Places Map
+        //app.staticTexts["Holy Places Map"].assertExistence()
+        app.staticTexts["Holy Places Map"].assertExistenceAndTap()
         // THEN Holy Places Map screen appears
         app.buttons["plus.circle.fill"].assertExistence()
         // WHEN I tap back button
-        app.buttons["Back"].tap()
+        //app.buttons["Back"].assertExistence()
+        app.buttons["Back"].assertExistenceAndTap()
         // THEN home screen appears
-        navigationTabBar.thenHomeTabAppears()
-        
-    }
+        app.staticTexts["Holy Places Map"].assertExistence()
+        }
 }
 
 
