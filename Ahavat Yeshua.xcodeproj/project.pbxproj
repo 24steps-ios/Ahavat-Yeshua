@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		081715AF2B87DEAA00CBC667 /* UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081715AE2B87DEAA00CBC667 /* UITests.swift */; };
 		086A4C2D2E131448000E0D04 /* ReceiptView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086A4C2C2E131448000E0D04 /* ReceiptView.swift */; };
+		086A4C302E1316DA000E0D04 /* HomeHeroBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086A4C2E2E1316DA000E0D04 /* HomeHeroBanner.swift */; };
+		086A4C312E1316DA000E0D04 /* HomeStatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086A4C2F2E1316DA000E0D04 /* HomeStatsView.swift */; };
 		086EE0652DB1C876007515C6 /* TodoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086EE0642DB1C876007515C6 /* TodoView.swift */; };
 		086EE0672DB1CA17007515C6 /* MultiSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086EE0662DB1CA17007515C6 /* MultiSelectionView.swift */; };
 		086EE06A2DB1CB90007515C6 /* SelectionSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086EE0692DB1CB90007515C6 /* SelectionSummaryView.swift */; };
@@ -107,6 +109,8 @@
 		081715AC2B87DEAA00CBC667 /* UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		081715AE2B87DEAA00CBC667 /* UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITests.swift; sourceTree = "<group>"; };
 		086A4C2C2E131448000E0D04 /* ReceiptView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptView.swift; sourceTree = "<group>"; };
+		086A4C2E2E1316DA000E0D04 /* HomeHeroBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHeroBanner.swift; sourceTree = "<group>"; };
+		086A4C2F2E1316DA000E0D04 /* HomeStatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeStatsView.swift; sourceTree = "<group>"; };
 		086EE0642DB1C876007515C6 /* TodoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoView.swift; sourceTree = "<group>"; };
 		086EE0662DB1CA17007515C6 /* MultiSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiSelectionView.swift; sourceTree = "<group>"; };
 		086EE0692DB1CB90007515C6 /* SelectionSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionSummaryView.swift; sourceTree = "<group>"; };
@@ -385,6 +389,8 @@
 		08AB175C2ABBEFE400813AA4 /* HomeView */ = {
 			isa = PBXGroup;
 			children = (
+				086A4C2E2E1316DA000E0D04 /* HomeHeroBanner.swift */,
+				086A4C2F2E1316DA000E0D04 /* HomeStatsView.swift */,
 				086A4C2C2E131448000E0D04 /* ReceiptView.swift */,
 				08AB17442ABBCF2E00813AA4 /* HomeView.swift */,
 				086EE0A02DB2C0A6007515C6 /* HolyPlacesMapView.swift */,
@@ -651,6 +657,8 @@
 				086A4C2D2E131448000E0D04 /* ReceiptView.swift in Sources */,
 				08AB17802ABD351600813AA4 /* BibleVerseModel.swift in Sources */,
 				086EE0A32DB2C0B2007515C6 /* MiniChallengesView.swift in Sources */,
+				086A4C302E1316DA000E0D04 /* HomeHeroBanner.swift in Sources */,
+				086A4C312E1316DA000E0D04 /* HomeStatsView.swift in Sources */,
 				086EE06A2DB1CB90007515C6 /* SelectionSummaryView.swift in Sources */,
 				086EE0942DB2943B007515C6 /* FeedView.swift in Sources */,
 				086EE09F2DB2C08C007515C6 /* FaithQuizView.swift in Sources */,

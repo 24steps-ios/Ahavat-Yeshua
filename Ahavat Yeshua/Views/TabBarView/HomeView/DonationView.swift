@@ -115,13 +115,17 @@ struct CongratulationsView: View {
             if fireworksVisible {
                 FireworksView()
             }
-
         }
         .padding()
         .onAppear {
             // Automatically show fireworks when the view appears
             withAnimation {
                 fireworksVisible.toggle()
+            }
+        }
+        .onDisappear {
+            if amount > 0 {
+                UserSettings.shared.lastDonation = amount
             }
         }
     }
