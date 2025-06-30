@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct FeedView: View {
+    @State private var showBookmarksOnly = false
     @State private var searchText = ""
     @State private var bookmarkedPosts: Set<Int> = []
     @State private var likedPosts: Set<Int> = []
@@ -42,11 +43,11 @@ struct FeedView: View {
                         }
 
                         Button {
-                            // Show bookmarks
+                            showBookmarksOnly.toggle()
                         } label: {
-                            Image(systemName: "bookmark")
+                            Image(systemName: showBookmarksOnly ? "bookmark.fill" : "bookmark")
                                 .font(.title2)
-                                .foregroundColor(.white)
+                                .foregroundColor(showBookmarksOnly ? .yellow : .white)
                         }
                     }
                     .padding(.horizontal)
@@ -71,12 +72,14 @@ struct FeedView: View {
     }
 
     var filteredPosts: [Post] {
-        if searchText.isEmpty {
-            return feedMock.dummyPosts
-        } else {
-            return feedMock.dummyPosts.filter { $0.name.localizedCaseInsensitiveContains(searchText) || $0.content.localizedCaseInsensitiveContains(searchText) }
-        }
+    let posts = feedMock.dummyPosts
+    let filtered = searchText.isEmpty ? posts : posts.filter { $0.name.localizedCaseInsensitiveContains(searchText) || $0.content.localizedCaseInsensitiveContains(searchText) }
+    if showBookmarksOnly {
+        return filtered.filter { bookmarkedPosts.contains($0.id) }
+    } else {
+        return filtered
     }
+}
 
     private func toggleBookmark(for post: Post) {
         if bookmarkedPosts.contains(post.id) {
