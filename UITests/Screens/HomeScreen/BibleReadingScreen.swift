@@ -8,13 +8,17 @@
 import XCTest
 
 final class BibleReadingScreen: BaseScreen {
-    //    lazy var smt: XCUIElement = app.buttons["Show Verse"]
-    // HOMEWORK: Store elements on the top of the class
+    // Buttons
+    lazy var showVerseButton: XCUIElement = app.buttons["Show Verse"]
+    lazy var backButton: XCUIElement = app.buttons["Back"]
+    
+    // MARK: Then
     func thenScreenAppears() {
         app.buttons["Show Verse"].assertExistence()
     }
     
-     func whenITapBackButton() {
-         app.buttons["Back"].assertExistenceAndTap()
+    // MARK: When
+    func whenITapBackButton() {
+        app.buttons["Back"].assertExistenceAndTap()
     }
 }

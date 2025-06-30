@@ -16,6 +16,14 @@ final class NavigationTabBar: BaseScreen {
     // MARK: All Elements
     lazy var allTabs: XCUIElementQuery = app.tabBars.buttons
     
+    // MARK: Enums
+    enum Tab: String {
+        case homeTab = "Home"
+        case bibleStudyTab = "Bible Study"
+        case feedTab = "Feed"
+        case exploreTab = "Explore"
+    }
+    
     // MARK: Then
     @discardableResult
     func thenHomeTabAppears() -> Self {
@@ -52,34 +60,12 @@ final class NavigationTabBar: BaseScreen {
         exploreTab.assertExistence()
         return self
     }
-    
+        
     // MARK: When
     @discardableResult
-    func whenINavigateToHomeTab() -> Self {
-        homeTab.assertExistence(isElementStatic: true)
-        homeTab.tap()
+    func whenINavigate(to tab: Tab) -> Self {
+        let tab: XCUIElement = app.tabBars.buttons[tab.rawValue]
+        tab.assertExistenceAndTap()
         return self
     }
-    
-    @discardableResult
-    func whenINavigateToBibleStudyTab() -> Self {
-        bibleStudyTab.assertExistence(isElementStatic: true)
-        bibleStudyTab.tap()
-        return self
-    }
-    
-    @discardableResult
-    func whenINavigateToFeedTab() -> Self {
-        feedTab.assertExistence(isElementStatic: true)
-        feedTab.tap()
-        return self
-    }
-    
-    @discardableResult
-    func whenINavigateToExploreTab() -> Self {
-        exploreTab.assertExistence(isElementStatic: true)
-        exploreTab.tap()
-        return self
-    }
-    
 }

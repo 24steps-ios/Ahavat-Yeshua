@@ -25,35 +25,18 @@ class UITests: Runner {
     func testMainScreens() {
         homeScreen.thenIAssertScreen()
 
-        navigationTabBar.whenINavigateToBibleStudyTab()
+        navigationTabBar.whenINavigate(to: .bibleStudyTab)
         bibleStudyScreen.thenIAssertScreen()
 
-        navigationTabBar.whenINavigateToFeedTab()
+        navigationTabBar.whenINavigate(to: .feedTab)
         feedScreen.thenIAssertScreen()
         
-        navigationTabBar.whenINavigateToExploreTab()
+        navigationTabBar.whenINavigate(to: .exploreTab)
         exploreScreen.thenIAssertScreen()
 
-        navigationTabBar.whenINavigateToHomeTab()
+        navigationTabBar.whenINavigate(to: .homeTab)
         homeScreen.thenIAssertScreen()
     }
-    
-    // Give
-    // When
-    // Then
-    // https://github.com/24steps-ios/TestDrivenSwift/blob/main/README.md#following-given-when-then
-    
-    // Test Logic
-    //                                              pre-action   action    assertion
-    // Before When need to do Then and also After ( given  Then  When      Then     )
-    
-    // MARK: HOME WORK!
-    
-    // Before
-    // assert(element, errorMessage) | XCTAssertTrue(app.tabBars.buttons.count == 4)
-
-    // After
-    // give, when, then contains element.assert()
     
     func testNavigationBar() {
         navigationTabBar
@@ -61,40 +44,29 @@ class UITests: Runner {
             .thenHomeTabSelected()
             .thenAllTabsAppear()
         
-            .whenINavigateToBibleStudyTab()
+            .whenINavigate(to: .bibleStudyTab)
             .thenBibleStudyTabSelected()
             .thenAllTabsAppear()
 
-            .whenINavigateToFeedTab()
+            .whenINavigate(to: .feedTab)
             .thenFeedTabAppears()
             .thenAllTabsAppear()
         
-            .whenINavigateToExploreTab()
+            .whenINavigate(to: .exploreTab)
             .thenExploreTabAppears()
             .thenAllTabsAppear()
         
-            .whenINavigateToHomeTab()
+            .whenINavigate(to: .homeTab)
             .thenHomeTabSelected()
             .thenAllTabsAppear()
     }
         
     func testHomeScreenNavigation() {
-        // WHEN I navigate to Bible Reading
-        // app.staticTexts["Bible Reading"].assertExistenceAndTap()
          homeScreen.whenINavigateToBibleReadingScreen()
-        // THEN Bible Reading screen appears
-        //        app.buttons["Show Verse"].assertExistence()
          bibleReadingScreen.thenScreenAppears()
-
-        // WHEN I tap back button
-        //        app.buttons["Back"].assertExistenceAndTap()
          bibleReadingScreen.whenITapBackButton()
-        // THEN home screen appears
-        // app.staticTexts["Bible Reading"].assertExistence()
          homeScreen.thenIAssertBibleReadingGroupAppears()
 
-        
-        
         // WHEN I navigate to Profile
         app.staticTexts["Profile"].assertExistenceAndTap() // exists?
         // THEN Profile screen appears
