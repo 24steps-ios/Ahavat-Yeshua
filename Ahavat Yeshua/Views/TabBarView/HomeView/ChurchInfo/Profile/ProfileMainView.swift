@@ -9,6 +9,7 @@ import SwiftUI
 import PhotosUI
 
 struct ProfileMainView: View {
+    @ObservedObject private var userSettings = UserSettings.shared
     @State private var selectedItem: PhotosPickerItem?
     @State private var profileImage: Image = Image(systemName: "person.crop.circle.fill")
     @State private var profileUIImage: UIImage?
@@ -49,7 +50,7 @@ struct ProfileMainView: View {
 
                 // Name & Nickname
                 VStack(spacing: 4) {
-                    Text(name)
+                    Text(userSettings.name.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty ? "SET USER NAME" : userSettings.name)
                         .font(.title)
                         .fontWeight(.bold)
                     Text(nickname)
