@@ -16,7 +16,7 @@ struct ReceiptView: View {
                 Text("Email: \(userSettings.email.isEmpty ? "-" : userSettings.email)")
                 Text("Address: \(userSettings.address.isEmpty ? "-" : userSettings.address)")
                 Text("Phone: \(userSettings.phone.isEmpty ? "-" : userSettings.phone)")
-                Text("Birth Date: \(formattedBirthDate)")
+                Text("Date: \(formattedCurrentDate)")
             }
             .frame(maxWidth: .infinity, alignment: .leading)
             .padding()
@@ -50,9 +50,9 @@ struct ReceiptView: View {
         .padding()
     }
     
-    var formattedBirthDate: String {
+    var formattedCurrentDate: String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .long
-        return dateFormatter.string(from: userSettings.birthDate)
+        return dateFormatter.string(from: Date())
     }
 }
