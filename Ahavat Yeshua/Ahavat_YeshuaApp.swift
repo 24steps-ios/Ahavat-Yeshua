@@ -7,8 +7,17 @@
 
 import SwiftUI
 
+import Foundation
+import SwiftUI
+
 @main
 struct Ahavat_YeshuaApp: App {
+    #if DEBUG
+    init() {
+        UITestAppControl.shared.applyLaunchFlags()
+    }
+    #endif
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
