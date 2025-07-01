@@ -9,10 +9,15 @@ import XCTest
 
 class Runner: XCTestCase {
     let app: XCUIApplication = .init()
+    var flags: [String] = .init()
+    
+    open func setPreconditions() {}
     
     // Before each test
     override func setUpWithError() throws {
         continueAfterFailure = false
+        setPreconditions()
+        app.launchArguments = flags
         app.launch()
     }
     

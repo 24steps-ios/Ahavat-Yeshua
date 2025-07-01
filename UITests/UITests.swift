@@ -19,9 +19,12 @@ class UITests: Runner {
     // MARK: Common Components
     lazy var navigationTabBar: NavigationTabBar = .init(app: app)
     
+    // MARK: Preconditions
+//    override func setPreconditions() {
+//        flags = ["-ResetUserName", "-ResetLastDonation"]
+//    }
     
     // MARK: Tests
-
     func testMainScreens() {
         homeScreen.thenIAssertScreen()
 
