@@ -1,25 +1,25 @@
 //
-//  BibleReadingScreen.swift
+//  DonationScreen.swift
 //  Ahavat Yeshua
 //
-//  Created by Ilya Sheynblat on 6/26/25.
+//  Created by Ilya Sheynblat on 7/2/25.
 //
 import XCTest
 
-final class BibleReadingScreen:  BaseScreen {
+
+final class DonationScreen:  BaseScreen {
     
     // MARK: Buttons
-    lazy var showVerseButton: XCUIElement = app.buttons["Show Verse"]
     lazy var backButton: XCUIElement = app.buttons["Back"]
+    lazy var totalAmountTitle: XCUIElement =  app.staticTexts.matching(totalAmountPredicate).firstMatch
     
     // MARK: Then
     func thenScreenAppears() {
-        showVerseButton.assertExistence()
-    }
+        totalAmountTitle.assertExistence()
+       }
     
     // MARK: When
     func whenITapBackButton() {
         backButton.assertExistenceAndTap()
     }
 }
-

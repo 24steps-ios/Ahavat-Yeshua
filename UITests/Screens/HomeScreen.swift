@@ -11,17 +11,47 @@ final class HomeScreen: BaseScreen {
     // MARK: Static Texts
     lazy var homeScreenTitle: XCUIElement = app.staticTexts["homeView_title"]
     lazy var bibleReadingText: XCUIElement = app.staticTexts["Bible Reading"]
+    lazy var profileText: XCUIElement = app.staticTexts["Profile"]
+    lazy var staticTexts: XCUIElement = app.staticTexts["Donation"]
     
     // MARK: Then
-    func thenIAssertScreen() {
+    @discardableResult
+    func thenIAssertScreen() -> Self {
         homeScreenTitle.assertExistence()
+        return self
+        
     }
-    func thenIAssertBibleReadingGroupAppears() {
+    @discardableResult
+    func thenIAssertBibleReadingGroupAppears()  -> Self {
         bibleReadingText.assertExistence()
+        return self
+    }
+    @discardableResult
+    func thenIAssertProfileGroupAppears()  -> Self {
+        profileText.assertExistence()
+        return self
+    }
+    @discardableResult
+    func thenIAssertDonationGroupAppears()  -> Self {
+        app.staticTexts["Donation"].assertExistence()
+        return self
     }
     
+    
     // MARK: When
-    func whenINavigateToBibleReadingScreen() {
+    @discardableResult
+    func whenINavigateToBibleReadingScreen()  -> Self {
         bibleReadingText.assertExistenceAndTap()
+        return self
+    }
+    @discardableResult
+    func whenINavigateProfileScreen()  -> Self {
+        profileText.assertExistenceAndTap()
+        return self
+    }
+    @discardableResult
+    func whenINavigateDonationScreen() -> Self {
+        profileText.assertExistenceAndTap()
+        return self
     }
 }

@@ -14,7 +14,10 @@ class UITests: Runner {
     lazy var feedScreen: FeedScreen = .init(app: app)
     lazy var exploreScreen: ExploreScreen = .init(app: app)
     
-    lazy var BibleReadingScreen: BibleReadingScreen = .init(app: app)
+    lazy var bibleReadingScreen: BibleReadingScreen = .init(app: app)
+    lazy var profileScreen: ProfileScreen = .init(app: app)
+    lazy var donationScreen: DonationScreen = .init(app: app)
+    
     // MARK: Common Components
     lazy var navigationTabBar: NavigationTabBar = .init(app: app)
     
@@ -26,101 +29,97 @@ class UITests: Runner {
     func testMainScreens() {
         homeScreen.thenIAssertScreen()
         
-        navigationTabBar.whenINavigateToBibleStudyTab()
+        navigationTabBar.whenINavigate(to: .bibleStudyTab)
         bibleStudyScreen.thenIAssertScreen()
         
-        navigationTabBar.whenINavigateToFeedTab()
+        navigationTabBar.whenINavigate(to: .feedTab)
         feedScreen.thenIAssertScreen()
         
-        navigationTabBar.whenINavigateToExploreTab()
+        navigationTabBar.whenINavigate(to: .exploreTab)
         exploreScreen.thenIAssertScreen()
         
-        navigationTabBar.whenINavigateToHomeTab()
+        navigationTabBar.whenINavigate(to: .homeTab)
         homeScreen.thenIAssertScreen()
     }
     
-    // Give
-    // When
-    // Then
-    // https://github.com/24steps-ios/TestDrivenSwift/blob/main/README.md#following-given-when-then
-    
-    // Test Logic
-    //                                             pre-action   action    assertion
-    // Before When need to do Then and also After ( given  Then  When      Then     )
-    
-    
-    
-    // b4
-    // assert(element,errorMassage) | XCTAssertTrue(app.tabBars.buttons.count == 4)
-
-    //After
-    // give, when , then contains: element.assert
-    
-    // MARK: HOME WORK!
+   
+    //  changing method: clean architecture approach
     func testNavigationBar() {
-        navigationTabBar.thenHomeTabAppears()
-        navigationTabBar.thenHomeTabSelected()
-        navigationTabBar.thenAllTabsAppear()
+        navigationTabBar
+            .thenHomeTabAppears()
+            .thenHomeTabSelected()
+            .thenAllTabsAppear()
         
         
-        navigationTabBar.whenINavigateToBibleStudyTab() // bible study tab - tap
-        navigationTabBar.thenBibleStudyTabAppears()
-        navigationTabBar.thenAllTabsAppear()//app.tabBars.count == 4
-        // TODO: HOME WORK CONTINUATION - DONE!
-        navigationTabBar.whenINavigateToFeedTab()
-        navigationTabBar.thenFeedTabAppears()
-        navigationTabBar.thenAllTabsAppear()//app.tabBars.count == 4
+            .whenINavigate(to: .bibleStudyTab)
+            .thenBibleStudyTabAppears()
+            .thenAllTabsAppear()
         
-        navigationTabBar.whenINavigateToExploreTab()
-        navigationTabBar.thenExploreTabAppears()
-        navigationTabBar.thenAllTabsAppear() //app.tabBars.count == 4
+            .whenINavigate(to: .feedTab)
+            .thenFeedTabAppears()
+            .thenAllTabsAppear()
         
-        navigationTabBar.whenINavigateToHomeTab()
-        // navigationTabBar.thenHomeTabAppears()
-        navigationTabBar.thenHomeTabSelected()
-        navigationTabBar.thenAllTabsAppear()
-        }
+            .whenINavigate(to: .exploreTab)
+            .thenExploreTabAppears()
+            .thenAllTabsAppear()
+        
+            .whenINavigate(to: .homeTab)
+            .thenHomeTabSelected()
+            .thenAllTabsAppear()
+    }
     
-    // NO PAGE OBJECT
-    func testHomeScreenNavigation() {              //couldn't mute part of code 
-        
+  
+    func testHomeScreenNavigation() { //couldn't mute part of code 
         // WHEN I navigate to Bible Reading:
+        
         //app.staticTexts["Bible Reading"].assertExistenceAndTap()
         homeScreen.whenINavigateToBibleReadingScreen()
+        
         // THEN Bible Reading screen appears:
+        // app.buttons["Show Verse"].assertExistence()
          bibleReadingScreen.thenScreenAppears()
-       // app.buttons["Show Verse"].assertExistence()
-        // WHEN I tap back button
-        bibleReadingScreen.whenITapBackButton()
+      
+        
+        // WHEN I tap back button:
         //app.buttons["Back"].assertExistenceAndTap()
-        // THEN home screen appears
+        bibleReadingScreen.whenITapBackButton()
+        
+        
+        // THEN home screen appears:
         // app.staticTexts["Bible Reading"].assertExistence()
         homeScreen.thenIAssertBibleReadingGroupAppears()
       
         
          
-        // WHEN I navigate to Profile
-        //app.staticTexts["Profile"].assertExistence()
-        app.staticTexts["Profile"].assertExistenceAndTap()
-        // THEN Profile screen appears
-        app.navigationBars["Profile"].assertExistence() //changed TITLE
-        // WHEN I tap back button
-        //app.buttons["Back"].assertExistence()
-        app.buttons["Back"].assertExistenceAndTap()
-        // THEN home screen appears
-        app.staticTexts["Profile"].assertExistence()
+        // WHEN I navigate to Profile:
         
-        // WHEN I navigate to Donation
-       // app.staticTexts["Donation"].assertExistence()
-        app.staticTexts["Donation"].assertExistenceAndTap()
-        // THEN Donation screen appears
-        let totalAmountPredicate:NSPredicate = .init(format: "label CONTAINS 'Total Amount'") //predicate
-        app.staticTexts.matching(totalAmountPredicate).firstMatch.assertExistence()        //predicate
+        // app.staticTexts["Profile"].assertExistenceAndTap()
+        homeScreen.whenINavigateProfileScreen()
+        // THEN Profile screen appears
+        //app.navigationBars["Profile"].assertExistence()
+        profileScreen.thenScreenAppears()
         // WHEN I tap back button
-       // app.buttons["Back"].assertExistence()
-        app.buttons["Back"].assertExistenceAndTap()
+        // app.buttons["Back"].assertExistenceAndTap()
+        profileScreen.whenITapBackButton()
+        
         // THEN home screen appears
-        app.staticTexts["Donation"].assertExistence()
+        // app.staticTexts["Profile"].assertExistence()
+        homeScreen.thenIAssertProfileGroupAppears()
+       
+        
+        // WHEN I navigate to Donation:
+      //app.staticTexts["Donation"].assertExistenceAndTap()
+        homeScreen.whenINavigateDonationScreen()
+        // THEN Donation screen appears
+        donationScreen.thenScreenAppears()
+       //let totalAmountPredicate:NSPredicate = .init(format: "label CONTAINS 'Total Amount'") //predicate
+       // app.staticTexts.matching(totalAmountPredicate).firstMatch.assertExistence()        //predicate
+        // WHEN I tap back button
+        donationScreen.whenITapBackButton()
+        //app.buttons["Back"].assertExistenceAndTap()
+        // THEN home screen appears
+       // app.staticTexts["Donation"].assertExistence()
+       homeScreen.thenIAssertDonationGroupAppears()
         
         
         // WHEN I navigate to Live Stream
