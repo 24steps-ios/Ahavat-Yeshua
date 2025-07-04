@@ -14,13 +14,13 @@ final class ProfileScreen:  BaseScreen {
     
     // MARK: Then
     func thenScreenAppears() {
-        app.navigationBars["Profile"].assertExistence()
+        profileScreenButton.assertExistence()
     }
   
     
     // MARK: When
     func whenITapBackButton() {
-        app.buttons["Back"].assertExistenceAndTap()
+        backButton.assertExistenceAndTap()
     }
 }
 

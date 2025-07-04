@@ -13,7 +13,7 @@ final class BibleReadingScreen:  BaseScreen {
     lazy var backButton: XCUIElement = app.buttons["Back"]
     
     // MARK: Then
-    func thenScreenAppears() {
+   func thenScreenAppears()  {
         showVerseButton.assertExistence()
     }
     
