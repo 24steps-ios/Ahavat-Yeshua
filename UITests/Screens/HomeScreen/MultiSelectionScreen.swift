@@ -6,20 +6,20 @@
 //
 import XCTest
 
-final class Multi_selectionScreen:  BaseScreen {
+final class MultiSelectionScreen:  BaseScreen {
     
     // MARK:StaticText
     
-    lazy var multi_selectionScreenTextTitle: XCUIElement = app.staticTexts["Select Activities"]
+    lazy var multiSelectionScreenTextTitle: XCUIElement = app.staticTexts["Select Activities"]
     lazy var backButton: XCUIElement = app.buttons["Back"]
     
     // MARK: Then
-    func thenMulti_selectionScreenAppears() {
-        multi_selectionScreenTextTitle.assertExistence()
+    func thenMultiSelectionScreenAppears() {
+        multiSelectionScreenTextTitle.assertExistence()
     }
     
     // MARK: When
     func whenITapBackButton() {
-        app.buttons["Back"].assertExistenceAndTap()
+        backButton.assertExistenceAndTap()
     }
 }

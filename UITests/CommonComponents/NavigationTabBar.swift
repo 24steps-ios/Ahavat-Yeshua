@@ -25,10 +25,10 @@ final class NavigationTabBar: BaseScreen {
     }
     
     // MARK: THEN
-    @discardableResult       //type of class
+    @discardableResult
     func thenHomeTabAppears() -> Self {
         homeTab.assertExistence()
-return self
+        return self
     }
     
     @discardableResult
@@ -38,13 +38,13 @@ return self
     }
     
     @discardableResult
-    func thenAllTabsAppear()  -> Self {
+    func thenAllTabsAppear() -> Self {
         allTabs.assertEqual(expectation: 4)
         return self
     }
     
     @discardableResult
-    func thenBibleStudyTabAppears()  -> Self {
+    func thenBibleStudyTabAppears() -> Self {
         bibleStudyTab.assertExistence()
         return self
     }
@@ -71,22 +71,3 @@ return self
 }
 //    // MARK: WHEN
 //     
-//    func whenINavigateToHomeTab() {
-//        homeTab.assertExistence(isElementStatic: true)
-//        homeTab.tap()
-//    }
-//    
-//    func whenINavigateToBibleStudyTab() {
-//        bibleStudyTab.assertExistence(isElementStatic: true)
-//        bibleStudyTab.tap()
-//    }
-//    
-//    func whenINavigateToFeedTab() {
-//        feedTab.assertExistence(isElementStatic: true)
-//        feedTab.tap()
-//    }
-//    
-//    func whenINavigateToExploreTab() {
-//        exploreTab.assertExistence(isElementStatic: true)
-//        exploreTab.tap()
-//    }

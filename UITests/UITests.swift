@@ -71,7 +71,7 @@ class UITests: Runner {
             .thenAllTabsAppear()
     }
     
-    
+
     func testHomeScreenNavigation() {
         homeScreen.whenINavigateToBibleReadingScreen()
         bibleReadingScreen.thenScreenAppears()
@@ -93,9 +93,9 @@ class UITests: Runner {
         liveStreamScreen.whenITapBackButton()
         homeScreen.thenIAssertLiveStreamGroupAppears()
         
-        homeScreen.whenINavigateMulti_selectionScreen()
-        multi_selectionScreen.thenMulti_selectionScreenAppears()
-        multi_selectionScreen.whenITapBackButton()
+        homeScreen.whenINavigateMultiSelectionScreen()
+        multiSelectionScreen.thenMultiSelectionScreenAppears()
+        multiSelectionScreen.whenITapBackButton()
         homeScreen.thenIAssertMulti_selectionGroupAppears()
         
         homeScreen.whenINavigateHolyPlacesMapScreen()

@@ -4,7 +4,6 @@
 //
 //  Created by Ilia Pavlov on 6/9/25.
 //
-
 import XCTest
 
 final class HomeScreen: BaseScreen {
@@ -94,10 +93,39 @@ final class HomeScreen: BaseScreen {
     
     @discardableResult
     func whenINavigateHolyPlacesMapScreen() -> Self  {
+        return self
+    }
+    
+    @discardableResult
+    func whenINavigateProfileScreen()  -> Self {
+        profileText.assertExistenceAndTap()
+        return self
+    }
+    
+    @discardableResult
+    func whenINavigateDonationScreen() -> Self {
+        profileText.assertExistenceAndTap()
+        return self
+    }
+    
+    @discardableResult
+    func whenINavigateLiveStreamScreen() -> Self {
+        liveStreamText.assertExistenceAndTap()
+        return self
+        
+    }
+    
+    @discardableResult
+    func whenINavigateMultiSelectionScreen() -> Self {
+        multi_selectionText.assertExistenceAndTap()
+        return self
+        
+    }
+    
+    @discardableResult
+    func whenINavigateHolyPlacesMapScreen() -> Self {
         holyPlacesMapText.assertExistenceAndTap()
         return self
     }
 }
-        
-    
 
