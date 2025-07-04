@@ -24,8 +24,8 @@ final class NavigationTabBar: BaseScreen {
         case exploreTab = "Explore"
     }
     
-    // MARK: THEN>
-    @discardableResult       //type of class
+    // MARK: THEN
+    @discardableResult
     func thenHomeTabAppears() -> Self {
         homeTab.assertExistence()
 return self
@@ -62,7 +62,7 @@ return self
     }
     
     
-  // MARK: When
+    // MARK: When
     
     @discardableResult // func of enum
     func whenINavigate(to tab: Tab) -> Self {
@@ -71,24 +71,3 @@ return self
         return self
     }
 }
-//    // MARK: WHEN
-//     
-//    func whenINavigateToHomeTab() {
-//        homeTab.assertExistence(isElementStatic: true)
-//        homeTab.tap()
-//    }
-//    
-//    func whenINavigateToBibleStudyTab() {
-//        bibleStudyTab.assertExistence(isElementStatic: true)
-//        bibleStudyTab.tap()
-//    }
-//    
-//    func whenINavigateToFeedTab() {
-//        feedTab.assertExistence(isElementStatic: true)
-//        feedTab.tap()
-//    }
-//    
-//    func whenINavigateToExploreTab() {
-//        exploreTab.assertExistence(isElementStatic: true)
-//        exploreTab.tap()
-//    }
