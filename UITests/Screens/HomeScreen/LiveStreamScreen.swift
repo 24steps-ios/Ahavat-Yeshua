@@ -14,12 +14,11 @@ final class LiveStreamScreen: BaseScreen {
     // MARK: Then
     func thenLiveStreamScreenAppears() {
         liveStreamButton.assertExistence(timeout: 10)
+    }
     
-}
     // MARK: When
-    
- func whenITapBackButton() {
-     backButton.assertExistenceAndTap()
+    func whenITapBackButton() {
+        backButton.assertExistenceAndTap()
     }
 }
                             

@@ -12,12 +12,11 @@ final class HolyPlacesMapScreen:  BaseScreen {
     // MARK: Buttons
     lazy var backButton: XCUIElement = app.buttons["Back"]
     lazy var plusCircleFillButton: XCUIElement = app.buttons["plus.circle.fill"]
-    // MARK: Then
     
-func thenScreenAppears() {
+    // MARK: Then
+    func thenScreenAppears() {
     plusCircleFillButton.assertExistence()
     }
-    
     
     // MARK: When
     func whenITapBackButton() {

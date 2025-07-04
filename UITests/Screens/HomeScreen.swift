@@ -23,79 +23,81 @@ final class HomeScreen: BaseScreen {
     func thenIAssertScreen() -> Self {
         homeScreenTitle.assertExistence()
         return self
-        
     }
+    
     @discardableResult
-    func thenIAssertBibleReadingGroupAppears()  -> Self {
+    func thenIAssertBibleReadingGroupAppears() -> Self {
         bibleReadingText.assertExistence()
         return self
     }
+    
     @discardableResult
-    func thenIAssertProfileGroupAppears()  -> Self {
+    func thenIAssertProfileGroupAppears() -> Self {
         profileText.assertExistence()
         return self
     }
+    
     @discardableResult
-    func thenIAssertDonationGroupAppears()  -> Self {
+    func thenIAssertDonationGroupAppears() -> Self {
         donationText.assertExistence()
         return self
     }
+    
     @discardableResult
     func thenIAssertLiveStreamGroupAppears() -> Self {
         liveStreamText.assertExistence()
         return self
-   
     }
+    
     @discardableResult
     func thenIAssertMulti_selectionGroupAppears() -> Self {
         multi_selectionText.assertExistence()
         return self
-   
     }
+    
     @discardableResult
     func thenIAssertHolyPlacesMapGroupAppears() -> Self {
         holyPlacesMapText.assertExistence()
         return self
-   
     }
-
-        
-        // MARK: When
-        @discardableResult
-        func whenINavigateToBibleReadingScreen()  -> Self {
-            bibleReadingText.assertExistenceAndTap()
-            return self
-        }
-        @discardableResult
-        func whenINavigateProfileScreen()  -> Self {
-            profileText.assertExistenceAndTap()
-            return self
-        }
-        
-        @discardableResult
-        func whenINavigateDonationScreen() -> Self {
-            profileText.assertExistenceAndTap()
-            return self
-        }
-        
-        @discardableResult
-        func whenINavigateLiveStreamScreen() -> Self {
-            liveStreamText.assertExistenceAndTap()
-            return self
-            
-        }
-        @discardableResult
-        func whenINavigateMulti_selectionScreen() -> Self {
-            multi_selectionText.assertExistenceAndTap()
-            return self
-            
-        }
-        @discardableResult
-        func whenINavigateHolyPlacesMapScreenAppears() -> Self  {
-            holyPlacesMapText.assertExistenceAndTap()
-            return self
-        }
     
-        
+    // MARK: When
+    @discardableResult
+    func whenINavigateToBibleReadingScreen() -> Self {
+        bibleReadingText.assertExistenceAndTap()
+        return self
     }
+    
+    @discardableResult
+    func whenINavigateProfileScreen() -> Self {
+        profileText.assertExistenceAndTap()
+        return self
+    }
+    
+    @discardableResult
+    func whenINavigateDonationScreen() -> Self {
+        profileText.assertExistenceAndTap()
+        return self
+    }
+    
+    @discardableResult
+    func whenINavigateLiveStreamScreen() -> Self {
+        liveStreamText.assertExistenceAndTap()
+        return self
+    }
+    
+    @discardableResult
+    func whenINavigateMulti_selectionScreen() -> Self {
+        multi_selectionText.assertExistenceAndTap()
+        return self
+    }
+    
+    @discardableResult
+    func whenINavigateHolyPlacesMapScreen() -> Self  {
+        holyPlacesMapText.assertExistenceAndTap()
+        return self
+    }
+}
+        
+    
 

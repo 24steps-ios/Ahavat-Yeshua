@@ -9,8 +9,8 @@ import XCTest
 final class Multi_selectionScreen:  BaseScreen {
     
     // MARK:StaticText
-   
-   lazy var multi_selectionScreenTextTitle: XCUIElement = app.staticTexts["Select Activities"]
+    
+    lazy var multi_selectionScreenTextTitle: XCUIElement = app.staticTexts["Select Activities"]
     lazy var backButton: XCUIElement = app.buttons["Back"]
     
     // MARK: Then
@@ -18,12 +18,8 @@ final class Multi_selectionScreen:  BaseScreen {
         multi_selectionScreenTextTitle.assertExistence()
     }
     
-    
-    
     // MARK: When
     func whenITapBackButton() {
         app.buttons["Back"].assertExistenceAndTap()
     }
-  
-    
 }

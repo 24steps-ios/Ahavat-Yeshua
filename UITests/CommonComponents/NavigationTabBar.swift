@@ -24,7 +24,7 @@ final class NavigationTabBar: BaseScreen {
         case exploreTab = "Explore"
     }
     
-    // MARK: THEN>
+    // MARK: THEN
     @discardableResult       //type of class
     func thenHomeTabAppears() -> Self {
         homeTab.assertExistence()
@@ -61,9 +61,7 @@ return self
         return self
     }
     
-    
-  // MARK: When
-    
+    // MARK: When
     @discardableResult // func of enum
     func whenINavigate(to tab: Tab) -> Self {
         let tab: XCUIElement = app.tabBars.buttons[tab.rawValue]
