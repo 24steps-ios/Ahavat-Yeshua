@@ -18,7 +18,7 @@ class UITests: Runner {
     lazy var profileScreen: ProfileScreen = .init(app: app)
     lazy var donationScreen: DonationScreen = .init(app: app)
     lazy var liveStreamScreen: LiveStreamScreen = .init(app: app)
-    lazy var multi_selectionScreen: Multi_selectionScreen = .init(app: app)
+    lazy var multiSelectionScreen: MultiSelectionScreen = .init(app: app)
     lazy var holyPlacesMapScreen: HolyPlacesMapScreen  = .init(app: app)
     
     // MARK: Common Components
@@ -71,40 +71,36 @@ class UITests: Runner {
             .thenAllTabsAppear()
     }
     
-
     func testHomeScreenNavigation() {
-        homeScreen.whenINavigateToBibleReadingScreen()
+        homeScreen.whenINavigate(to: .bibleReadingScreen)
         bibleReadingScreen.thenScreenAppears()
         bibleReadingScreen.whenITapBackButton()
         homeScreen.thenIAssertBibleReadingGroupAppears()
         
-        homeScreen.whenINavigateProfileScreen()
+        homeScreen.whenINavigate(to: .profileScreen)
         profileScreen.thenScreenAppears()
         profileScreen.whenITapBackButton()
         homeScreen.thenIAssertProfileGroupAppears()
         
-        homeScreen.whenINavigateDonationScreen()
+        homeScreen.whenINavigate(to: .donationScreen)
         donationScreen.thenScreenAppears()
         donationScreen.whenITapBackButton()
         homeScreen.thenIAssertDonationGroupAppears()
         
-        homeScreen.whenINavigateLiveStreamScreen()
+        homeScreen.whenINavigate(to: .liveStreamScreen)
         liveStreamScreen.thenLiveStreamScreenAppears()
         liveStreamScreen.whenITapBackButton()
         homeScreen.thenIAssertLiveStreamGroupAppears()
         
-        homeScreen.whenINavigateMultiSelectionScreen()
+        homeScreen.whenINavigate(to: .bibleReadingScreen)
         multiSelectionScreen.thenMultiSelectionScreenAppears()
         multiSelectionScreen.whenITapBackButton()
-        homeScreen.thenIAssertMulti_selectionGroupAppears()
+        homeScreen.thenIAssertMultiSelectionGroupAppears()
         
-        homeScreen.whenINavigateHolyPlacesMapScreen()
+        homeScreen.whenINavigate(to: .holyPlacesMapScreen)
         holyPlacesMapScreen.thenScreenAppears()
         holyPlacesMapScreen.whenITapBackButton()
         homeScreen.thenIAssertHolyPlacesMapGroupAppears()
     }
 }
-
-
-
 

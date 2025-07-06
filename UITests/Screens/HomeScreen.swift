@@ -14,12 +14,30 @@ final class HomeScreen: BaseScreen {
     lazy var profileText: XCUIElement = app.staticTexts["Profile"]
     lazy var donationText: XCUIElement = app.staticTexts["Donation"]
     lazy var liveStreamText: XCUIElement = app.staticTexts["Live Stream"]
-    lazy var multi_selectionText: XCUIElement = app.staticTexts["Multi-selection"]
+    lazy var multiSelectionText: XCUIElement = app.staticTexts["Multi-selection"]
     lazy var holyPlacesMapText: XCUIElement = app.staticTexts["Holy Places Map"]
+    
+    //MARK: Enums
+    enum Screen: String {
+        case homeScreen = "homeView_title"
+        case bibleReadingScreen = "Bible Reading"
+        case profileScreen = "Profile"
+        case donationScreen = "Donation"
+        case liveStreamScreen = "Live Stream"
+        case multiSelectionScreen = "Multi-Selection"
+        case holyPlacesMapScreen = "Holy Places Map"
+    }
+    @discardableResult // func of enum
+    func whenINavigate(to screen: Screen) -> Self {
+        let screen: XCUIElement = app.staticTexts[screen.rawValue]
+        screen.assertExistence()
+        return self
+    }
+
     
     // MARK: Then
     @discardableResult
-    func thenIAssertScreen() -> Self {
+    func thenIAssertHomeScreen() -> Self {
         homeScreenTitle.assertExistence()
         return self
     }
@@ -49,8 +67,8 @@ final class HomeScreen: BaseScreen {
     }
     
     @discardableResult
-    func thenIAssertMulti_selectionGroupAppears() -> Self {
-        multi_selectionText.assertExistence()
+    func thenIAssertMultiSelectionGroupAppears() -> Self {
+        multiSelectionText.assertExistence()
         return self
     }
     
@@ -59,73 +77,75 @@ final class HomeScreen: BaseScreen {
         holyPlacesMapText.assertExistence()
         return self
     }
-    
-    // MARK: When
-    @discardableResult
-    func whenINavigateToBibleReadingScreen() -> Self {
-        bibleReadingText.assertExistenceAndTap()
-        return self
-    }
-    
-    @discardableResult
-    func whenINavigateProfileScreen() -> Self {
-        profileText.assertExistenceAndTap()
-        return self
-    }
-    
-    @discardableResult
-    func whenINavigateDonationScreen() -> Self {
-        profileText.assertExistenceAndTap()
-        return self
-    }
-    
-    @discardableResult
-    func whenINavigateLiveStreamScreen() -> Self {
-        liveStreamText.assertExistenceAndTap()
-        return self
-    }
-    
-    @discardableResult
-    func whenINavigateMulti_selectionScreen() -> Self {
-        multi_selectionText.assertExistenceAndTap()
-        return self
-    }
-    
-    @discardableResult
-    func whenINavigateHolyPlacesMapScreen() -> Self  {
-        return self
-    }
-    
-    @discardableResult
-    func whenINavigateProfileScreen()  -> Self {
-        profileText.assertExistenceAndTap()
-        return self
-    }
-    
-    @discardableResult
-    func whenINavigateDonationScreen() -> Self {
-        profileText.assertExistenceAndTap()
-        return self
-    }
-    
-    @discardableResult
-    func whenINavigateLiveStreamScreen() -> Self {
-        liveStreamText.assertExistenceAndTap()
-        return self
-        
-    }
-    
-    @discardableResult
-    func whenINavigateMultiSelectionScreen() -> Self {
-        multi_selectionText.assertExistenceAndTap()
-        return self
-        
-    }
-    
-    @discardableResult
-    func whenINavigateHolyPlacesMapScreen() -> Self {
-        holyPlacesMapText.assertExistenceAndTap()
-        return self
-    }
 }
+    
+    
+    //    // MARK: When
+    //    @discardableResult
+    //    func whenINavigateToBibleReadingScreen() -> Self {
+    //        bibleReadingText.assertExistenceAndTap()
+    //        return self
+    //    }
+    //
+    //    @discardableResult
+    //    func whenINavigateProfileScreen() -> Self {
+    //        profileText.assertExistenceAndTap()
+    //        return self
+    //    }
+    //
+    //    @discardableResult
+    //    func whenINavigateDonationScreen() -> Self {
+    //        profileText.assertExistenceAndTap()
+    //        return self
+    //    }
+    //
+    //    @discardableResult
+    //    func whenINavigateLiveStreamScreen() -> Self {
+    //        liveStreamText.assertExistenceAndTap()
+    //        return self
+    //    }
+    //
+    //    @discardableResult
+    //    func whenINavigateMultiSelectionScreen() -> Self {
+    //        multiSelectionText.assertExistenceAndTap()
+    //        return self
+    //    }
+    //
+    //    @discardableResult
+    //    func whenINavigateHolyPlacesMapScreen() -> Self  {
+    //        return self
+    //    }
+    //
+    //    @discardableResult
+    //    func whenINavigateProfileScreen() -> Self {
+    //        profileText.assertExistenceAndTap()
+    //        return self
+    //    }
+    //
+    //    @discardableResult
+    //    func whenINavigateDonationScreen() -> Self {
+    //        profileText.assertExistenceAndTap()
+    //        return self
+    //    }
+    //
+    //    @discardableResult
+    //    func whenINavigateLiveStreamScreen() -> Self {
+    //        liveStreamText.assertExistenceAndTap()
+    //        return self
+    //
+    //    }
+    //
+    //    @discardableResult
+    //    func whenINavigateMultiSelectionScreen() -> Self {
+    //        multiSelectionText.assertExistenceAndTap()
+    //        return self
+    //
+    //    }
+    //
+    //    @discardableResult
+    //    func whenINavigateHolyPlacesMapScreen() -> Self {
+    //        holyPlacesMapText.assertExistenceAndTap()
+    //        return self
+    //    }
+    //}
 

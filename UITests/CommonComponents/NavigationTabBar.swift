@@ -15,7 +15,7 @@ final class NavigationTabBar: BaseScreen {
     
     // MARK:   TabBar All Elements
     lazy var allTabs: XCUIElementQuery = app.tabBars.buttons
-
+    
     // MARK: Enums
     enum Tab: String {
         case homeTab = "Home"
@@ -24,7 +24,8 @@ final class NavigationTabBar: BaseScreen {
         case exploreTab = "Explore"
     }
     
-    // MARK: THEN
+    
+    // MARK: Then
     @discardableResult
     func thenHomeTabAppears() -> Self {
         homeTab.assertExistence()
@@ -60,7 +61,6 @@ final class NavigationTabBar: BaseScreen {
         exploreTab.assertExistence()
         return self
     }
-    
     // MARK: When
     @discardableResult // func of enum
     func whenINavigate(to tab: Tab) -> Self {
@@ -69,5 +69,3 @@ final class NavigationTabBar: BaseScreen {
         return self
     }
 }
-//    // MARK: WHEN
-//     

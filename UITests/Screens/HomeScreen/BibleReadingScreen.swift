@@ -22,4 +22,3 @@ final class BibleReadingScreen:  BaseScreen {
         backButton.assertExistenceAndTap()
     }
 }
-
