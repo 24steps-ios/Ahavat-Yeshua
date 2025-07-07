@@ -15,15 +15,12 @@ class UITests: Runner {
     lazy var exploreScreen: ExploreScreen = .init(app: app)
     
     lazy var bibleReadingScreen: BibleReadingScreen = .init(app: app)
+    lazy var profileScreen: ProfileScreen = .init(app: app)
+    lazy var myProfile: MyProfile = .init(app: app)
     
     // MARK: Common Components
     lazy var navigationTabBar: NavigationTabBar = .init(app: app)
-    
-    // MARK: Preconditions
-//    override func setPreconditions() {
-//        flags = ["-ResetUserName", "-ResetLastDonation"]
-//    }
-    
+        
     // MARK: Tests
     func testMainScreens() {
         homeScreen.thenIAssertScreen()
@@ -62,6 +59,22 @@ class UITests: Runner {
             .whenINavigate(to: .homeTab)
             .thenHomeTabSelected()
             .thenAllTabsAppear()
+    }
+    
+    func testMyProfileScreenNavigation() {
+        let userName: String = "Boby"
+        
+        homeScreen.whenINavigateToProfileScreen()
+        profileScreen.thenIAssertScreen()
+        profileScreen.whenINavigateToMyProfile()
+        
+        myProfile.givenISetName(userName)
+        myProfile.whenTapBackButton()
+        profileScreen.thenUserNameMatch(userName)
+        // TODO: Home Work
+        // one step back
+        // assert banner has same userName
+        
     }
         
     func testHomeScreenNavigation() {
