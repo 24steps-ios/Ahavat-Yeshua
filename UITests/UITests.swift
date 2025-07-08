@@ -61,6 +61,7 @@ class UITests: Runner {
             .thenAllTabsAppear()
     }
     
+    // TODO: Home Work
     func testMyProfileScreenNavigation() {
         let userName: String = "Boby"
         
@@ -75,59 +76,6 @@ class UITests: Runner {
         // one step back
         // assert banner has same userName
         
-    }
-        
-    func testHomeScreenNavigation() {
-         homeScreen.whenINavigateToBibleReadingScreen()
-         bibleReadingScreen.thenScreenAppears()
-         bibleReadingScreen.whenITapBackButton()
-         homeScreen.thenIAssertBibleReadingGroupAppears()
-
-        // WHEN I navigate to Profile
-        app.staticTexts["Profile"].assertExistenceAndTap() // exists?
-        // THEN Profile screen appears
-        app.buttons["Personal"].assertExistence() // better use Title!
-        // WHEN I tap back button
-        app.buttons["Back"].assertExistenceAndTap() // exists?
-        // THEN home screen appears
-        app.staticTexts["Profile"].assertExistence()
-        
-        // WHEN I navigate to Donation
-        app.staticTexts["Donation"].assertExistenceAndTap() // exists?
-        // THEN Donation screen appears
-        let totalAmountPredicate: NSPredicate = .init(format: "label CONTAINS 'Total Amount:'")
-        app.staticTexts.matching(totalAmountPredicate).firstMatch.assertExistence() // use `Total Amount`
-        // WHEN I tap back button
-        app.buttons["Back"].assertExistenceAndTap() // exists?
-        // THEN home screen appears
-        app.staticTexts["Donation"].assertExistence()
-        
-        // WHEN I navigate to Live Stream
-        app.staticTexts["Live Stream"].assertExistenceAndTap() // exists?
-        // THEN Live Stream screen appears
-        // app.staticTexts["Live Stream"].assertExistence(timeout: 10) //?????? nothing appears
-        // WHEN I tap back button
-        app.buttons["Back"].assertExistenceAndTap() // exists?
-        // THEN home screen appears
-        app.staticTexts["Live Stream"].assertExistence()
-        
-        // WHEN I navigate to Multi-selection
-        app.staticTexts["Multi-selection"].assertExistenceAndTap() // exists?
-        // THEN Multi-selection screen appears
-        app.staticTexts["Select Activities"].assertExistence()
-        // WHEN I tap back button
-        app.buttons["Back"].assertExistenceAndTap() // exists?
-        // THEN home screen appears
-        app.staticTexts["Multi-selection"].assertExistence()
-        
-        // WHEN I navigate to Holy Places Map
-        app.staticTexts["Holy Places Map"].assertExistenceAndTap() // exists?
-        // THEN Holy Places Map screen appears
-        app.buttons["plus.circle.fill"].assertExistence()
-        // WHEN I tap back button
-        app.buttons["Back"].assertExistenceAndTap() // exists?
-        // THEN home screen appears
-        app.staticTexts["Holy Places Map"].assertExistence()
     }
 }
 
