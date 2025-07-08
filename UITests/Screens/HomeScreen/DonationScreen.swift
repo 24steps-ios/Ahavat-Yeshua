@@ -8,20 +8,16 @@ import XCTest
 
 
 final class DonationScreen:  BaseScreen {
-    let totalAmountPredicate:NSPredicate = .init(format: "label CONTAINS 'Total Amount'") 
-    
-    // MARK: Buttons
-    lazy var backButton: XCUIElement = app.buttons["Back"]
-    // MARK: staticText??
+    // MARK: Predicates
+    let totalAmountPredicate: NSPredicate = .init(format: "label CONTAINS 'Total Amount'")
+
+    // MARK: Static Texts
     lazy var totalAmountTitle: XCUIElement =  app.staticTexts.matching(totalAmountPredicate).firstMatch
     
     // MARK: Then
-    func thenScreenAppears() {
+    @discardableResult
+    func thenScreenAppears() -> Self {
         totalAmountTitle.assertExistence()
-       }
-    
-    // MARK: When
-    func whenITapBackButton() {
-        backButton.assertExistenceAndTap()
+        return self
     }
 }

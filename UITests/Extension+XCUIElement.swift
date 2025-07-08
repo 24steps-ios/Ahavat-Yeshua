@@ -10,9 +10,9 @@ import XCTest
 extension XCUIElement {
     func assertExistence(timeout: TimeInterval = 10, isElementStatic: Bool = false) {
         if isElementStatic {
-            XCTAssertTrue(self.exists, "Element is not found with") //self=any XCUIElement, we check exist or waitForExistence
+            XCTAssertTrue(self.exists, "Element \(self) is not found with")
         } else {
-            XCTAssertTrue(self.waitForExistence(timeout: timeout), "Element is not found with \(timeout)s")
+            XCTAssertTrue(self.waitForExistence(timeout: timeout), "Element \(self) is not found with \(timeout)s")
         }
     }
     

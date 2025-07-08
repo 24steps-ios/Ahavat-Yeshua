@@ -7,20 +7,14 @@
 import XCTest
 
 final class ProfileScreen:  BaseScreen {
-    
-    // MARK:Button
+    // MARK: Button
     lazy var profileScreenButton: XCUIElement = app.navigationBars["Profile"]
-    lazy var backButton: XCUIElement = app.buttons["Back"]
     
     // MARK: Then
-    func thenScreenAppears() {
+    @discardableResult
+    func thenScreenAppears() -> Self {
         profileScreenButton.assertExistence()
-    }
-  
-    
-    // MARK: When
-    func whenITapBackButton() {
-        backButton.assertExistenceAndTap()
+        return self
     }
 }
 

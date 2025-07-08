@@ -24,13 +24,11 @@ class UITests: Runner {
     // MARK: Common Components
     lazy var navigationTabBar: NavigationTabBar = .init(app: app)
     
-    //MARK: HomeScreenNavigation
-    
     
     // MARK: Tests
     
     func testMainScreens() {
-        homeScreen.thenIAssertScreen()
+        homeScreen.thenIAssert(.homeScreen)
         
         navigationTabBar.whenINavigate(to: .bibleStudyTab)
         bibleStudyScreen.thenIAssertScreen()
@@ -42,11 +40,9 @@ class UITests: Runner {
         exploreScreen.thenIAssertScreen()
         
         navigationTabBar.whenINavigate(to: .homeTab)
-        homeScreen.thenIAssertScreen()
+        homeScreen.thenIAssert(.homeScreen)
     }
     
-    
-    //  changing method: clean architecture approach
     func testNavigationBar() {
         navigationTabBar
             .thenHomeTabAppears()
@@ -72,35 +68,42 @@ class UITests: Runner {
     }
     
     func testHomeScreenNavigation() {
-        homeScreen.whenINavigate(to: .bibleReadingScreen)
-        bibleReadingScreen.thenScreenAppears()
-        bibleReadingScreen.whenITapBackButton()
-        homeScreen.thenIAssertBibleReadingGroupAppears()
-        
-        homeScreen.whenINavigate(to: .profileScreen)
-        profileScreen.thenScreenAppears()
-        profileScreen.whenITapBackButton()
-        homeScreen.thenIAssertProfileGroupAppears()
-        
-        homeScreen.whenINavigate(to: .donationScreen)
-        donationScreen.thenScreenAppears()
-        donationScreen.whenITapBackButton()
-        homeScreen.thenIAssertDonationGroupAppears()
-        
-        homeScreen.whenINavigate(to: .liveStreamScreen)
-        liveStreamScreen.thenLiveStreamScreenAppears()
-        liveStreamScreen.whenITapBackButton()
-        homeScreen.thenIAssertLiveStreamGroupAppears()
-        
-        homeScreen.whenINavigate(to: .bibleReadingScreen)
-        multiSelectionScreen.thenMultiSelectionScreenAppears()
-        multiSelectionScreen.whenITapBackButton()
-        homeScreen.thenIAssertMultiSelectionGroupAppears()
-        
-        homeScreen.whenINavigate(to: .holyPlacesMapScreen)
-        holyPlacesMapScreen.thenScreenAppears()
-        holyPlacesMapScreen.whenITapBackButton()
-        homeScreen.thenIAssertHolyPlacesMapGroupAppears()
+        homeScreen
+            .whenINavigate(to: .bibleReadingScreen)
+        bibleReadingScreen
+            .thenScreenAppears()
+            .whenITapBackButton()
+        homeScreen
+            .thenIAssert(.bibleReadingScreen)
+            .whenINavigate(to: .profileScreen)
+        profileScreen
+            .thenScreenAppears()
+            .whenITapBackButton()
+        homeScreen
+            .thenIAssert(.profileScreen)
+            .whenINavigate(to: .donationScreen)
+        donationScreen
+            .thenScreenAppears()
+            .whenITapBackButton()
+        homeScreen
+            .thenIAssert(.donationScreen)
+            .whenINavigate(to: .liveStreamScreen)
+        liveStreamScreen
+            .whenITapBackButton()
+        homeScreen
+            .thenIAssert(.liveStreamScreen)
+            .whenINavigate(to: .multiSelectionScreen)
+        multiSelectionScreen
+            .thenMultiSelectionScreenAppears()
+            .whenITapBackButton()
+        homeScreen
+            .thenIAssert(.multiSelectionScreen)
+            .whenINavigate(to: .holyPlacesMapScreen)
+        holyPlacesMapScreen
+            .thenScreenAppears()
+            .whenITapBackButton()
+        homeScreen
+            .thenIAssert(.holyPlacesMapScreen)
     }
 }
 
