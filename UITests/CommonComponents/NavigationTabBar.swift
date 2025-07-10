@@ -51,13 +51,13 @@ final class NavigationTabBar: BaseScreen {
     }
     
     @discardableResult
-    func thenFeedTabAppears() -> Self  {
+    func thenFeedTabAppears() -> Self {
         feedTab.assertExistence()
         return self
     }
     
     @discardableResult
-    func thenExploreTabAppears()  -> Self {
+    func thenExploreTabAppears() -> Self {
         exploreTab.assertExistence()
         return self
     }

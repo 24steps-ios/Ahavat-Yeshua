@@ -18,14 +18,14 @@ final class HomeScreen: BaseScreen {
         case holyPlacesMapScreen = "Holy Places Map"
     }
     
-    @discardableResult // func of enum
+    @discardableResult // func of enum when
     func whenINavigate(to screen: Screen) -> Self {
         let screen: XCUIElement = app.staticTexts[screen.rawValue]
         screen.assertExistenceAndTap()
         return self
     }
     
-    @discardableResult
+    @discardableResult  // func of enum then
     func thenIAssert(_ screen: Screen) -> Self {
         let screen: XCUIElement = app.staticTexts[screen.rawValue]
         screen.assertExistence()
