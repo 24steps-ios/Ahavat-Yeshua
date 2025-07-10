@@ -25,6 +25,13 @@ final class HomeScreen: BaseScreen {
         bibleReadingText.assertExistence()
         return self
     }
+
+        @discardableResult
+        func thenUserNameMatch(_ userName: String) -> Self {
+            let userName: XCUIElement = app.staticTexts[userName]
+            userName.assertExistence()
+            return self
+    }
     
     // MARK: When
     @discardableResult

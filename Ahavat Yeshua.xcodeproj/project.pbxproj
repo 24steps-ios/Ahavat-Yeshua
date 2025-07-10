@@ -75,6 +75,7 @@
 		08E629222ADF64C100891626 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E629212ADF64C100891626 /* NetworkError.swift */; };
 		08E629242ADF687F00891626 /* RequestSending.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E629232ADF687F00891626 /* RequestSending.swift */; };
 		08E629262ADF6B8C00891626 /* Fetching.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E629252ADF6B8C00891626 /* Fetching.swift */; };
+		D7E164362E1F25F900288240 /* MyChurch.swift in Resources */ = {isa = PBXBuildFile; fileRef = D7E164352E1F25DE00288240 /* MyChurch.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -182,6 +183,7 @@
 		08E629212ADF64C100891626 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		08E629232ADF687F00891626 /* RequestSending.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestSending.swift; sourceTree = "<group>"; };
 		08E629252ADF6B8C00891626 /* Fetching.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fetching.swift; sourceTree = "<group>"; };
+		D7E164352E1F25DE00288240 /* MyChurch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyChurch.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -464,6 +466,7 @@
 		08E13BFC2E176CBB00595E4E /* ProfileScreen */ = {
 			isa = PBXGroup;
 			children = (
+				D7E164352E1F25DE00288240 /* MyChurch.swift */,
 				08E13BFD2E176CC600595E4E /* MyProfile.swift */,
 				086A4C372E17697E000E0D04 /* ProfileScreen.swift */,
 			);
@@ -586,6 +589,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D7E164362E1F25F900288240 /* MyChurch.swift in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

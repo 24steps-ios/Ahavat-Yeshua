@@ -63,20 +63,24 @@ class UITests: Runner {
     
     // TODO: Home Work
     func testMyProfileScreenNavigation() {
+        let app = XCUIApplication()
+        app.activate()
         let userName: String = "Boby"
         
+        //app.staticTexts["Profile"].whenINavigateToProfileScreen()
         homeScreen.whenINavigateToProfileScreen()
+        // app.buttons["Personal"].assertExistence()
         profileScreen.thenIAssertScreen()
+        //app.buttons["Personal"].tap()
         profileScreen.whenINavigateToMyProfile()
         
         myProfile.givenISetName(userName)
         myProfile.whenTapBackButton()
         profileScreen.thenUserNameMatch(userName)
-        // TODO: Home Work
-        // one step back
-        // assert banner has same userName
-        
+        // TODO: Home Work : DONE!
+        //one step back:
+        profileScreen.whenITapBackButton()
+        // assert banner has same userName:
+        homeScreen.thenUserNameMatch(userName)
     }
 }
-
-

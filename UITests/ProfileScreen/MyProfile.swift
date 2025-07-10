@@ -27,7 +27,7 @@ final class MyProfile: BaseScreen {
         nameTextField.typeText(userName)
         whenITapSaveButton()
     }
-    
+   
     // MARK: When
     func whenITapEditButton() {
         editButton.assertExistenceAndTap()
@@ -53,4 +53,5 @@ final class MyProfile: BaseScreen {
          }
     }
 }
+
 
