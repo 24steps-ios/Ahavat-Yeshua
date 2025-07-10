@@ -63,8 +63,8 @@ class UITests: Runner {
     
     // TODO: Home Work
     func testMyProfileScreenNavigation() {
-        let app = XCUIApplication()
-        app.activate()
+      //  let app = XCUIApplication() not sure!
+      //  app.activate() not sure!
         let userName: String = "Boby"
         
         //app.staticTexts["Profile"].whenINavigateToProfileScreen()
