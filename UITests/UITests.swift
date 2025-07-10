@@ -81,6 +81,6 @@ class UITests: Runner {
         //one step back:
         profileScreen.whenITapBackButton()
         // assert banner has same userName:
-        homeScreen.thenUserNameMatch(userName)  //if not match need error massage. not sure!
+        homeScreen.thenUserNameMatch(userName)  //if name is not match need error massage. not sure!
     }
 }

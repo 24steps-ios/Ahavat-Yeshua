@@ -29,16 +29,22 @@ final class MyProfile: BaseScreen {
     }
    
     // MARK: When
-    func whenITapEditButton() {
+    @discardableResult
+    func whenITapEditButton() -> Self {
         editButton.assertExistenceAndTap()
+        return self
     }
     
-    func whenITapSaveButton() {
+    @discardableResult
+    func whenITapSaveButton() -> Self {
         saveButton.assertExistenceAndTap()
+        return self
     }
     
-    func whenTapBackButton() {
+    @discardableResult
+    func whenTapBackButton() -> Self {
         backButton.assertExistenceAndTap()
+        return self
     }
     
     // MARK: Helpers

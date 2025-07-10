@@ -12,21 +12,29 @@ final class ProfileScreen: BaseScreen {
     lazy var backButton: XCUIElement = app.buttons["Back"]
     
     // MARK: Then
-    func thenIAssertScreen() {
+    @discardableResult
+    func thenIAssertScreen() -> Self {
         personalButton.assertExistence()
+        return self
     }
-  
-    func thenUserNameMatch(_ userName: String) {
+    
+    @discardableResult
+    func thenUserNameMatch(_ userName: String) -> Self {
         let userName: XCUIElement = app.staticTexts[userName]
         userName.assertExistence()
+        return self
     }
     
     // MARK: When
-    func whenINavigateToMyProfile() {
+    @discardableResult
+    func whenINavigateToMyProfile() -> Self {
         personalButton.tap()
+        return self
     }
     
-    func whenITapBackButton(){
+    @discardableResult
+    func whenITapBackButton() -> Self {
         backButton.tap()
+        return self
     }
 }
