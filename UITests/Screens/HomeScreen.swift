@@ -3,25 +3,41 @@
 //  Ahavat Yeshua
 //
 //  Created by Ilia Pavlov on 6/9/25.
-//
-
 import XCTest
 
 final class HomeScreen: BaseScreen {
-    // MARK: Static Texts
-    lazy var homeScreenTitle: XCUIElement = app.staticTexts["homeView_title"]
-    lazy var bibleReadingText: XCUIElement = app.staticTexts["Bible Reading"]
-    
-    // MARK: Then
-    func thenIAssertScreen() {
-        homeScreenTitle.assertExistence()
+    // MARK: Enums
+    enum Screen: String {
+        case homeScreen = "homeView_title"
+        case bibleReadingScreen = "Bible Reading"
+        case profileScreen = "Profile"
+        case liveStreamScreen = "Live Stream"
+        case donationScreen = "Donation"
+        case multiSelectionScreen = "Multi-selection"
+        case holyPlaceMapScreen = "Holy Places Map"
     }
-    func thenIAssertBibleReadingGroupAppears() {
-        bibleReadingText.assertExistence()
+    
+     // MARK: Then
+    @discardableResult
+    func thenIAssert(_ screen: Screen) -> Self {
+        let screen: XCUIElement = app.staticTexts[screen.rawValue]
+        screen.assertExistence()
+        return self
     }
     
     // MARK: When
-    func whenINavigateToBibleReadingScreen() {
-        bibleReadingText.assertExistenceAndTap()
+    @discardableResult
+    func whenINavigate(to screen: Screen) -> Self {
+        let screen: XCUIElement = app.staticTexts[screen.rawValue]
+        screen.assertExistenceAndTap()
+        return self
     }
+    
+    @discardableResult
+    func whenITapBackButton(_ screen: Screen) -> Self {
+        let backButton: XCUIElement = app.buttons["Back"]
+        backButton.assertExistenceAndTap()
+        return self
+    }
+    
 }
