@@ -12,4 +12,14 @@ open class BaseScreen {
     init(app: XCUIApplication) {
         self.app = app
     }
+    
+    // MARK: Buttons
+    lazy var backButton: XCUIElement = app.buttons["Back"]
+    
+    // MARK: When
+    @discardableResult
+    func whenITapBackButton() -> Self {
+        backButton.assertExistenceAndTap()
+        return self
+    }
 }

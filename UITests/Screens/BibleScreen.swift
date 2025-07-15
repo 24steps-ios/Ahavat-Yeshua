@@ -11,7 +11,7 @@ final class BibleStudyScreen: BaseScreen {
     
     // MARK: Then
     @discardableResult
-    func thenIAssertScreen() -> Self {
+    func thenIAssertScreen()  -> Self {
         bibleStudyScreenTitle.assertExistence()
         return self
     }

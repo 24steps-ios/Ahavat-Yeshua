@@ -11,7 +11,7 @@ final class ExploreScreen: BaseScreen {
     
     // MARK: Then
     @discardableResult
-    func thenIAssertScreen() -> Self {
+    func thenIAssertScreen()  -> Self {
         exploreScreenQuizCell.assertExistence()
         return self
     }

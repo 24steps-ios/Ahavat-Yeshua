@@ -12,7 +12,7 @@ final class FeedScreen: BaseScreen {
     
     // MARK: Then
     @discardableResult
-    func thenIAssertScreen() -> Self {
+    func thenIAssertScreen() -> Self  {
         feedScreenSearchFeild.assertExistence()
         return self
     }
