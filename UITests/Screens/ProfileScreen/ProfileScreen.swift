@@ -8,11 +8,15 @@
 import XCTest
 
 final class ProfileScreen: BaseScreen {
+    // MARK: Button
+    lazy var profileScreenButton: XCUIElement = app.navigationBars["Profile"]
     lazy var personalButton: XCUIElement = app.buttons["Personal"]
     
     // MARK: Then
-    func thenIAssertScreen() {
-        personalButton.assertExistence()
+    @discardableResult
+    func thenScreenAppears() -> Self {
+        profileScreenButton.assertExistence()
+        return self
     }
     
     func thenUserNameMatch(_ userName: String) {
@@ -20,6 +24,7 @@ final class ProfileScreen: BaseScreen {
         userName.assertExistence()
     }
     
+    // MARK: When
     func whenINavigateToMyProfile() {
         personalButton.tap()
     }

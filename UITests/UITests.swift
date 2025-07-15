@@ -1,10 +1,3 @@
-//
-//  UITests.swift
-//  UITests
-//
-//  Created by Ilia Pavlov on 2/22/24.
-//
-
 import XCTest
 
 class UITests: Runner {
@@ -16,14 +9,16 @@ class UITests: Runner {
     
     lazy var bibleReadingScreen: BibleReadingScreen = .init(app: app)
     lazy var profileScreen: ProfileScreen = .init(app: app)
+    
+    lazy var myProfile: MyProfile = .init(app: app)
     lazy var donationScreen: DonationScreen = .init(app: app)
     lazy var liveStreamScreen: LiveStreamScreen = .init(app: app)
     lazy var multiSelectionScreen: MultiSelectionScreen = .init(app: app)
     lazy var holyPlacesMapScreen: HolyPlacesMapScreen  = .init(app: app)
     
+    
     // MARK: Common Components
     lazy var navigationTabBar: NavigationTabBar = .init(app: app)
-    
     
     // MARK: Tests
     
@@ -41,6 +36,10 @@ class UITests: Runner {
         
         navigationTabBar.whenINavigate(to: .homeTab)
         homeScreen.thenIAssert(.homeScreen)
+        
+        
+        navigationTabBar.whenINavigate(to: .homeTab)
+        homeScreen.thenIAssert(.homeScreen)
     }
     
     func testNavigationBar() {
@@ -48,10 +47,8 @@ class UITests: Runner {
             .thenHomeTabAppears()
             .thenHomeTabSelected()
             .thenAllTabsAppear()
-        
-        
             .whenINavigate(to: .bibleStudyTab)
-            .thenBibleStudyTabAppears()
+            .thenBibleStudyTabSelected()
             .thenAllTabsAppear()
         
             .whenINavigate(to: .feedTab)
@@ -65,6 +62,23 @@ class UITests: Runner {
             .whenINavigate(to: .homeTab)
             .thenHomeTabSelected()
             .thenAllTabsAppear()
+    }
+    
+    // TODO: Home Work
+    func testMyProfileScreenNavigation() {
+        let userName: String = "Boby"
+        
+        homeScreen.whenINavigate(to: .profileScreen)
+        profileScreen.thenScreenAppears()
+        profileScreen.whenINavigateToMyProfile()
+        
+        myProfile.givenISetName(userName)
+        myProfile.whenTapProfileBackButton()
+        profileScreen.thenUserNameMatch(userName)
+        // TODO: Home Work
+        // one step back
+        // assert banner has same userName
+        
     }
     
     func testHomeScreenNavigation() {
@@ -106,4 +120,3 @@ class UITests: Runner {
             .thenIAssert(.holyPlacesMapScreen)
     }
 }
-

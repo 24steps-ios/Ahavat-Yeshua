@@ -9,7 +9,7 @@ import XCTest
 final class MyProfile: BaseScreen {
     // MARK: Navigation Bar elements
     lazy var title: XCUIElement = app.navigationBars.staticTexts["My Profile"]
-    lazy var backButton: XCUIElement = app.navigationBars.buttons["Profile"]
+    lazy var profileBackButton: XCUIElement = app.navigationBars.buttons["Profile"]
     
     // MARK: Buttons
     lazy var editButton: XCUIElement = app.buttons["Edit"]
@@ -37,8 +37,8 @@ final class MyProfile: BaseScreen {
         saveButton.assertExistenceAndTap()
     }
     
-    func whenTapBackButton() {
-        backButton.assertExistenceAndTap()
+    func whenTapProfileBackButton() {
+        profileBackButton.assertExistenceAndTap()
     }
     
     // MARK: Helpers
