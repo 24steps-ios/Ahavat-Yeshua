@@ -20,12 +20,21 @@ final class MyProfile: BaseScreen {
     lazy var nameTextField: XCUIElement = app.textFields.element(boundBy: 0)
     
     // MARK: Given
-    func givenISetName(_ userName: String) {
+    @discardableResult
+    func givenISetName(_ userName: String) -> Self {
         whenITapEditButton()
         nameTextField.assertExistenceAndTap()
         cleanText()
         nameTextField.typeText(userName)
         whenITapSaveButton()
+        return self 
+    }
+    
+    // MARK: Then
+    @discardableResult
+    func thenScreenAppears() -> Self {
+        title.assertExistence()
+        return self 
     }
     
     // MARK: When
@@ -40,7 +49,7 @@ final class MyProfile: BaseScreen {
     func whenTapProfileBackButton() {
         profileBackButton.assertExistenceAndTap()
     }
-    
+        
     // MARK: Helpers
     func cleanText() {
         // If there's existing text, delete it

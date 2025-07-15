@@ -1,29 +1,16 @@
+//
+//  CoreUITests.swift
+//  Ahavat Yeshua
+//
+//  Created by Ilia Pavlov on 7/14/25.
+//
+
 import XCTest
 
-class UITests: Runner {
-    // MARK: Screens
-    lazy var homeScreen: HomeScreen = .init(app: app)
-    lazy var bibleStudyScreen: BibleStudyScreen = .init(app: app)
-    lazy var feedScreen: FeedScreen = .init(app: app)
-    lazy var exploreScreen: ExploreScreen = .init(app: app)
-    
-    lazy var bibleReadingScreen: BibleReadingScreen = .init(app: app)
-    lazy var profileScreen: ProfileScreen = .init(app: app)
-    
-    lazy var myProfile: MyProfile = .init(app: app)
-    lazy var donationScreen: DonationScreen = .init(app: app)
-    lazy var liveStreamScreen: LiveStreamScreen = .init(app: app)
-    lazy var multiSelectionScreen: MultiSelectionScreen = .init(app: app)
-    lazy var holyPlacesMapScreen: HolyPlacesMapScreen  = .init(app: app)
-    
-    
-    // MARK: Common Components
-    lazy var navigationTabBar: NavigationTabBar = .init(app: app)
-    
-    // MARK: Tests
-    
-    func testMainScreens() {
-        homeScreen.thenIAssert(.homeScreen)
+// Base for smoke tests
+class CoreUITests: UITests {
+    func testMainTabs() {
+        homeScreen.thenScreenAppears()
         
         navigationTabBar.whenINavigate(to: .bibleStudyTab)
         bibleStudyScreen.thenIAssertScreen()
@@ -35,14 +22,14 @@ class UITests: Runner {
         exploreScreen.thenIAssertScreen()
         
         navigationTabBar.whenINavigate(to: .homeTab)
-        homeScreen.thenIAssert(.homeScreen)
+        homeScreen.thenScreenAppears()
         
         
         navigationTabBar.whenINavigate(to: .homeTab)
-        homeScreen.thenIAssert(.homeScreen)
+        homeScreen.thenScreenAppears()
     }
     
-    func testNavigationBar() {
+    func testNavigationTabBar() {
         navigationTabBar
             .thenHomeTabAppears()
             .thenHomeTabSelected()
@@ -62,23 +49,6 @@ class UITests: Runner {
             .whenINavigate(to: .homeTab)
             .thenHomeTabSelected()
             .thenAllTabsAppear()
-    }
-    
-    // TODO: Home Work
-    func testMyProfileScreenNavigation() {
-        let userName: String = "Boby"
-        
-        homeScreen.whenINavigate(to: .profileScreen)
-        profileScreen.thenScreenAppears()
-        profileScreen.whenINavigateToMyProfile()
-        
-        myProfile.givenISetName(userName)
-        myProfile.whenTapProfileBackButton()
-        profileScreen.thenUserNameMatch(userName)
-        // TODO: Home Work
-        // one step back
-        // assert banner has same userName
-        
     }
     
     func testHomeScreenNavigation() {

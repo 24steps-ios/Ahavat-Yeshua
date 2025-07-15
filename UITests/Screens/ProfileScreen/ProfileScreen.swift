@@ -19,13 +19,15 @@ final class ProfileScreen: BaseScreen {
         return self
     }
     
-    func thenUserNameMatch(_ userName: String) {
+    @discardableResult
+    func thenUserNameMatch(_ userName: String) -> Self {
         let userName: XCUIElement = app.staticTexts[userName]
         userName.assertExistence()
+        return self 
     }
     
     // MARK: When
     func whenINavigateToMyProfile() {
-        personalButton.tap()
+        personalButton.assertExistenceAndTap()
     }
 }
