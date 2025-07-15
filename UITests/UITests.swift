@@ -8,46 +8,56 @@
 import XCTest
 
 class UITests: Runner {
+    
     // MARK: Screens
     lazy var homeScreen: HomeScreen = .init(app: app)
-    lazy var bibleStudyScreen: BibleStudyScreen = .init(app: app)
     lazy var feedScreen: FeedScreen = .init(app: app)
     lazy var exploreScreen: ExploreScreen = .init(app: app)
-    
     lazy var bibleReadingScreen: BibleReadingScreen = .init(app: app)
-    lazy var profileScreen: ProfileScreen = .init(app: app)
-    lazy var myProfile: MyProfile = .init(app: app)
     
     // MARK: Common Components
     lazy var navigationTabBar: NavigationTabBar = .init(app: app)
-        
-    // MARK: Tests
+    
+    //MARK: HomeScreenNavigation
+    lazy var bibleStudyScreen: BibleStudyScreen = .init(app: app)
+    lazy var profileScreen: ProfileScreen = .init(app: app)
+    lazy var donationScreen: DonationScreen = .init(app: app)
+    lazy var liveStreamScreen: LiveStreamScreen = .init(app: app)
+    lazy var multiSelectionScreen: MultiSelectionScreen = .init(app: app)
+    lazy var holyPlaceMapScreen: HolyPlaceMapScreen = .init(app: app)
+    
+    
     func testMainScreens() {
-        homeScreen.thenIAssertScreen()
-
+        homeScreen
+            .thenIAssert( .bibleReadingScreen)
+        // navigationTabBar.whenINavigateToBibleReadingScreen()   //instead!
         navigationTabBar.whenINavigate(to: .bibleStudyTab)
         bibleStudyScreen.thenIAssertScreen()
-
+        
         navigationTabBar.whenINavigate(to: .feedTab)
         feedScreen.thenIAssertScreen()
         
         navigationTabBar.whenINavigate(to: .exploreTab)
         exploreScreen.thenIAssertScreen()
-
+        
         navigationTabBar.whenINavigate(to: .homeTab)
-        homeScreen.thenIAssertScreen()
+        homeScreen
+            .thenIAssert(.bibleReadingScreen)
     }
     
+    
     func testNavigationBar() {
+        
         navigationTabBar
             .thenHomeTabAppears()
             .thenHomeTabSelected()
             .thenAllTabsAppear()
         
+        // navigationTabBar.whenINavigateToBibleReadingScreen() //instead!
             .whenINavigate(to: .bibleStudyTab)
-            .thenBibleStudyTabSelected()
+            .thenBibleStudyTabAppears()
             .thenAllTabsAppear()
-
+        
             .whenINavigate(to: .feedTab)
             .thenFeedTabAppears()
             .thenAllTabsAppear()
@@ -61,26 +71,44 @@ class UITests: Runner {
             .thenAllTabsAppear()
     }
     
-    // TODO: Home Work
-    func testMyProfileScreenNavigation() {
-      //  let app = XCUIApplication() not sure!
-      //  app.activate() not sure!
-        let userName: String = "Boby"
-        
-        //app.staticTexts["Profile"].whenINavigateToProfileScreen()
-        homeScreen.whenINavigateToProfileScreen()
-        // app.buttons["Personal"].assertExistence()
-        profileScreen.thenIAssertScreen()
-        //app.buttons["Personal"].tap()
-        profileScreen.whenINavigateToMyProfile()
-        
-        myProfile.givenISetName(userName)
-        myProfile.whenTapBackButton()
-        profileScreen.thenUserNameMatch(userName)
-        // TODO: Home Work : DONE!
-        //one step back:
-        profileScreen.whenITapBackButton()
-        // assert banner has same userName:
-        homeScreen.thenUserNameMatch(userName)  //if name is not match need error massage. not sure!
+    
+    func testHomeScreenNavigation() {
+        homeScreen
+            .whenINavigate(to: .bibleReadingScreen)
+        bibleReadingScreen
+            .thenScreenAppears()
+           // .whenITapBackButton(.bibleReadingScreen) //instead this:
+            .whenITapBackButton()
+        homeScreen
+            .thenIAssert(.bibleReadingScreen)
+            .whenINavigate(to: .profileScreen)
+        profileScreen
+            .thenScreenAppears()
+            .whenITapBackButton()
+        homeScreen
+            .thenIAssert(.profileScreen)
+            .whenINavigate(to: .donationScreen)
+        donationScreen
+            .thenScreenAppears()
+            .whenITapBackButton()
+        homeScreen
+            .thenIAssert(.donationScreen)
+            .whenINavigate(to: .liveStreamScreen)
+        liveStreamScreen
+            .whenITapBackButton()
+        homeScreen
+            .thenIAssert(.liveStreamScreen)
+            .whenINavigate(to: .multiSelectionScreen)
+        multiSelectionScreen
+            .thenScreenAppears()
+            .whenITapBackButton()
+        homeScreen
+            .thenIAssert(.multiSelectionScreen)
+            .whenINavigate(to: .holyPlaceMapScreen)
+        holyPlaceMapScreen
+            .thenScreenAppears()
+            .whenITapBackButton()
+        homeScreen
+            .thenIAssert(.holyPlaceMapScreen)
     }
 }

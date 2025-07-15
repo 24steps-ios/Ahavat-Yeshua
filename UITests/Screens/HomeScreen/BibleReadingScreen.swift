@@ -2,27 +2,20 @@
 //  BibleReadingScreen.swift
 //  Ahavat Yeshua
 //
-//  Created by Ilia Pavlov on 6/23/25.
+//  Created by Ilya Sheynblat on 6/26/25.
 //
-
 import XCTest
 
-final class BibleReadingScreen: BaseScreen {
-    // Buttons
+final class BibleReadingScreen:  BaseScreen {
+    // MARK: Buttons
     lazy var showVerseButton: XCUIElement = app.buttons["Show Verse"]
-    lazy var backButton: XCUIElement = app.buttons["Back"]
+
     
     // MARK: Then
     @discardableResult
     func thenScreenAppears() -> Self {
-        app.buttons["Show Verse"].assertExistence()
-        return self
-    }
-    
-    // MARK: When
-    @discardableResult
-    func whenITapBackButton() -> Self {
-        app.buttons["Back"].assertExistenceAndTap()
+        showVerseButton.assertExistence()
         return self
     }
 }
+

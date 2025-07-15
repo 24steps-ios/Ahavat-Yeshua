@@ -5,34 +5,31 @@
 //  Created by Ilia Pavlov on 6/2/25.
 //
 import XCTest
-
+ 
 // Single Element
 extension XCUIElement {
-    func assertExistence(
-        timeout: TimeInterval = 10,
-        isElementStatic: Bool = false
-    ) {
+    func assertExistence(timeout: TimeInterval = 10, isElementStatic: Bool = false) {
         if isElementStatic {
-            XCTAssertTrue(self.exists, "Element is not found with")
+            XCTAssertTrue(self.exists, "Element \(self) is not found with") //self=any XCUIElement, we check exist or waitForExistance
         } else {
-            XCTAssertTrue(self.waitForExistence(timeout: timeout), "Element is not found with \(timeout)s")
+            XCTAssertTrue(self.waitForExistence(timeout: timeout), "Element \(self) is not found with \(timeout)s")
         }
     }
-    
-    func assertSelected(_ state: Bool = true) {
+    func assertSelected(state: Bool = true){
         XCTAssertEqual(state, self.isSelected, "Element is not selected")
     }
-    
     func assertExistenceAndTap(timeout: TimeInterval = 5) {
         self.assertExistence(timeout: timeout)
         self.tap()
+        
     }
 }
-
-// List of Elements
+// List of Elemens
 extension XCUIElementQuery {
-    func assertEqual(_ expectation: Int) {
+    func assertEqual(expectation: Int) {
         XCTAssertEqual(self.count, expectation)
     }
+    
 }
+    
 
