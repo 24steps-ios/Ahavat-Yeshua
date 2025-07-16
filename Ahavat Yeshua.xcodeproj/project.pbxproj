@@ -75,6 +75,7 @@
 		08E629222ADF64C100891626 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E629212ADF64C100891626 /* NetworkError.swift */; };
 		08E629242ADF687F00891626 /* RequestSending.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E629232ADF687F00891626 /* RequestSending.swift */; };
 		08E629262ADF6B8C00891626 /* Fetching.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E629252ADF6B8C00891626 /* Fetching.swift */; };
+		D7CA16842E28377D00C27891 /* CoreUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7CA16832E28375000C27891 /* CoreUITests.swift */; };
 		D7E164362E1F25F900288240 /* MyChurch.swift in Resources */ = {isa = PBXBuildFile; fileRef = D7E164352E1F25DE00288240 /* MyChurch.swift */; };
 /* End PBXBuildFile section */
 
@@ -183,6 +184,7 @@
 		08E629212ADF64C100891626 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		08E629232ADF687F00891626 /* RequestSending.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestSending.swift; sourceTree = "<group>"; };
 		08E629252ADF6B8C00891626 /* Fetching.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fetching.swift; sourceTree = "<group>"; };
+		D7CA16832E28375000C27891 /* CoreUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreUITests.swift; sourceTree = "<group>"; };
 		D7E164352E1F25DE00288240 /* MyChurch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyChurch.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -216,6 +218,7 @@
 		081715AD2B87DEAA00CBC667 /* UITests */ = {
 			isa = PBXGroup;
 			children = (
+				D7CA16822E28361400C27891 /* UITests */,
 				08E13BFC2E176CBB00595E4E /* ProfileScreen */,
 				08B494CF2E02317800827AF9 /* Screens */,
 				08B494C92E02316D00827AF9 /* CommonComponents */,
@@ -485,6 +488,14 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
+		D7CA16822E28361400C27891 /* UITests */ = {
+			isa = PBXGroup;
+			children = (
+				D7CA16832E28375000C27891 /* CoreUITests.swift */,
+			);
+			path = UITests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -622,6 +633,7 @@
 				08B494C52E02307000827AF9 /* Runner.swift in Sources */,
 				08B494C72E02316300827AF9 /* BaseScreen.swift in Sources */,
 				081715AF2B87DEAA00CBC667 /* UITests.swift in Sources */,
+				D7CA16842E28377D00C27891 /* CoreUITests.swift in Sources */,
 				086A4C382E176984000E0D04 /* ProfileScreen.swift in Sources */,
 				08B494D02E02317800827AF9 /* BibleScreen.swift in Sources */,
 				089002212E0A3E0B0006A58D /* BibleReadingScreen.swift in Sources */,

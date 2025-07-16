@@ -22,44 +22,8 @@ class UITests: Runner {
     lazy var navigationTabBar: NavigationTabBar = .init(app: app)
         
     // MARK: Tests
-    func testMainScreens() {
-        homeScreen.thenIAssertScreen()
+ 
 
-        navigationTabBar.whenINavigate(to: .bibleStudyTab)
-        bibleStudyScreen.thenIAssertScreen()
-
-        navigationTabBar.whenINavigate(to: .feedTab)
-        feedScreen.thenIAssertScreen()
-        
-        navigationTabBar.whenINavigate(to: .exploreTab)
-        exploreScreen.thenIAssertScreen()
-
-        navigationTabBar.whenINavigate(to: .homeTab)
-        homeScreen.thenIAssertScreen()
-    }
-    
-    func testNavigationBar() {
-        navigationTabBar
-            .thenHomeTabAppears()
-            .thenHomeTabSelected()
-            .thenAllTabsAppear()
-        
-            .whenINavigate(to: .bibleStudyTab)
-            .thenBibleStudyTabSelected()
-            .thenAllTabsAppear()
-
-            .whenINavigate(to: .feedTab)
-            .thenFeedTabAppears()
-            .thenAllTabsAppear()
-        
-            .whenINavigate(to: .exploreTab)
-            .thenExploreTabAppears()
-            .thenAllTabsAppear()
-        
-            .whenINavigate(to: .homeTab)
-            .thenHomeTabSelected()
-            .thenAllTabsAppear()
-    }
     
     // TODO: Home Work
     func testMyProfileScreenNavigation() {
