@@ -79,6 +79,9 @@
 		D7A650042E17183100359022 /* LiveStreamScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A650032E17181D00359022 /* LiveStreamScreen.swift */; };
 		D7A650062E172DBF00359022 /* MultiSelectionScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A650052E172DAC00359022 /* MultiSelectionScreen.swift */; };
 		D7A650082E17426600359022 /* HolyPlacesMapScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A650072E17425100359022 /* HolyPlacesMapScreen.swift */; };
+		D7CA16872E283C4600C27891 /* CoreUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7CA16862E283C3100C27891 /* CoreUITests.swift */; };
+		D7CA16892E283DF100C27891 /* ProfileUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7CA16882E283DDC00C27891 /* ProfileUITests.swift */; };
+		D7CA168D2E28426C00C27891 /* Extantions+XCUIElementQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7CA168C2E28425D00C27891 /* Extantions+XCUIElementQuery.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -190,6 +193,9 @@
 		D7A650032E17181D00359022 /* LiveStreamScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveStreamScreen.swift; sourceTree = "<group>"; };
 		D7A650052E172DAC00359022 /* MultiSelectionScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiSelectionScreen.swift; sourceTree = "<group>"; };
 		D7A650072E17425100359022 /* HolyPlacesMapScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HolyPlacesMapScreen.swift; sourceTree = "<group>"; };
+		D7CA16862E283C3100C27891 /* CoreUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreUITests.swift; sourceTree = "<group>"; };
+		D7CA16882E283DDC00C27891 /* ProfileUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileUITests.swift; sourceTree = "<group>"; };
+		D7CA168C2E28425D00C27891 /* Extantions+XCUIElementQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extantions+XCUIElementQuery.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -222,12 +228,11 @@
 		081715AD2B87DEAA00CBC667 /* UITests */ = {
 			isa = PBXGroup;
 			children = (
-				08B494CF2E02317800827AF9 /* Screens */,
 				08B494C92E02316D00827AF9 /* CommonComponents */,
-				08B494C62E02316300827AF9 /* BaseScreen.swift */,
-				08B494C22E02307000827AF9 /* Extension+XCUIElement.swift */,
-				08B494C32E02307000827AF9 /* Runner.swift */,
-				081715AE2B87DEAA00CBC667 /* UITests.swift */,
+				D7CA168A2E283FFA00C27891 /* Core */,
+				D7CA168B2E28422500C27891 /* Extantions */,
+				08B494CF2E02317800827AF9 /* Screens */,
+				D7CA16852E283BED00C27891 /* UITests */,
 			);
 			path = UITests;
 			sourceTree = "<group>";
@@ -494,6 +499,34 @@
 			path = HomeScreen;
 			sourceTree = "<group>";
 		};
+		D7CA16852E283BED00C27891 /* UITests */ = {
+			isa = PBXGroup;
+			children = (
+				D7CA16882E283DDC00C27891 /* ProfileUITests.swift */,
+				D7CA16862E283C3100C27891 /* CoreUITests.swift */,
+			);
+			path = UITests;
+			sourceTree = "<group>";
+		};
+		D7CA168A2E283FFA00C27891 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				08B494C62E02316300827AF9 /* BaseScreen.swift */,
+				08B494C32E02307000827AF9 /* Runner.swift */,
+				081715AE2B87DEAA00CBC667 /* UITests.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		D7CA168B2E28422500C27891 /* Extantions */ = {
+			isa = PBXGroup;
+			children = (
+				08B494C22E02307000827AF9 /* Extension+XCUIElement.swift */,
+				D7CA168C2E28425D00C27891 /* Extantions+XCUIElementQuery.swift */,
+			);
+			path = Extantions;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -634,6 +667,7 @@
 				D7A650022E15C6FA00359022 /* DonationScreen.swift in Sources */,
 				081715AF2B87DEAA00CBC667 /* UITests.swift in Sources */,
 				D7A650042E17183100359022 /* LiveStreamScreen.swift in Sources */,
+				D7CA16872E283C4600C27891 /* CoreUITests.swift in Sources */,
 				08B494D02E02317800827AF9 /* BibleScreen.swift in Sources */,
 				D7A650062E172DBF00359022 /* MultiSelectionScreen.swift in Sources */,
 				D7A64FF82E0DEC9400359022 /* BibleReadingScreen.swift in Sources */,
@@ -641,6 +675,8 @@
 				08B494D22E02317800827AF9 /* FeedScreen.swift in Sources */,
 				08B494D32E02317800827AF9 /* ExploreScreen.swift in Sources */,
 				08B494CA2E02316D00827AF9 /* NavigationTabBar.swift in Sources */,
+				D7CA16892E283DF100C27891 /* ProfileUITests.swift in Sources */,
+				D7CA168D2E28426C00C27891 /* Extantions+XCUIElementQuery.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
