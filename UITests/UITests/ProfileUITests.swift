@@ -7,13 +7,15 @@
 
 import XCTest
 
-class ProfileUITests: UITests {
+class ProfileUITests: UITests {    
+    // MARK: Tests
+    
     func testMyProfileScreenNavigation() {
         homeScreen
             .whenINavigate(to: .profileScreen)
         profileScreen
             .thenScreenAppears()
-            .whenINavigateToMyProfile() // TODO: HOMEWORK - add enum for Personal and Church
+            .whenINavigate(to: .personal)
         myProfile
             .thenScreenAppears()
             .whenTapProfileBackButton()
@@ -23,27 +25,32 @@ class ProfileUITests: UITests {
         homeScreen
             .thenScreenAppears()
     }
+        
+    func testDefaultUserName() {} // TODO: HOMEWORK - tap on Clear All
+    
+    // TODO: HOMEWORK
+    // Create manual TCs for email field
+    
+    func testUserDOB() {}
     
     func testUserNameInput() {
-        let userName = "Jonny B Good"
-        
         homeScreen
             .whenINavigate(to: .profileScreen)
         profileScreen
-            .whenINavigateToMyProfile()
+            .whenINavigate(to: .personal)
+        userNameMatchMultipleScreens(.userJonny)
+    }
+}
+
+extension ProfileUITests {
+    func userNameMatchMultipleScreens(_ username: TestUser) {
         myProfile
-            .givenISetName(userName)
+            .givenISetName(username)
             .whenTapProfileBackButton()
         profileScreen
-            .thenUserNameMatch(userName)
+            .thenUserNameMatch(username)
             .whenITapBackButton()
         homeScreen
-            .thenUserNameMatch(userName)
+            .thenUserNameMatch(username)
     }
-    
-    func testDefaultUserName() { // TODO: HOMEWORK - tap on Clear All
-    }
-    
-    // TODO: HOMEWORK
-    // Create manual TCs for email field 
 }

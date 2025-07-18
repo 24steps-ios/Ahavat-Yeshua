@@ -19,13 +19,28 @@ final class MyProfile: BaseScreen {
     // MARK: Text Fields
     lazy var nameTextField: XCUIElement = app.textFields.element(boundBy: 0)
     
+    // MARK: Picker Wheels
+    lazy var monthPickerWheel: XCUIElement = app.pickerWheels.element(boundBy: 0)
+    lazy var dayPickerWheel: XCUIElement = app.pickerWheels.element(boundBy: 1)
+    lazy var yearPickerWheel: XCUIElement = app.pickerWheels.element(boundBy: 2)
+    
     // MARK: Given
     @discardableResult
-    func givenISetName(_ userName: String) -> Self {
+    func givenISetDOB(for user: TestUser) -> Self {
+        if let dob = user.dob {
+            monthPickerWheel.adjust(toPickerWheelValue: dob.month)
+            dayPickerWheel.adjust(toPickerWheelValue: dob.day)
+            yearPickerWheel.adjust(toPickerWheelValue: dob.year)
+        }
+        return self
+    }
+    
+    @discardableResult
+    func givenISetName(_ user: TestUser) -> Self {
         whenITapEditButton()
         nameTextField.assertExistenceAndTap()
         cleanText()
-        nameTextField.typeText(userName)
+        nameTextField.typeText(user.userName)
         whenITapSaveButton()
         return self 
     }

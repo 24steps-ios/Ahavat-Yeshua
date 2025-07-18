@@ -10,7 +10,12 @@ import XCTest
 final class ProfileScreen: BaseScreen {
     // MARK: Button
     lazy var profileScreenButton: XCUIElement = app.navigationBars["Profile"]
-    lazy var personalButton: XCUIElement = app.buttons["Personal"]
+    
+    // MARK: Enums
+    enum Profile: String {
+        case personal = "Personal"
+        case church = "Church"
+    }
     
     // MARK: Then
     @discardableResult
@@ -20,14 +25,17 @@ final class ProfileScreen: BaseScreen {
     }
     
     @discardableResult
-    func thenUserNameMatch(_ userName: String) -> Self {
-        let userName: XCUIElement = app.staticTexts[userName]
+    func thenUserNameMatch(_ user: TestUser) -> Self {
+        let userName: XCUIElement = app.staticTexts[user.userName]
         userName.assertExistence()
         return self 
     }
     
     // MARK: When
-    func whenINavigateToMyProfile() {
-        personalButton.assertExistenceAndTap()
+    @discardableResult
+    func whenINavigate(to profile: Profile) -> Self {
+        let button: XCUIElement = app.buttons[profile.rawValue]
+        button.assertExistenceAndTap()
+        return self
     }
 }
