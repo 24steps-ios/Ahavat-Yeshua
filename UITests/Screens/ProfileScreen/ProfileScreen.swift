@@ -13,14 +13,15 @@ final class ProfileScreen: BaseScreen {
     lazy var personalButton: XCUIElement = app.buttons["Personal"]
     lazy var churchButton: XCUIElement = app.buttons["Church"]
     
+    // MARK: Static Texts
+  lazy var setUserNameText: XCUIElement = app.staticTexts["SET USER NAME"]
+    
     // MARK: Enums
     enum Button: String {
         case personalButton = "Personal"
         case churchButton = "Church"
-    }
+        }
 
-    
-    
     // MARK: Then
     @discardableResult
     func thenScreenAppears() -> Self {
@@ -29,9 +30,15 @@ final class ProfileScreen: BaseScreen {
     }
     
     @discardableResult
-    func thenUserNameMatch(_ userName: String)  -> Self {
+    func thenUserNameMatch(_ userName: String) -> Self {
         let userName: XCUIElement = app.staticTexts[userName]
         userName.assertExistence()
+        return self
+    }
+    
+    @discardableResult
+    func thenDefaultUserNameAppears() -> Self {
+        setUserNameText.assertExistence()
         return self
     }
     
@@ -41,13 +48,15 @@ final class ProfileScreen: BaseScreen {
         personalButton.tap()
         return self
     }
+    
     @discardableResult
     func whenINavigateToMyChurch() -> Self {
         churchButton.tap()
         return self
     }
+    
     @discardableResult // enum: MyChurch AND MyPersonal
-    func whenINavigate(to button: Button ) -> Self {
+    func whenINavigate(to button: Button) -> Self {
         let button: XCUIElement = app.buttons[button.rawValue]
         button.tap()
         return self

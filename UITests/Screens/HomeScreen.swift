@@ -10,6 +10,9 @@ final class HomeScreen: BaseScreen {
     // MARK: Images
     lazy var bannerImage: XCUIElement = app.images["Account"]
     
+    //MARK: Static Texts
+    lazy var textFriend: XCUIElement = app.staticTexts["Friend"]
+    
     //MARK: Enums
     enum Group: String {
         case bibleReadingScreen = "Bible Reading"
@@ -34,8 +37,11 @@ final class HomeScreen: BaseScreen {
         screen.assertExistence()
         return self
     }
-    func thenScreenAppears() {
+    
+    @discardableResult
+    func thenScreenAppears() -> Self {
         bannerImage.assertExistence()
+        return self
     }
     
     @discardableResult  //FUNC if Body on banner exist. type data(String)
@@ -44,4 +50,11 @@ final class HomeScreen: BaseScreen {
         userName.assertExistence()
         return self
     }
+    
+    @discardableResult
+    func thenBannerTextFriendAppears()  -> Self  {
+        textFriend.assertExistence()
+        return self
+    }
+    
 }

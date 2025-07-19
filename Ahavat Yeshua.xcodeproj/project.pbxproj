@@ -320,15 +320,15 @@
 		08AB17342ABBCCE300813AA4 /* Ahavat Yeshua */ = {
 			isa = PBXGroup;
 			children = (
-				08E13C0C2E25DBFB00595E4E /* UITestAppControl.swift */,
-				086EE06F2DB1E2E9007515C6 /* Ahavat-Yeshua-Info.plist */,
-				08AB174A2ABBD04100813AA4 /* Foundation */,
-				08AB17432ABBCF0F00813AA4 /* Views */,
 				08AB17352ABBCCE300813AA4 /* Ahavat_YeshuaApp.swift */,
-				08AB17372ABBCCE300813AA4 /* ContentView.swift */,
+				086EE06F2DB1E2E9007515C6 /* Ahavat-Yeshua-Info.plist */,
 				08AB17392ABBCCE400813AA4 /* Assets.xcassets */,
-				08AB173B2ABBCCE400813AA4 /* Preview Content */,
+				08AB17372ABBCCE300813AA4 /* ContentView.swift */,
 				086EE09A2DB2BC82007515C6 /* DevMenuView.swift */,
+				08AB174A2ABBD04100813AA4 /* Foundation */,
+				08AB173B2ABBCCE400813AA4 /* Preview Content */,
+				08E13C0C2E25DBFB00595E4E /* UITestAppControl.swift */,
+				08AB17432ABBCF0F00813AA4 /* Views */,
 			);
 			path = "Ahavat Yeshua";
 			sourceTree = "<group>";

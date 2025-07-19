@@ -16,6 +16,9 @@ final class MyProfile: BaseScreen {
     lazy var saveButton: XCUIElement = app.buttons["Save"]
     lazy var clearAllButton: XCUIElement = app.buttons["Clear All"]
     
+//    // MARK: Text Fields
+//    lazy var placeholderFullName: XCUIElement = app.textFields["Full Name"]
+    
     // MARK: Text Fields
     lazy var nameTextField: XCUIElement = app.textFields.element(boundBy: 0)
     
@@ -29,7 +32,7 @@ final class MyProfile: BaseScreen {
         whenITapSaveButton()
         return self
     }
-    
+
     //MARK: Then
     @discardableResult
     func thenScreenAppears() -> Self {
@@ -38,22 +41,27 @@ final class MyProfile: BaseScreen {
     }
     
     // MARK: When
-   
-    func whenITapEditButton() {
+    @discardableResult
+    func whenITapEditButton() -> Self {
         editButton.assertExistenceAndTap()
+        return self
     }
     
-    func whenITapSaveButton() {
+    @discardableResult
+    func whenITapSaveButton() -> Self {
         saveButton.assertExistenceAndTap()
+        return self
     }
     
-    func whenTapProfileBackButton() {
+    @discardableResult
+    func whenTapProfileBackButton() -> Self {
         profileBackButton.assertExistenceAndTap()
+        return self
     }
-    
     
     // MARK: Helpers
-    func cleanText() {
+    @discardableResult
+    func cleanText()-> Self  {
         // If there's existing text, delete it
          if let currentValue = nameTextField.value as? String {
              let deleteString = String(
@@ -62,6 +70,7 @@ final class MyProfile: BaseScreen {
              )
              nameTextField.typeText(deleteString)
          }
+        return self
     }
 }
 
