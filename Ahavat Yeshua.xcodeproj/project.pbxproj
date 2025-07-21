@@ -73,6 +73,7 @@
 		08E13C122E25E55500595E4E /* ProfileUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E13C112E25E54E00595E4E /* ProfileUITests.swift */; };
 		08E13C162E25E6BA00595E4E /* Extension+XCUIElementQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E13C152E25E6B200595E4E /* Extension+XCUIElementQuery.swift */; };
 		08E13C182E29E16400595E4E /* TestUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E13C172E29E15E00595E4E /* TestUser.swift */; };
+		08E13C1A2E2DEC0600595E4E /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E13C192E2DEBFF00595E4E /* SettingsView.swift */; };
 		08E6291E2ADF646000891626 /* RequestMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E6291D2ADF646000891626 /* RequestMaker.swift */; };
 		08E629202ADF649100891626 /* RequestMaking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E6291F2ADF649100891626 /* RequestMaking.swift */; };
 		08E629222ADF64C100891626 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E629212ADF64C100891626 /* NetworkError.swift */; };
@@ -188,6 +189,7 @@
 		08E13C112E25E54E00595E4E /* ProfileUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileUITests.swift; sourceTree = "<group>"; };
 		08E13C152E25E6B200595E4E /* Extension+XCUIElementQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+XCUIElementQuery.swift"; sourceTree = "<group>"; };
 		08E13C172E29E15E00595E4E /* TestUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestUser.swift; sourceTree = "<group>"; };
+		08E13C192E2DEBFF00595E4E /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		08E6291D2ADF646000891626 /* RequestMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestMaker.swift; sourceTree = "<group>"; };
 		08E6291F2ADF649100891626 /* RequestMaking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestMaking.swift; sourceTree = "<group>"; };
 		08E629212ADF64C100891626 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
@@ -402,6 +404,7 @@
 		08AB175C2ABBEFE400813AA4 /* HomeView */ = {
 			isa = PBXGroup;
 			children = (
+				08E13C192E2DEBFF00595E4E /* SettingsView.swift */,
 				08E13C0A2E25DBBD00595E4E /* ReceiptView.swift */,
 				08E13C062E25DBB500595E4E /* HomeHeroBanner.swift */,
 				08E13C072E25DBB500595E4E /* HomeStatsView.swift */,
@@ -726,6 +729,7 @@
 				08AB17662ABBF95A00813AA4 /* ChurchInformationView.swift in Sources */,
 				08AB17682ABBF99C00813AA4 /* PersonalInformationView.swift in Sources */,
 				08AB176C2ABD173800813AA4 /* SingleRowLink.swift in Sources */,
+				08E13C1A2E2DEC0600595E4E /* SettingsView.swift in Sources */,
 				08E13C0B2E25DBBD00595E4E /* ReceiptView.swift in Sources */,
 				08AB177A2ABD2A9300813AA4 /* DOBView.swift in Sources */,
 				08AB17362ABBCCE300813AA4 /* Ahavat_YeshuaApp.swift in Sources */,

@@ -9,13 +9,18 @@ import SwiftUI
 
 struct HomeView: View {
     @ObservedObject private var userSettings = UserSettings.shared
+    @AppStorage("showHomeStats") private var showHomeStats: Bool = false
+    @AppStorage("showDonationView") private var showDonationView: Bool = true
+    
     var body: some View {
         NavigationStack {
             ScrollView {
                 VStack(spacing: 28) {
                     HomeHeroBanner(userName: userSettings.name)
                         .padding(.top, 8)
-                    HomeStatsView(studiesCompleted: 3, friendsCount: 12)
+                    if showHomeStats {
+                        HomeStatsView(studiesCompleted: 3, friendsCount: 12)
+                    }
                     // Feature Cards
                     HStack(spacing: 16) {
                         NavigationLink(destination: BibleReadingView()) {
@@ -31,10 +36,12 @@ struct HomeView: View {
                     }
 
                     HStack(spacing: 16) {
-                        NavigationLink(destination: DonationView()) {
-                            SquareView(iconName: "creditcard",
-                                       label: "Donation",
-                                       foregroundColor: .orange)
+                        if showDonationView {
+                            NavigationLink(destination: DonationView()) {
+                                SquareView(iconName: "creditcard",
+                                           label: "Donation",
+                                           foregroundColor: .orange)
+                            }
                         }
 
                         NavigationLink(destination: LiveStreamView()) {
@@ -64,11 +71,10 @@ struct HomeView: View {
 
                     ScrollView(.horizontal, showsIndicators: false) {
                         HStack(spacing: 16) {
-                            NavigationLink(destination: TodoView()) {
+                            NavigationLink(destination: SettingsViewControllerRepresentable()) {
                                 SquareView(iconName: "star",
-                                           label: "Favorites",
-                                           foregroundColor: .purple,
-                                           overlayText: "Coming Soon")
+                                           label: "Settings",
+                                           foregroundColor: .purple)
                             }
 
                             NavigationLink(destination: TodoView()) {
