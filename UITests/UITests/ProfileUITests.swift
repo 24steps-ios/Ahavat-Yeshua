@@ -26,12 +26,36 @@ class ProfileUITests: UITests {
             .thenScreenAppears()
     }
         
-    func testDefaultUserName() {} // TODO: HOMEWORK - tap on Clear All
+    func testDefaultUserName() {
+        homeScreen
+            .whenINavigate(to: .profileScreen)
+        profileScreen
+            .whenINavigate(to: .personal)
+        myProfile
+            .whenITapClearAllButton()
+            .whenTapProfileBackButton()
+        profileScreen
+            .thenDefaultUserNameAppears()
+            .whenITapBackButton()
+        homeScreen
+            .thenBannerTextShowsDefault()
+    }
     
     // TODO: HOMEWORK
-    // Create manual TCs for email field
     
-    func testUserDOB() {}
+    func testUserDOB() {
+        let users: [TestUser] = [.userEve, .userJonny, .userAnonymous]
+        
+        homeScreen
+            .whenINavigate(to: .profileScreen)
+        profileScreen
+            .whenINavigate(to: .personal)
+        users.forEach {
+            myProfile
+                .givenISetDOB(for: $0)
+                .thenUserDOBAppears(for: $0)
+        }
+    }
     
     func testUserNameInput() {
         homeScreen

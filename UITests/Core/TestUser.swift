@@ -39,7 +39,12 @@ extension TestUser {
             userName: "Eve",
             email: "eve@example.com",
             address: "456 Elm St",
-            phoneNumber: "+0987654321"
+            phoneNumber: "+0987654321",
+            dob: .init(
+                month: "September",
+                day: "19",
+                year: "1953"
+            )
         )
     }
     

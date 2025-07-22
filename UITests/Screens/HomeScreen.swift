@@ -10,6 +10,9 @@ final class HomeScreen: BaseScreen {
     // MARK: Images
     lazy var bannerImage: XCUIElement = app.images["Account"]
     
+    // MARK: Static Texts
+    lazy var defaultText: XCUIElement = app.staticTexts["Friend"]
+    
     //MARK: Enums
     enum Group: String {
         case bibleReadingScreen = "Bible Reading"
@@ -46,4 +49,10 @@ final class HomeScreen: BaseScreen {
         userName.assertExistence()
         return self
     }
+    
+    @discardableResult
+     func thenBannerTextShowsDefault()  -> Self  {
+         defaultText.assertExistence()
+         return self
+     }
 }

@@ -11,6 +11,9 @@ final class ProfileScreen: BaseScreen {
     // MARK: Button
     lazy var profileScreenButton: XCUIElement = app.navigationBars["Profile"]
     
+    // MARK: Static Texts
+    lazy var setUserNameText: XCUIElement = app.staticTexts["SET USER NAME"]
+    
     // MARK: Enums
     enum Profile: String {
         case personal = "Personal"
@@ -29,6 +32,12 @@ final class ProfileScreen: BaseScreen {
         let userName: XCUIElement = app.staticTexts[user.userName]
         userName.assertExistence()
         return self 
+    }
+    
+    @discardableResult
+    func thenDefaultUserNameAppears() -> Self {
+        setUserNameText.assertExistence()
+        return self
     }
     
     // MARK: When

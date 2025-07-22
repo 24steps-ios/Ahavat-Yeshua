@@ -7,6 +7,9 @@
 import XCTest
 
 final class MyProfile: BaseScreen {
+    // MARK: Predicates
+    let dobFieldPredicate = NSPredicate(format: "label CONTAINS 'Date of Birth'")
+    
     // MARK: Navigation Bar elements
     lazy var title: XCUIElement = app.navigationBars.staticTexts["My Profile"]
     lazy var profileBackButton: XCUIElement = app.navigationBars.buttons["Profile"]
@@ -15,6 +18,8 @@ final class MyProfile: BaseScreen {
     lazy var editButton: XCUIElement = app.buttons["Edit"]
     lazy var saveButton: XCUIElement = app.buttons["Save"]
     lazy var clearAllButton: XCUIElement = app.buttons["Clear All"]
+    lazy var dobButton: XCUIElement = app.buttons.element(matching: dobFieldPredicate)
+    lazy var doneButton: XCUIElement = app.buttons["Done"]
     
     // MARK: Text Fields
     lazy var nameTextField: XCUIElement = app.textFields.element(boundBy: 0)
@@ -28,28 +33,45 @@ final class MyProfile: BaseScreen {
     @discardableResult
     func givenISetDOB(for user: TestUser) -> Self {
         if let dob = user.dob {
-            monthPickerWheel.adjust(toPickerWheelValue: dob.month)
-            dayPickerWheel.adjust(toPickerWheelValue: dob.day)
-            yearPickerWheel.adjust(toPickerWheelValue: dob.year)
+            whenIEditMyProfile {
+                dobButton.assertExistenceAndTap()
+                
+                monthPickerWheel.adjust(toPickerWheelValue: dob.month)
+                dayPickerWheel.adjust(toPickerWheelValue: dob.day)
+                yearPickerWheel.adjust(toPickerWheelValue: dob.year)
+                
+                doneButton.assertExistenceAndTap()
+            }
         }
         return self
     }
     
     @discardableResult
     func givenISetName(_ user: TestUser) -> Self {
-        whenITapEditButton()
-        nameTextField.assertExistenceAndTap()
-        cleanText()
-        nameTextField.typeText(user.userName)
-        whenITapSaveButton()
+        whenIEditMyProfile {
+            nameTextField.assertExistenceAndTap()
+            cleanText()
+            nameTextField.typeText(user.userName)
+        }
         return self 
     }
+    
     
     // MARK: Then
     @discardableResult
     func thenScreenAppears() -> Self {
         title.assertExistence()
         return self 
+    }
+    
+    @discardableResult
+    func thenUserDOBAppears(for user: TestUser) -> Self {
+        if let dob = user.dob {
+            let dobId: String = "Date of Birth: \(dob.month) \(dob.day), \(dob.year)"
+            let dobLabel: XCUIElement = app.staticTexts[dobId]
+            dobLabel.assertExistence()
+        }
+        return self
     }
     
     // MARK: When
@@ -64,7 +86,19 @@ final class MyProfile: BaseScreen {
     func whenTapProfileBackButton() {
         profileBackButton.assertExistenceAndTap()
     }
-        
+    
+    @discardableResult
+    func whenITapClearAllButton() -> Self {
+        clearAllButton.assertExistenceAndTap()
+        return self
+    }
+    
+    private func whenIEditMyProfile(action:() -> Void) {
+        whenITapEditButton()
+        action()
+        whenITapSaveButton()
+    }
+       
     // MARK: Helpers
     func cleanText() {
         // If there's existing text, delete it
