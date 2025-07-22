@@ -82,6 +82,7 @@
 		D7CA16872E283C4600C27891 /* CoreUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7CA16862E283C3100C27891 /* CoreUITests.swift */; };
 		D7CA16892E283DF100C27891 /* ProfileUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7CA16882E283DDC00C27891 /* ProfileUITests.swift */; };
 		D7CA168D2E28426C00C27891 /* Extantions+XCUIElementQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7CA168C2E28425D00C27891 /* Extantions+XCUIElementQuery.swift */; };
+		D7CA168F2E2D5EA900C27891 /* TestUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7CA168E2E2D5E9E00C27891 /* TestUser.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -196,6 +197,7 @@
 		D7CA16862E283C3100C27891 /* CoreUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreUITests.swift; sourceTree = "<group>"; };
 		D7CA16882E283DDC00C27891 /* ProfileUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileUITests.swift; sourceTree = "<group>"; };
 		D7CA168C2E28425D00C27891 /* Extantions+XCUIElementQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extantions+XCUIElementQuery.swift"; sourceTree = "<group>"; };
+		D7CA168E2E2D5E9E00C27891 /* TestUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestUser.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -511,6 +513,7 @@
 		D7CA168A2E283FFA00C27891 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				D7CA168E2E2D5E9E00C27891 /* TestUser.swift */,
 				08B494C62E02316300827AF9 /* BaseScreen.swift */,
 				08B494C32E02307000827AF9 /* Runner.swift */,
 				081715AE2B87DEAA00CBC667 /* UITests.swift */,
@@ -666,6 +669,7 @@
 				D7A650082E17426600359022 /* HolyPlacesMapScreen.swift in Sources */,
 				D7A650022E15C6FA00359022 /* DonationScreen.swift in Sources */,
 				081715AF2B87DEAA00CBC667 /* UITests.swift in Sources */,
+				D7CA168F2E2D5EA900C27891 /* TestUser.swift in Sources */,
 				D7A650042E17183100359022 /* LiveStreamScreen.swift in Sources */,
 				D7CA16872E283C4600C27891 /* CoreUITests.swift in Sources */,
 				08B494D02E02317800827AF9 /* BibleScreen.swift in Sources */,

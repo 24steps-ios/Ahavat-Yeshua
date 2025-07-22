@@ -45,8 +45,9 @@ final class HomeScreen: BaseScreen {
     }
     
     @discardableResult  //FUNC if Body on banner exist. type data(String)
-    func thenUserNameMatch(_ userName: String)  -> Self {
-        let userName: XCUIElement = app.staticTexts[userName]
+    //need TestUser instead userName
+    func thenUserNameMatch(_ user: TestUser)  -> Self {
+        let userName: XCUIElement = app.staticTexts[user.userName]
         userName.assertExistence()
         return self
     }

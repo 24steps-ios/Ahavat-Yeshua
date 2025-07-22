@@ -8,18 +8,17 @@
 import XCTest
 
 final class ProfileScreen: BaseScreen {
+    
     // MARK: Button
     lazy var profileScreenButton: XCUIElement = app.navigationBars["Profile"]
-    lazy var personalButton: XCUIElement = app.buttons["Personal"]
-    lazy var churchButton: XCUIElement = app.buttons["Church"]
     
     // MARK: Static Texts
   lazy var setUserNameText: XCUIElement = app.staticTexts["SET USER NAME"]
     
     // MARK: Enums
-    enum Button: String {
-        case personalButton = "Personal"
-        case churchButton = "Church"
+    enum Profile: String {
+        case personal = "Personal"
+        case church = "Church"
         }
 
     // MARK: Then
@@ -29,9 +28,9 @@ final class ProfileScreen: BaseScreen {
         return self
     }
     
-    @discardableResult
-    func thenUserNameMatch(_ userName: String) -> Self {
-        let userName: XCUIElement = app.staticTexts[userName]
+    @discardableResult//need TestUser instead String
+    func thenUserNameMatch(_ user: TestUser) -> Self {
+        let userName: XCUIElement = app.staticTexts[user.userName]
         userName.assertExistence()
         return self
     }
@@ -43,22 +42,10 @@ final class ProfileScreen: BaseScreen {
     }
     
     // MARK: When
-    @discardableResult
-    func whenINavigateToMyProfile() -> Self {
-        personalButton.tap()
-        return self
-    }
-    
-    @discardableResult
-    func whenINavigateToMyChurch() -> Self {
-        churchButton.tap()
-        return self
-    }
-    
-    @discardableResult // enum: MyChurch AND MyPersonal
-    func whenINavigate(to button: Button) -> Self {
-        let button: XCUIElement = app.buttons[button.rawValue]
-        button.tap()
+    @discardableResult // enum: MyChurch AND MyPersonal (delete all whens and lazy vars)
+    func whenINavigate(to profile: Profile) -> Self {
+        let button: XCUIElement = app.buttons[profile.rawValue]
+        button.assertExistenceAndTap()
         return self
     }
 }
