@@ -30,7 +30,7 @@ extension TestUser {
             dob: .init(
                 month: "May",
                 day: "1",
-                year: "2000"
+                year: "1909"
             )
         )
     }
@@ -40,11 +40,11 @@ extension TestUser {
             email: "eve@gmail.com",
             address: "456 Elm St",
             phoneNumber: "098-765-4321",
-//            dob: .init(
-//                month: "September",
-//                day: "3",
-//                year: "1999"
-//            )
+            dob: .init(
+                month: "September",
+                day: "11",
+                year: "2001"
+            )
         )
     }
     static var userAnonymous: TestUser {

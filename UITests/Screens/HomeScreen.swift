@@ -11,7 +11,7 @@ final class HomeScreen: BaseScreen {
     lazy var bannerImage: XCUIElement = app.images["Account"]
     
     //MARK: Static Texts
-    lazy var textFriend: XCUIElement = app.staticTexts["Friend"]
+    lazy var defaultBannerText: XCUIElement = app.staticTexts["Friend"]
     
     //MARK: Enums
     enum Group: String {
@@ -53,8 +53,8 @@ final class HomeScreen: BaseScreen {
     }
     
     @discardableResult
-    func thenBannerTextFriendAppears()  -> Self  {
-        textFriend.assertExistence()
+    func thenBannerTextShowDefault()  -> Self  {
+        defaultBannerText.assertExistence()
         return self
     }
     

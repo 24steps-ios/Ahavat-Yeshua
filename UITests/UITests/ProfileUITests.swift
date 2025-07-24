@@ -26,9 +26,27 @@ class ProfileUITests: UITests {
     }
     
     // TODO: HOMEWORK
-    func testUserDOB() {
+    func testUserDOB() {              //Array:
+        let users: [TestUser] = [.userEve, .userJonny, .userAnonymous]
         
+        homeScreen
+            .whenINavigate(to: .profileScreen)
+        profileScreen
+            .whenINavigate(to: .personal)
+        
+        users.forEach {
+            myProfile
+                .givenISetDOB(for: $0)
+                .thenUserDOBAppears(for: $0)
+        }
     }
+//        myProfile
+//            .givenISetDOB(for: .userJonny)
+//            .thenUserDOBAppears(for: .userJonny)
+//        myProfile
+//            .givenISetDOB(for: .userAnonymous)
+//            .thenUserDOBAppears(for: .userAnonymous)
+//    }
     
     func testUserNameInput() {
         homeScreen
@@ -39,7 +57,8 @@ class ProfileUITests: UITests {
     }
 }
 extension ProfileUITests {
-    func userNameMatchMultipleScreens(_ username: TestUser){       myProfile
+    func userNameMatchMultipleScreens(_ username: TestUser){
+        myProfile
         .givenISetName(username)
         .whenTapProfileBackButton()
         profileScreen
@@ -48,27 +67,22 @@ extension ProfileUITests {
         homeScreen
             .thenUserNameMatch(username)
     }
-}
-
- 
     
-//    func testDefaultUserName(){ //TO DO:HOMEWORK- tap on Clear All)
-//                let userName = "Jonny B Good"
-//        
-//                homeScreen
-//                    .whenINavigate(to: .profileScreen)
-//                profileScreen
-//                    .whenINavigate(to: .personal)
-//                myProfile
-//                    .givenISetName(userName)
-//                    .clearAllButton.assertExistenceAndTap()
-//                    .whenINavigate(to: .profileScreen)
-//                profileScreen
-//                    .thenDefaultUserNameAppears()
-//                    .whenITapBackButton()
-//                homeScreen.thenBannerTextFriendAppears()
-//            }
-//    }
+    func testDefaultUserName() {
+        homeScreen
+            .whenINavigate(to: .profileScreen)
+        profileScreen
+            .whenINavigate(to: .personal)
+        myProfile
+            .whenITapClearAllButton()
+            .whenTapProfileBackButton()
+        profileScreen
+            .thenDefaultUserNameAppears()
+            .whenITapBackButton()
+        homeScreen
+            .thenBannerTextShowDefault()
+    }
+}
 //    TO DO:HOMEWORK
 //     create manual TCs for email field:
 //    
@@ -84,6 +98,3 @@ extension ProfileUITests {
 //     max 256 characters in email field
     
     // total 22 tests
-    
-    
-
