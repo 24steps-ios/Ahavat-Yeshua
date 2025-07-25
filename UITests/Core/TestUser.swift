@@ -5,18 +5,14 @@
 //  Created by Ilia Pavlov on 7/17/25.
 //
 
-struct DOB {
-    var month: String
-    var day: String
-    var year: String
-}
+import Foundation
 
 struct TestUser {
     var userName: String
     var email: String?
     var address: String?
     var phoneNumber: String?
-    var dob: DOB?
+    var dob: Date?
 }
 
 extension TestUser {
@@ -26,11 +22,7 @@ extension TestUser {
             email: "jonny@example.com",
             address: "123 Main St",
             phoneNumber: "+1234567890",
-            dob: .init(
-                month: "May",
-                day: "1",
-                year: "1909"
-            )
+            dob: .input("08/31/1989")
         )
     }
     
@@ -40,11 +32,7 @@ extension TestUser {
             email: "eve@example.com",
             address: "456 Elm St",
             phoneNumber: "+0987654321",
-            dob: .init(
-                month: "September",
-                day: "19",
-                year: "1953"
-            )
+            dob: .input("09/19/1953")
         )
     }
     
