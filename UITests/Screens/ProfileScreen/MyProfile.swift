@@ -7,8 +7,9 @@
 import XCTest
 
 final class MyProfile: BaseScreen {
+    
     // MARK: Predicates
-    let dobFieldPredicate = NSPredicate(format: "label CONTAINS 'Date Of Birth'")
+    let dobFieldPredicate: NSPredicate = .init(format: "label BEGINSWITH 'Date of Birth'")
     
     // MARK: Navigation Bar elements
     lazy var title: XCUIElement = app.navigationBars.staticTexts["My Profile"]
@@ -18,7 +19,7 @@ final class MyProfile: BaseScreen {
     lazy var editButton: XCUIElement = app.buttons["Edit"]
     lazy var saveButton: XCUIElement = app.buttons["Save"]
     lazy var clearAllButton: XCUIElement = app.buttons["Clear All"]
-    lazy var dobButton: XCUIElement = app.buttons.element(matching: dobFieldPredicate)
+    lazy var dobButton: XCUIElement = app.buttons.matching(dobFieldPredicate).firstMatch
     lazy var doneButton: XCUIElement = app.buttons["Done"]
     //    // MARK: Text Fields
     //    lazy var placeholderFullName: XCUIElement = app.textFields["Full Name"]
@@ -72,7 +73,7 @@ final class MyProfile: BaseScreen {
     @discardableResult
     func thenUserDOBAppears(for user: TestUser) -> Self {
         if let dob = user.dob {
-            let dobId: String = "Date of Birth: \(dob.month) \(dob.day)/, \(dob.year)"
+            let dobId: String = "Date of Birth: \(dob.month) \(dob.day), \(dob.year)"
             let dobLabel:  XCUIElement = app.staticTexts[dobId]
             dobLabel.assertExistence()
         }

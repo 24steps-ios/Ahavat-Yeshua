@@ -4,20 +4,14 @@
 //
 //  Created by Ilya Sheynblat on 7/20/25.
 //
-import XCTest
-
-struct DOB {
-    var month: String
-    var day: String
-    var year: String
-    }
+import Foundation
 
 struct TestUser{
     var userName: String
     var email: String?
     var address: String?
     var phoneNumber: String?
-    var dob: DOB?
+    var dob: Date?
 }
 
 extension TestUser {
@@ -27,11 +21,7 @@ extension TestUser {
             email: "jonny@gmail.com",
             address: "123 Main St",
             phoneNumber: "123-456-7890",
-            dob: .init(
-                month: "May",
-                day: "1",
-                year: "1909"
-            )
+            dob: .input("08/31/1990")
         )
     }
     static var userEve: TestUser {
@@ -40,11 +30,7 @@ extension TestUser {
             email: "eve@gmail.com",
             address: "456 Elm St",
             phoneNumber: "098-765-4321",
-            dob: .init(
-                month: "September",
-                day: "11",
-                year: "2001"
-            )
+            dob: .input("09/11/2001")
         )
     }
     static var userAnonymous: TestUser {

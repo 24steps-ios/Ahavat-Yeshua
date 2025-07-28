@@ -33,7 +33,6 @@ class ProfileUITests: UITests {
             .whenINavigate(to: .profileScreen)
         profileScreen
             .whenINavigate(to: .personal)
-        
         users.forEach {
             myProfile
                 .givenISetDOB(for: $0)
