@@ -7,6 +7,9 @@
 
 import Foundation
 
+/// An enumeration of supported date and time formats used throughout the app.
+///
+/// Use these cases to specify a desired format when converting dates to and from strings.
 enum DateFormat: String {
     case slash = "MM/dd/yyyy"
     case long = "dd MMM yyyy"
@@ -17,7 +20,6 @@ enum DateFormat: String {
     case year = "yyyy"
     case fullMonthDayFullYear = "MMM dd, yyyy"
     
-    // Time-based formats
     case hour = "HH"
     case minute = "mm"
     case second = "ss"
@@ -27,9 +29,9 @@ enum DateFormat: String {
 }
 
 extension Date {
-    /// - Returns: This method needs in order to create DateFormatter
-    /// - Parameters:
-    ///    - format: Type `DateFormat` where can be set different options
+    /// Returns a cached DateFormatter configured with the given format.
+    /// - Parameter format: The `DateFormat` to use.
+    /// - Returns: A `DateFormatter` instance set to the specified format and locale.
     private static func formatter(_ format: DateFormat) -> DateFormatter {
         let formatter: DateFormatter = .init()
         formatter.dateFormat = format.rawValue
@@ -37,26 +39,20 @@ extension Date {
         return formatter
     }
     
-    /// Converts a date string into a `Date` object using the specified format.
-    ///
-    /// This method attempts to parse a date string using a date formatter
-    /// based on the given `DateFormat`. If parsing fails, it returns `.distantPast`.
-    ///
+    /// Parses a string into a `Date` using the specified format.
     /// - Parameters:
     ///   - input: The date string to parse.
-    ///   - format: The date format to use for parsing. Defaults to `.slash`.
-    /// - Returns: A `Date` object parsed from the input string, or `.distantPast` if parsing fails.
-    ///
-    /// - Example:
-    /// ```swift
-    /// let date = DateParser.input("07/25/2025") // Using `.slash` format
-    /// ```
+    ///   - format: The `DateFormat` to use. Defaults to `.slash`.
+    /// - Returns: The parsed `Date`, or `.distantPast` if parsing fails.
     static func input(_ input: String, with format: DateFormat = .slash) -> Date {
         Self
             .formatter(format)
             .date(from: input) ?? .distantPast
     }
     
+    /// Formats the date as a string using the specified format.
+    /// - Parameter format: The `DateFormat` to use.
+    /// - Returns: The formatted date string.
     private func formattedToString(as format: DateFormat) -> String {
         Self
             .formatter(format)

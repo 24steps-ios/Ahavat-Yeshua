@@ -7,6 +7,32 @@
 
 import Foundation
 
+/// A struct representing a mock user for UI and unit testing.
+///
+/// `TestUser` is designed to provide sample user data for tests.
+/// It allows you to create users with various levels of detail, 
+/// from fully populated profiles to minimal anonymous users. 
+///
+/// Use the provided static properties to quickly access common test users, 
+/// or create your own instances as needed for specific scenarios.
+///
+/// ## Usage Example
+///
+/// ```swift
+/// // Using a predefined static user
+/// let jonny = TestUser.userJonny
+/// print(jonny.userName) // "Jonny"
+///
+/// // Creating a custom user
+/// let customUser = TestUser(
+///     userName: "Alice",
+///     email: "alice@example.com",
+///     address: "789 Oak St",
+///     phoneNumber: "+1122334455",
+///     dob: .input("01/01/1990")
+/// )
+/// print(customUser.userName) // "Alice"
+/// ```
 struct TestUser {
     var userName: String
     var email: String?
