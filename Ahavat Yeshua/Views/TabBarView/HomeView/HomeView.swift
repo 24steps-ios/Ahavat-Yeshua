@@ -24,14 +24,20 @@ struct HomeView: View {
                     // Feature Cards
                     HStack(spacing: 16) {
                         NavigationLink(destination: BibleReadingView()) {
-                            SquareView(iconName: "book",
-                                       label: "Bible Reading",
-                                       foregroundColor: .green)
+                            SquareView(
+                                iconName: "book",
+                                label: "Bible Reading",
+                                foregroundColor: .green,
+                                aid: "bible_reading"
+                            )
                         }
                         
                         NavigationLink(destination: ProfileMainView()) {
-                            SquareView(iconName: "person.circle",
-                                       label: "Profile")
+                            SquareView(
+                                iconName: "person.circle",
+                                label: "User Profile",
+                                aid: "profile"
+                            )
                         }
                     }
 
