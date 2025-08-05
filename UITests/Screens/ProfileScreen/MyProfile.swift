@@ -21,8 +21,10 @@ final class MyProfile: BaseScreen {
     lazy var clearAllButton: XCUIElement = app.buttons["Clear All"]
     lazy var dobButton: XCUIElement = app.buttons.matching(dobFieldPredicate).firstMatch
     lazy var doneButton: XCUIElement = app.buttons["Done"]
+    
     //    // MARK: Text Fields
     //    lazy var placeholderFullName: XCUIElement = app.textFields["Full Name"]
+    lazy var placeholderEmail: XCUIElement = app.textFields["Enter your email"]
     
     // MARK: Text Fields
     lazy var nameTextField: XCUIElement = app.textFields.element(boundBy: 0)
@@ -67,6 +69,12 @@ final class MyProfile: BaseScreen {
     @discardableResult
     func thenScreenAppears() -> Self {
         title.assertExistence()
+        return self
+    }
+    
+    @discardableResult
+    func thenNavigateToPlaceholderEmail() -> Self {
+        app.textFields["Enter your email"].assertExistenceAndTap()
         return self
     }
     
@@ -122,6 +130,17 @@ final class MyProfile: BaseScreen {
             )
             nameTextField.typeText(deleteString)
         }
+        return self
+    }
+    
+    @discardableResult
+    func setEmail(_ email: String) -> Self {
+        placeholderEmail.assertExistenceAndTap()
+        if let currentValue = placeholderEmail.value as? String {
+            let deleteString = String(repeating: XCUIKeyboardKey.delete.rawValue, count: currentValue.count)
+            placeholderEmail.typeText(deleteString)
+        }
+        placeholderEmail.typeText(email)
         return self
     }
 }

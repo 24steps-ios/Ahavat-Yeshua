@@ -16,6 +16,8 @@ class UITests: Runner {
     lazy var multiSelectionScreen: MultiSelectionScreen = .init(app: app)
     lazy var holyPlacesMapScreen: HolyPlacesMapScreen  = .init(app: app)
     
+    // MARK: EmailFild
+    lazy var emailInputView: EmailInputView = .init(app: app)
     
     // MARK: Common Components
     lazy var navigationTabBar: NavigationTabBar = .init(app: app)

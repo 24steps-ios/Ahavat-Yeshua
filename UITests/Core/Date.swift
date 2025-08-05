@@ -6,6 +6,9 @@
 //
 import Foundation
 
+/// Represents common date formats used throughout the app.
+///
+/// Use this enum to specify date formatting options when converting between `Date` and `String`.
 enum DateFormat: String {
     case slash = "MM/dd/yyyy"
     case long = "dd MMM yyyy"
@@ -18,6 +21,8 @@ enum DateFormat: String {
 }
 
 // Time based format
+/// Represents common time formats used throughout the app.
+/// Use this enum to specify time formatting options.
 enum TimeFormat: String {
     case hour24 = "HH:mm"
     case hour24WithSeconds = "HH:mm:ss"
@@ -41,16 +46,15 @@ extension Date {
         return formatter
     }
     
-    /// Converts a date string into a `Date` object using a specified date format.
-    ///
-    /// This method attempts to parse the given string using a `DateFormatter`
-    /// based on the provided `DateFormat`. If the string cannot be parsed into a valid date,
-    /// it returns `.distantPast` as a fallback. (return today date)
-    ///
-    /// - Parameters:
-    ///   - input: The date string to parse.
-    ///   - format: The `DateFormat` to use for parsing. Defaults to `.slash`.
-    /// - Returns: A `Date` object parsed from the input string, or `.distantPast` if parsing fails.
+
+        /**
+     Converts a string to a `Date` using the specified format.
+     
+     - Parameters:
+        - input: The date string to parse.
+        - format: The `DateFormat` to use. Defaults to `.slash`.
+     - Returns: The parsed `Date`, or `.distantPast` if parsing fails.
+     */
     static func input(_ input: String, with format: DateFormat = .slash) -> Date {
         Self
             .formatter(format)
@@ -58,12 +62,26 @@ extension Date {
     }
     
     
+        /**
+     Converts a string to a `Date` using the specified format. (Alternative signature for clarity.)
+     
+     - Parameters:
+        - input: The date string to parse.
+        - format: The `DateFormat` to use. Defaults to `.slash`.
+     - Returns: The parsed `Date`, or `.distantPast` if parsing fails.
+     */
     static func input(as input: String, with format: DateFormat = .slash) -> Date {
         Self
             .formatter(format)
             .date(from: input) ?? .distantPast  // ?? Date() or ?? .distantPast  always return today
     }
     
+        /**
+     Formats the date as a string using the specified format.
+     
+     - Parameter format: The `DateFormat` to use.
+     - Returns: The formatted date string.
+     */
     private func formattedToString(as format: DateFormat) -> String {
         Self
             .formatter(format)
@@ -71,7 +89,7 @@ extension Date {
     }
 }
 
-extension Date {                                       //class Date
+extension Date {                                       
     var slash: String { formattedToString(as: .slash) }
     var long: String { formattedToString(as: .long) }
     var iso: String { formattedToString(as: .iso) }

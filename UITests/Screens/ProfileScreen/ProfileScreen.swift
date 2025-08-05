@@ -41,6 +41,16 @@ final class ProfileScreen: BaseScreen {
         return self
     }
     
+    @discardableResult
+       func thenEmailMatch(_ expectedEmail: String) -> Self {
+           let emailLabel = app.staticTexts["emailLabel"]
+
+           XCTAssertTrue(emailLabel.waitForExistence(timeout: 5), "❌ Email label not found")
+           XCTAssertEqual(emailLabel.label, expectedEmail, "❌ Email does not match expected value")
+
+           return self
+       }
+    
     // MARK: When
     @discardableResult // enum: MyChurch AND MyPersonal (delete all whens and lazy vars)
     func whenINavigate(to profile: Profile) -> Self {
