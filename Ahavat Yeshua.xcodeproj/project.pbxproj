@@ -64,7 +64,7 @@
 		08B494D22E02317800827AF9 /* FeedScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B494CD2E02317800827AF9 /* FeedScreen.swift */; };
 		08B494D32E02317800827AF9 /* ExploreScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B494CC2E02317800827AF9 /* ExploreScreen.swift */; };
 		08E13C042E25DA1D00595E4E /* ProfileScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E13C022E25DA1D00595E4E /* ProfileScreen.swift */; };
-		08E13C052E25DA1D00595E4E /* MyProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E13C012E25DA1D00595E4E /* MyProfile.swift */; };
+		08E13C052E25DA1D00595E4E /* MyProfileScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E13C012E25DA1D00595E4E /* MyProfileScreen.swift */; };
 		08E13C082E25DBB500595E4E /* HomeHeroBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E13C062E25DBB500595E4E /* HomeHeroBanner.swift */; };
 		08E13C092E25DBB500595E4E /* HomeStatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E13C072E25DBB500595E4E /* HomeStatsView.swift */; };
 		08E13C0B2E25DBBD00595E4E /* ReceiptView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E13C0A2E25DBBD00595E4E /* ReceiptView.swift */; };
@@ -85,7 +85,7 @@
 		D7CA168D2E28426C00C27891 /* Extantions+XCUIElementQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7CA168C2E28425D00C27891 /* Extantions+XCUIElementQuery.swift */; };
 		D7CA168F2E2D5EA900C27891 /* TestUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7CA168E2E2D5E9E00C27891 /* TestUser.swift */; };
 		D7CA16912E382C5000C27891 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7CA16902E382C3D00C27891 /* Date.swift */; };
-		D7ED774D2E41861900E6800B /* MyProfileEmail.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7ED774C2E41860400E6800B /* MyProfileEmail.swift */; };
+		D7ED774D2E41861900E6800B /* MyProfileEmailUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7ED774C2E41860400E6800B /* MyProfileEmailUITests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -181,7 +181,7 @@
 		08B494CC2E02317800827AF9 /* ExploreScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreScreen.swift; sourceTree = "<group>"; };
 		08B494CD2E02317800827AF9 /* FeedScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedScreen.swift; sourceTree = "<group>"; };
 		08B494CE2E02317800827AF9 /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
-		08E13C012E25DA1D00595E4E /* MyProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfile.swift; sourceTree = "<group>"; };
+		08E13C012E25DA1D00595E4E /* MyProfileScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileScreen.swift; sourceTree = "<group>"; };
 		08E13C022E25DA1D00595E4E /* ProfileScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreen.swift; sourceTree = "<group>"; };
 		08E13C062E25DBB500595E4E /* HomeHeroBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHeroBanner.swift; sourceTree = "<group>"; };
 		08E13C072E25DBB500595E4E /* HomeStatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeStatsView.swift; sourceTree = "<group>"; };
@@ -203,7 +203,7 @@
 		D7CA168C2E28425D00C27891 /* Extantions+XCUIElementQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extantions+XCUIElementQuery.swift"; sourceTree = "<group>"; };
 		D7CA168E2E2D5E9E00C27891 /* TestUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestUser.swift; sourceTree = "<group>"; };
 		D7CA16902E382C3D00C27891 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
-		D7ED774C2E41860400E6800B /* MyProfileEmail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileEmail.swift; sourceTree = "<group>"; };
+		D7ED774C2E41860400E6800B /* MyProfileEmailUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileEmailUITests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -478,8 +478,7 @@
 		08E13C032E25DA1D00595E4E /* ProfileScreen */ = {
 			isa = PBXGroup;
 			children = (
-				08E13C012E25DA1D00595E4E /* MyProfile.swift */,
-				D7ED774C2E41860400E6800B /* MyProfileEmail.swift */,
+				08E13C012E25DA1D00595E4E /* MyProfileScreen.swift */,
 				08E13C022E25DA1D00595E4E /* ProfileScreen.swift */,
 			);
 			path = ProfileScreen;
@@ -513,6 +512,7 @@
 			isa = PBXGroup;
 			children = (
 				D7CA16882E283DDC00C27891 /* ProfileUITests.swift */,
+				D7ED774C2E41860400E6800B /* MyProfileEmailUITests.swift */,
 				D7CA16862E283C3100C27891 /* CoreUITests.swift */,
 			);
 			path = UITests;
@@ -671,11 +671,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				08E13C042E25DA1D00595E4E /* ProfileScreen.swift in Sources */,
-				08E13C052E25DA1D00595E4E /* MyProfile.swift in Sources */,
+				08E13C052E25DA1D00595E4E /* MyProfileScreen.swift in Sources */,
 				08B494C42E02307000827AF9 /* Extension+XCUIElement.swift in Sources */,
 				08B494C52E02307000827AF9 /* Runner.swift in Sources */,
 				08B494C72E02316300827AF9 /* BaseScreen.swift in Sources */,
-				D7ED774D2E41861900E6800B /* MyProfileEmail.swift in Sources */,
+				D7ED774D2E41861900E6800B /* MyProfileEmailUITests.swift in Sources */,
 				D7A650082E17426600359022 /* HolyPlacesMapScreen.swift in Sources */,
 				D704CC272E40067F00806C97 /* SMT.swift in Sources */,
 				D7A650022E15C6FA00359022 /* DonationScreen.swift in Sources */,

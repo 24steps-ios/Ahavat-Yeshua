@@ -15,7 +15,7 @@ class ProfileUITests: UITests {
         profileScreen
             .thenScreenAppears()
             .whenINavigate(to: .personal)// TO DO:HOMEWORK - add enum MyChurch AND MyPersonal
-        myProfile
+        myProfileScreen
             .thenScreenAppears()
             .whenTapProfileBackButton()
         profileScreen
@@ -34,7 +34,7 @@ class ProfileUITests: UITests {
         profileScreen
             .whenINavigate(to: .personal)
         users.forEach {
-            myProfile
+            myProfileScreen
                 .givenISetDOB(for: $0)
                 .thenUserDOBAppears(for: $0)
         }
@@ -57,7 +57,7 @@ class ProfileUITests: UITests {
 }
 extension ProfileUITests {
     func userNameMatchMultipleScreens(_ username: TestUser){
-        myProfile
+        myProfileScreen
         .givenISetName(username)
         .whenTapProfileBackButton()
         profileScreen
@@ -72,7 +72,7 @@ extension ProfileUITests {
             .whenINavigate(to: .profileScreen)
         profileScreen
             .whenINavigate(to: .personal)
-        myProfile
+        myProfileScreen
             .whenITapClearAllButton()
             .whenTapProfileBackButton()
         profileScreen

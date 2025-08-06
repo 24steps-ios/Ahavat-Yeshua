@@ -6,7 +6,7 @@
 //
 import XCTest
 
-final class MyProfile: BaseScreen {
+final class MyProfileScreen: BaseScreen {
     
     // MARK: Predicates
     let dobFieldPredicate: NSPredicate = .init(format: "label BEGINSWITH 'Date of Birth'")
@@ -34,13 +34,16 @@ final class MyProfile: BaseScreen {
     lazy var dayPickerWheel: XCUIElement = app.pickerWheels.element(boundBy: 1)
     lazy var yearPickerWheel: XCUIElement = app.pickerWheels.element(boundBy: 2)
     
+    // MARK: Static Texts
+    lazy var emailField:  XCUIElement = app.staticTexts["Email:\()"]
+    
     // AFTER:
     
     // MARK: Given
     @discardableResult // if DOB EXIST WE DO THAT, IF DOB not exist skip!
     func givenISetDOB(for user: TestUser) ->Self {
         if let dob = user.dob {
-            whenIEditMyProfile {
+            whenIEditMyProfileScreen {
                 // whenITapEditButton()
                 dobButton.assertExistenceAndTap()
                 
@@ -49,7 +52,7 @@ final class MyProfile: BaseScreen {
                 yearPickerWheel.adjust(toPickerWheelValue: dob.year)
                 
                 doneButton.assertExistenceAndTap()
-               // whenITapSaveButton()
+                // whenITapSaveButton()
             }
         }
         return self
@@ -57,7 +60,7 @@ final class MyProfile: BaseScreen {
     
     @discardableResult //need TestUser instead String (TestUser)
     func givenISetName(_ user: TestUser) -> Self {
-        whenIEditMyProfile {
+            whenIEditMyProfileScreen{
             nameTextField.assertExistenceAndTap()
             cleanText()
             nameTextField.typeText(user.userName)
@@ -73,12 +76,6 @@ final class MyProfile: BaseScreen {
     }
     
     @discardableResult
-    func thenNavigateToPlaceholderEmail() -> Self {
-        app.textFields["Enter your email"].assertExistenceAndTap()
-        return self
-    }
-    
-    @discardableResult
     func thenUserDOBAppears(for user: TestUser) -> Self {
         if let dob = user.dob {
             let dobId: String = "Date of Birth: \(dob.month) \(dob.day), \(dob.year)"
@@ -88,60 +85,72 @@ final class MyProfile: BaseScreen {
         return self
     }
     
-    // MARK: When
     @discardableResult
-    func whenITapEditButton() -> Self {
-        editButton.assertExistenceAndTap()
+    func thenEmailMatch(String email: String = "test@test.com") -> Self {
+        emailField.firstMatch.assertExistence()
         return self
     }
     
-    @discardableResult
-    func whenITapSaveButton() -> Self {
-        saveButton.assertExistenceAndTap()
-        return self
-    }
-    
-    @discardableResult
-    func whenTapProfileBackButton() -> Self {
-        profileBackButton.assertExistenceAndTap()
-        return self
-    }
-    
-    @discardableResult
-    func whenITapClearAllButton() -> Self {
-        clearAllButton.assertExistenceAndTap()
-        return self
-    }
-//closer:
-    private func whenIEditMyProfile(action:() -> Void) {
-        whenITapEditButton()
-        action()
-        whenITapSaveButton()
-    }
-    
-    // MARK: Helpers
-    @discardableResult
-    func cleanText()-> Self  {
-        // If there's existing text, delete it
-        if let currentValue = nameTextField.value as? String {
-            let deleteString = String(
-                repeating: XCUIKeyboardKey.delete.rawValue,
-                count: currentValue.count
-            )
-            nameTextField.typeText(deleteString)
+        // MARK: When
+        @discardableResult
+        func whenITapEditButton() -> Self {
+            editButton.assertExistenceAndTap()
+            return self
         }
-        return self
-    }
-    
-    @discardableResult
-    func setEmail(_ email: String) -> Self {
-        placeholderEmail.assertExistenceAndTap()
-        if let currentValue = placeholderEmail.value as? String {
-            let deleteString = String(repeating: XCUIKeyboardKey.delete.rawValue, count: currentValue.count)
-            placeholderEmail.typeText(deleteString)
+        
+        @discardableResult
+        func whenITapSaveButton() -> Self {
+            saveButton.assertExistenceAndTap()
+            return self
         }
-        placeholderEmail.typeText(email)
-        return self
+        
+        @discardableResult
+        func whenTapProfileBackButton() -> Self {
+            profileBackButton.assertExistenceAndTap()
+            return self
+        }
+        
+        @discardableResult
+        func whenITapClearAllButton() -> Self {
+            clearAllButton.assertExistenceAndTap()
+            return self
+        }
+        //closer:
+        private func whenIEditMyProfileScreen(action:() -> Void) {
+            whenITapEditButton()
+            action()
+            whenITapSaveButton()
+        }
+        
+        @discardableResult
+        func whenNavigateToPlaceholderEmail() -> Self {
+            app.textFields["Enter your email"].assertExistenceAndTap()
+            return self
+        }
+        
+        // MARK: Helpers
+        @discardableResult
+        func cleanText()-> Self  {
+            // If there's existing text, delete it
+            if let currentValue = nameTextField.value as? String {
+                let deleteString = String(
+                    repeating: XCUIKeyboardKey.delete.rawValue,
+                    count: currentValue.count
+                )
+                nameTextField.typeText(deleteString)
+            }
+            return self
+        }
+        
+        @discardableResult
+        func givenEmail(_ email: String) -> Self {
+            placeholderEmail.assertExistenceAndTap()
+            if let currentValue = placeholderEmail.value as? String {
+                let deleteString = String(repeating: XCUIKeyboardKey.delete.rawValue, count: currentValue.count)
+                placeholderEmail.typeText(deleteString)
+            }
+            placeholderEmail.typeText(email)
+            return self
+        }
     }
-}
 

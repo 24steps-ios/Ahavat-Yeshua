@@ -10,19 +10,12 @@ class UITests: Runner {
     lazy var bibleReadingScreen: BibleReadingScreen = .init(app: app)
     lazy var profileScreen: ProfileScreen = .init(app: app)
     
-    lazy var myProfile: MyProfile = .init(app: app)
+    lazy var myProfileScreen: MyProfileScreen = .init(app: app)
     lazy var donationScreen: DonationScreen = .init(app: app)
     lazy var liveStreamScreen: LiveStreamScreen = .init(app: app)
     lazy var multiSelectionScreen: MultiSelectionScreen = .init(app: app)
     lazy var holyPlacesMapScreen: HolyPlacesMapScreen  = .init(app: app)
     
-    // MARK: EmailFild
-    lazy var emailInputView: EmailInputView = .init(app: app)
-    
     // MARK: Common Components
     lazy var navigationTabBar: NavigationTabBar = .init(app: app)
-    
- 
-    
-
 }
