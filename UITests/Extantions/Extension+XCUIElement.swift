@@ -27,5 +27,15 @@ extension XCUIElement {
         self.assertExistence(timeout: timeout)
         self.tap()
     }
+    
+    func cleanText() {
+        if let currentValue = self.value as? String {
+            let deleteString = String(
+                repeating: XCUIKeyboardKey.delete.rawValue,
+                count: currentValue.count
+            )
+            self.typeText(deleteString)
+        }
+    }
 }
 

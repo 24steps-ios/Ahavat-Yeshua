@@ -74,7 +74,6 @@
 		08E629222ADF64C100891626 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E629212ADF64C100891626 /* NetworkError.swift */; };
 		08E629242ADF687F00891626 /* RequestSending.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E629232ADF687F00891626 /* RequestSending.swift */; };
 		08E629262ADF6B8C00891626 /* Fetching.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E629252ADF6B8C00891626 /* Fetching.swift */; };
-		D704CC272E40067F00806C97 /* SMT.swift in Sources */ = {isa = PBXBuildFile; fileRef = D704CC262E40067A00806C97 /* SMT.swift */; };
 		D7A64FF82E0DEC9400359022 /* BibleReadingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A64FF72E0DEC7800359022 /* BibleReadingScreen.swift */; };
 		D7A650022E15C6FA00359022 /* DonationScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A650012E15C6E900359022 /* DonationScreen.swift */; };
 		D7A650042E17183100359022 /* LiveStreamScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A650032E17181D00359022 /* LiveStreamScreen.swift */; };
@@ -85,7 +84,7 @@
 		D7CA168D2E28426C00C27891 /* Extantions+XCUIElementQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7CA168C2E28425D00C27891 /* Extantions+XCUIElementQuery.swift */; };
 		D7CA168F2E2D5EA900C27891 /* TestUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7CA168E2E2D5E9E00C27891 /* TestUser.swift */; };
 		D7CA16912E382C5000C27891 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7CA16902E382C3D00C27891 /* Date.swift */; };
-		D7ED774D2E41861900E6800B /* MyProfileEmailUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7ED774C2E41860400E6800B /* MyProfileEmailUITests.swift */; };
+		D7ED774D2E41861900E6800B /* MyProfileUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7ED774C2E41860400E6800B /* MyProfileUITests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -192,7 +191,6 @@
 		08E629212ADF64C100891626 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		08E629232ADF687F00891626 /* RequestSending.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestSending.swift; sourceTree = "<group>"; };
 		08E629252ADF6B8C00891626 /* Fetching.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fetching.swift; sourceTree = "<group>"; };
-		D704CC262E40067A00806C97 /* SMT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMT.swift; sourceTree = "<group>"; };
 		D7A64FF72E0DEC7800359022 /* BibleReadingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BibleReadingScreen.swift; sourceTree = "<group>"; };
 		D7A650012E15C6E900359022 /* DonationScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonationScreen.swift; sourceTree = "<group>"; };
 		D7A650032E17181D00359022 /* LiveStreamScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveStreamScreen.swift; sourceTree = "<group>"; };
@@ -203,7 +201,7 @@
 		D7CA168C2E28425D00C27891 /* Extantions+XCUIElementQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extantions+XCUIElementQuery.swift"; sourceTree = "<group>"; };
 		D7CA168E2E2D5E9E00C27891 /* TestUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestUser.swift; sourceTree = "<group>"; };
 		D7CA16902E382C3D00C27891 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
-		D7ED774C2E41860400E6800B /* MyProfileEmailUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileEmailUITests.swift; sourceTree = "<group>"; };
+		D7ED774C2E41860400E6800B /* MyProfileUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileUITests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -464,7 +462,6 @@
 		08B494CF2E02317800827AF9 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				D704CC262E40067A00806C97 /* SMT.swift */,
 				08E13C032E25DA1D00595E4E /* ProfileScreen */,
 				D7A64FF62E0DEC4B00359022 /* HomeScreen */,
 				08B494CB2E02317800827AF9 /* BibleScreen.swift */,
@@ -512,7 +509,7 @@
 			isa = PBXGroup;
 			children = (
 				D7CA16882E283DDC00C27891 /* ProfileUITests.swift */,
-				D7ED774C2E41860400E6800B /* MyProfileEmailUITests.swift */,
+				D7ED774C2E41860400E6800B /* MyProfileUITests.swift */,
 				D7CA16862E283C3100C27891 /* CoreUITests.swift */,
 			);
 			path = UITests;
@@ -675,9 +672,8 @@
 				08B494C42E02307000827AF9 /* Extension+XCUIElement.swift in Sources */,
 				08B494C52E02307000827AF9 /* Runner.swift in Sources */,
 				08B494C72E02316300827AF9 /* BaseScreen.swift in Sources */,
-				D7ED774D2E41861900E6800B /* MyProfileEmailUITests.swift in Sources */,
+				D7ED774D2E41861900E6800B /* MyProfileUITests.swift in Sources */,
 				D7A650082E17426600359022 /* HolyPlacesMapScreen.swift in Sources */,
-				D704CC272E40067F00806C97 /* SMT.swift in Sources */,
 				D7A650022E15C6FA00359022 /* DonationScreen.swift in Sources */,
 				081715AF2B87DEAA00CBC667 /* UITests.swift in Sources */,
 				D7CA168F2E2D5EA900C27891 /* TestUser.swift in Sources */,
