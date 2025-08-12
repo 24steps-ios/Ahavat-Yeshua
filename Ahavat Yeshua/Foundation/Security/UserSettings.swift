@@ -16,6 +16,12 @@ class UserSettings: ObservableObject {
         }
     }
     
+    @Published var lastDonation: Double {
+        didSet {
+            UserDefaults.standard.set(lastDonation, forKey: "UserLastDonation")
+        }
+    }
+    
     @Published var email: String {
         didSet {
             UserDefaults.standard.set(email, forKey: "UserEmail")
@@ -46,6 +52,7 @@ class UserSettings: ObservableObject {
         self.birthDate = UserDefaults.standard.object(forKey: "UserBirthDate") as? Date ?? Date()
         self.address = UserDefaults.standard.string(forKey: "UserAddress") ?? ""
         self.phone = UserDefaults.standard.string(forKey: "UserPhone") ?? ""
+        self.lastDonation = UserDefaults.standard.object(forKey: "UserLastDonation") as? Double ?? 0
     }
     
     func cleanAll() {

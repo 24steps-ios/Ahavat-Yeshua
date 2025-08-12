@@ -8,26 +8,32 @@
 import SwiftUI
 
 struct HomeView: View {
+    @ObservedObject private var userSettings = UserSettings.shared
     var body: some View {
         NavigationStack {
             ScrollView {
-                VStack(spacing: 20) {
-                    Text("Welcome to Our Church")
-                        .font(.custom("AvenirNext-Bold", size: 34))
-                        .foregroundColor(.primary)
-                        .padding(.bottom, 10)
-                        .accessibilityIdentifier("homeView_title")
+                VStack(spacing: 28) {
+                    HomeHeroBanner(userName: userSettings.name)
+                        .padding(.top, 8)
+                    HomeStatsView(studiesCompleted: 3, friendsCount: 12)
                     
+                    // Feature Cards
                     HStack(spacing: 16) {
                         NavigationLink(destination: BibleReadingView()) {
                             SquareView(iconName: "book",
                                        label: "Bible Reading",
-                                       foregroundColor: .green)
+                                       foregroundColor: .green,
+                                       aid: "bible_reading"
+                            )
+                            
+                    //        .accessibilityIdentifier("bible_reading") //Accessibility Modifier
                         }
                         
                         NavigationLink(destination: ProfileMainView()) {
                             SquareView(iconName: "person.circle",
-                                       label: "Profile")
+                                       label: "User Profile",
+                                        aid: "profile"  //Accessibility Modifier
+                                       )
                         }
                     }
 
@@ -44,7 +50,7 @@ struct HomeView: View {
                                        foregroundColor: .red)
                         }
                     }
-
+                    
                     HStack(spacing: 16) {
                         NavigationLink(destination: MultiSelectionView()) {
                             SquareView(iconName: "square.stack.3d.down.forward",

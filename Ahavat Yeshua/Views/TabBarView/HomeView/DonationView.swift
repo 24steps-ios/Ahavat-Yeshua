@@ -11,6 +11,8 @@ struct DonationView: View {
     @State private var quantity: Int = 0
     @State private var totalAmount: Double = 0
     @State private var showCongratulations: Bool = false
+    @State private var showConfirmation: Bool = false
+    @State private var showReceipt: Bool = false
     
     var body: some View {
         VStack {
@@ -48,9 +50,7 @@ struct DonationView: View {
                 .font(.headline)
             
             Button(action: {
-                // Handle the donation action here
-                // For example, you can show an alert or navigate to a donation screen.
-                self.showCongratulations.toggle()
+                self.showReceipt = true
             }) {
                 Text("Donate")
                     .padding()
@@ -58,10 +58,29 @@ struct DonationView: View {
                     .foregroundColor(Color.white)
                     .cornerRadius(10)
             }
+            .sheet(isPresented: $showReceipt) {
+                ReceiptView(amount: totalAmount * Double(quantity), onBack: {
+                    showReceipt = false
+                }, onNext: {
+                    showReceipt = false
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
+                        showConfirmation = true
+                    }
+                })
+            }
+            .alert("Are you sure you want to donate?", isPresented: $showConfirmation) {
+                Button("Agree", role: .none) {
+                    self.showCongratulations = true
+                }
+                .foregroundColor(.green)
+                Button("Cancel", role: .cancel) {}
+                .foregroundColor(.red)
+            }
+
         }
         .padding()
         .sheet(isPresented: $showCongratulations, content: {
-            CongratulationsView(isPresented: $showCongratulations)
+            CongratulationsView(isPresented: $showCongratulations, amount: totalAmount * Double(quantity))
         })
         
     }
@@ -69,34 +88,32 @@ struct DonationView: View {
 
 struct CongratulationsView: View {
     @Binding var isPresented: Bool
+    var amount: Double
+    @State private var animatedAmount: Double = 0
+    @State private var showThankYou: Bool = false
     @State private var fireworksVisible: Bool = false
     
     var body: some View {
-        VStack {
+        VStack(spacing: 24) {
             Text("Congratulations!")
                 .font(.title)
                 .fontWeight(.bold)
             
+            Text("You donated")
+                .font(.headline)
+            Text("$\(animatedAmount, specifier: "%.2f")")
+                .font(.system(size: 48, weight: .bold, design: .rounded))
+                .foregroundColor(.green)
+                .onAppear {
+                    withAnimation(.easeOut(duration: 1.5)) {
+                        animatedAmount = amount
+                    }
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.6) {
+                        showThankYou = true
+                    }
+                }
             if fireworksVisible {
                 FireworksView()
-            }
-            
-            Button(action: {
-                withAnimation {
-                    // Show fireworks when the "Close" button is tapped
-                    fireworksVisible.toggle()
-                }
-                
-                // Close the congratulations popup after a delay
-                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                    isPresented = false
-                }
-            }) {
-                Text("Thank you!")
-                    .padding()
-                    .background(Color.blue)
-                    .foregroundColor(Color.white)
-                    .cornerRadius(10)
             }
         }
         .padding()
@@ -104,6 +121,11 @@ struct CongratulationsView: View {
             // Automatically show fireworks when the view appears
             withAnimation {
                 fireworksVisible.toggle()
+            }
+        }
+        .onDisappear {
+            if amount > 0 {
+                UserSettings.shared.lastDonation = amount
             }
         }
     }
@@ -116,33 +138,34 @@ struct FireworksView: View {
     @State private var particles: [Particle] = []
 
     var body: some View {
-        ZStack {
-            ForEach(particles) { particle in
-                Circle()
-                    .fill(particle.color)
-                    .frame(width: 8, height: 8)
-                    .position(particle.position)
-                    .opacity(particle.opacity)
-                    .scaleEffect(particle.scale)
-                    .animation(.easeOut(duration: 5), value: particle)
+        GeometryReader { geometry in
+            ZStack {
+                ForEach(particles) { particle in
+                    Circle()
+                        .fill(particle.color)
+                        .frame(width: 18, height: 18) // Make particles bigger
+                        .position(particle.position)
+                        .opacity(particle.opacity)
+                        .scaleEffect(particle.scale)
+                        .animation(.easeOut(duration: 5), value: particle)
+                }
             }
-        }
-        .onAppear {
-            launchConfetti()
+            .frame(width: geometry.size.width, height: geometry.size.height)
+            .onAppear {
+                launchConfetti(in: geometry.size)
+            }
         }
     }
 
-    func launchConfetti() {
-        particles = (0..<40).map { _ in
+    func launchConfetti(in size: CGSize = UIScreen.main.bounds.size) {
+        let center = CGPoint(x: size.width / 2, y: size.height / 2)
+        particles = (0..<80).map { _ in // More particles
             Particle(
                 id: UUID(),
-                position: CGPoint(
-                    x: UIScreen.main.bounds.width / 2,
-                    y: UIScreen.main.bounds.height / 2
-                ),
+                position: center,
                 color: Color.random(),
                 opacity: Double.random(in: 0.7...1),
-                scale: CGFloat.random(in: 0.5...1.2)
+                scale: CGFloat.random(in: 1.0...2.2) // Bigger scale
             )
         }
 

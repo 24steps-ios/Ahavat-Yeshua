@@ -1,0 +1,61 @@
+//
+//  ProfileScreen.swift
+//  Ahavat Yeshua
+//
+//  Created by Ilia Pavlov on 7/3/25.
+//
+
+import XCTest
+
+final class ProfileScreen: BaseScreen {
+    
+    // MARK: Button
+    lazy var profileScreenButton: XCUIElement = app.navigationBars["Profile"]
+    
+    // MARK: Static Texts
+  lazy var setUserNameText: XCUIElement = app.staticTexts["SET USER NAME"]
+    
+    // MARK: Enums
+    enum Profile: String {
+        case personal = "Personal"
+        case church = "Church"
+        }
+
+    // MARK: Then
+    @discardableResult
+    func thenScreenAppears() -> Self {
+        profileScreenButton.assertExistence()
+        return self
+    }
+    
+    @discardableResult//need TestUser instead String
+    func thenUserNameMatch(_ user: TestUser) -> Self {
+        let userName: XCUIElement = app.staticTexts[user.userName]
+        userName.assertExistence()
+        return self
+    }
+    
+    @discardableResult
+    func thenDefaultUserNameAppears() -> Self {
+        setUserNameText.assertExistence()
+        return self
+    }
+    
+    @discardableResult
+       func thenEmailMatch(_ expectedEmail: String) -> Self {
+           let emailLabel = app.staticTexts["emailLabel"]
+
+           XCTAssertTrue(emailLabel.waitForExistence(timeout: 5), "❌ Email label not found")
+           XCTAssertEqual(emailLabel.label, expectedEmail, "❌ Email does not match expected value")
+
+           return self
+       }
+    
+    // MARK: When
+    @discardableResult // enum: MyChurch AND MyPersonal (delete all whens and lazy vars)
+    func whenINavigate(to profile: Profile) -> Self {
+        let button: XCUIElement = app.buttons[profile.rawValue]
+        button.assertExistenceAndTap()
+        return self
+    }
+}
