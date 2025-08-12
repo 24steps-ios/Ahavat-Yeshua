@@ -15,8 +15,8 @@ final class HomeScreen: BaseScreen {
     
     //MARK: Enums
     enum Group: String {
-        case bibleReadingScreen = "Bible Reading"
-        case profileScreen = "Profile"
+        case bibleReadingScreen = "Bible Reading" // Home work : Add AIDs for all casesshere
+        case profileScreen = "profile"
         case donationScreen = "Donation"
         case liveStreamScreen = "Live Stream"
         case multiSelectionScreen = "Multi-selection"

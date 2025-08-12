@@ -35,7 +35,9 @@ final class MyProfileScreen: BaseScreen {
     lazy var yearPickerWheel: XCUIElement = app.pickerWheels.element(boundBy: 2)
     
     // MARK: Static Texts
-    lazy var emailField:  XCUIElement = app.staticTexts["Email:\()"]
+    // let email = "test@test.com"
+    lazy var emailField: XCUIElement = app.staticTexts["Email: test@test.com"]// if the label is just "Email:"
+    lazy var errorMassage : XCUIElement = app.staticTexts["Please enter a valid email address."]
     
     // AFTER:
     
@@ -60,7 +62,7 @@ final class MyProfileScreen: BaseScreen {
     
     @discardableResult //need TestUser instead String (TestUser)
     func givenISetName(_ user: TestUser) -> Self {
-            whenIEditMyProfileScreen{
+        whenIEditMyProfileScreen{
             nameTextField.assertExistenceAndTap()
             cleanText()
             nameTextField.typeText(user.userName)
@@ -86,11 +88,16 @@ final class MyProfileScreen: BaseScreen {
     }
     
     @discardableResult
-    func thenEmailMatch(String email: String = "test@test.com") -> Self {
+    func thenEmailMatch(email: String = "test@test.com") -> Self {
         emailField.firstMatch.assertExistence()
         return self
     }
     
+    @discardableResult
+    func thenErrorMassageAppears()  -> Self {
+        errorMassage.assertExistence()
+        return self
+        
         // MARK: When
         @discardableResult
         func whenITapEditButton() -> Self {
@@ -153,4 +160,5 @@ final class MyProfileScreen: BaseScreen {
             return self
         }
     }
-
+    
+}

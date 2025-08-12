@@ -13,6 +13,8 @@ struct SquareView: View {
     var backgroundColor: Color? = .white
     var foregroundColor: Color? = .blue
     var overlayText: String? = nil
+    
+    var aid: String?
 
     var body: some View {
         ZStack {
@@ -27,6 +29,7 @@ struct SquareView: View {
                 Text(label)
                     .font(.headline)
                     .multilineTextAlignment(.center)
+                    .accessibilityIdentifier(aid ?? "N/A")
             }
             .frame(width: 180, height: 180)
             .foregroundColor(foregroundColor)

@@ -8,7 +8,7 @@ import XCTest
 
 class MyProfileUITests: UITests {
     
-    let email: String = "test@test.com"
+    
     
     func testEmailInputPositive() {
         homeScreen
@@ -23,7 +23,26 @@ class MyProfileUITests: UITests {
             .whenNavigateToPlaceholderEmail()
             .givenEmail(email)
             .whenITapSaveButton()
-            .thenEmailMatch(String: email)   ////if email  field: app.staticTexts["Email:\(email)"]
+            .thenEmailMatch(email: email)  ////if email  field: app.staticTexts["Email:\(email)"]
             
     }
-}
+    let email = "null"
+    
+    func testEmailInputNegative(){
+      // assert appears of static text "Please enter valid email address"
+        homeScreen
+            .thenScreenAppears()
+            .whenINavigate(to: .profileScreen)
+        profileScreen
+            .thenScreenAppears()
+            .whenINavigate(to: .personal)
+        myProfileScreen
+            .thenScreenAppears()
+            .whenITapEditButton()
+           .whenNavigateToPlaceholderEmail()
+            .givenEmail(email)
+            .thenErrorMassageAppears()
+            .whenITapSaveButton()
+            .thenErrorMassageAppears()
+    }
+ }
