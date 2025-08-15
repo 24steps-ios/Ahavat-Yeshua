@@ -13,6 +13,9 @@ open class BaseScreen {
         self.app = app
     }
     
+    // MARK: Typealias
+    typealias aid = AccessibilityIdentifiers
+    
     // MARK: Buttons
     lazy var backButton: XCUIElement = app.buttons["Back"]
     

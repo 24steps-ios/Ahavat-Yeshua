@@ -21,6 +21,7 @@ struct HomeHeroBanner: View {
                         Text(userName.isEmpty ? "Friend" : userName)
                             .font(.system(size: 28, weight: .bold, design: .rounded))
                             .foregroundColor(.white)
+                            .accessibilityIdentifier(AccessibilityIdentifiers.greetingBannerId.rawValue)
                     }
                 }
                 Text("Wishing you a blessed day at Ahavat Yeshua!")

@@ -24,10 +24,10 @@ class CoreUITests: UITests {
         navigationTabBar.whenINavigate(to: .homeTab)
         homeScreen.thenScreenAppears()
         
-        
         navigationTabBar.whenINavigate(to: .homeTab)
         homeScreen.thenScreenAppears()
     }
+    
     func testNavigationBar() {
         navigationTabBar
             .thenHomeTabAppears()

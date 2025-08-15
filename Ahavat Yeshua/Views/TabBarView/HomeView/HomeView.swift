@@ -25,15 +25,13 @@ struct HomeView: View {
                                        foregroundColor: .green,
                                        aid: "bible_reading"
                             )
-                            
-                    //        .accessibilityIdentifier("bible_reading") //Accessibility Modifier
                         }
                         
                         NavigationLink(destination: ProfileMainView()) {
                             SquareView(iconName: "person.circle",
                                        label: "User Profile",
-                                        aid: "profile"  //Accessibility Modifier
-                                       )
+                                       aid: "profile"
+                            )
                         }
                     }
 

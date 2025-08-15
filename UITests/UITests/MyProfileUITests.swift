@@ -7,11 +7,8 @@
 import XCTest
 
 class MyProfileUITests: UITests {
-    // MARK: Test Data
-    let invalidEmail: String = "null"
-    
     // MARK: Tests
-    func testEmailInputPositive() {
+    func testEmailInput() {
         homeScreen
             .thenScreenAppears()
             .whenINavigate(to: .profileScreen)
@@ -35,22 +32,4 @@ class MyProfileUITests: UITests {
             .thenScreenAppears()
             .givenIInputEmail(.userAnonymous, isErrorMessageAppears: true)
     }
-    
-    // func testIncorectEmailNotSave() {}
  }
-
-//    TO DO:HOMEWORK
-//     create manual TCs for email field:
-//
-//    positiveTC: test@gmail.com
-//    negativeTC: empty field + enter
-//     white space field
-//     white space between letters in front,back , in domain(3)
-//    missing @, .,(2)
-//    special characters #, $,% in front,back , in domain(3)
-//    numbers in front,back , in domain (3)
-//     upper cases only,in front,back, in domain (4)
-//     Camel  type cases in front,back, in domain (3)
-//     max 256 characters in email field
-    
-    // total 22 tests
