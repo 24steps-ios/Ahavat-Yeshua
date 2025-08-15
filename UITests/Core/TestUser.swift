@@ -40,7 +40,7 @@ extension TestUser {
     static var userJonny: TestUser {
         .init(
             userName: "Jonny",
-            email: "jonny@gmail.com",
+            email: "jonnygmail.com",
             address: "123 Main St",
             phoneNumber: "123-456-7890",
             dob: .input("08/31/1990")

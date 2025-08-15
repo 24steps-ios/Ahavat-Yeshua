@@ -6,10 +6,11 @@
 //
 import XCTest
 
+// MARK: Test Data
+//let invalidEmail: String = "null"
+
+// MARK: Tests
 class MyProfileUITests: UITests {
-    
-    
-    
     func testEmailInputPositive() {
         homeScreen
             .thenScreenAppears()
@@ -19,17 +20,11 @@ class MyProfileUITests: UITests {
             .whenINavigate(to: .personal)
         myProfileScreen
             .thenScreenAppears()
-            .whenITapEditButton()
-            .whenNavigateToPlaceholderEmail()
-            .givenEmail(email)
-            .whenITapSaveButton()
-            .thenEmailMatch(email: email)  ////if email  field: app.staticTexts["Email:\(email)"]
-            
+            .givenIInputEmail(.userJonny)
+            .thenEmailMatch(.userJonny)
     }
-    let email = "null"
     
-    func testEmailInputNegative(){
-      // assert appears of static text "Please enter valid email address"
+    func testEmailInputNegative() {
         homeScreen
             .thenScreenAppears()
             .whenINavigate(to: .profileScreen)
@@ -38,11 +33,6 @@ class MyProfileUITests: UITests {
             .whenINavigate(to: .personal)
         myProfileScreen
             .thenScreenAppears()
-            .whenITapEditButton()
-           .whenNavigateToPlaceholderEmail()
-            .givenEmail(email)
-            .thenErrorMassageAppears()
-            .whenITapSaveButton()
-            .thenErrorMassageAppears()
+            .givenIInputInvalidEmail(.userJonny)
     }
- }
+}
