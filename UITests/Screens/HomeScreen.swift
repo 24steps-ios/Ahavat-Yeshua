@@ -15,12 +15,12 @@ final class HomeScreen: BaseScreen {
     
     //MARK: Enums
     enum Group: String {
-        case bibleReadingScreen = "Bible Reading" // Home work : Add AIDs for all casesshere
-        case profileScreen = "profile"
-        case donationScreen = "Donation"
-        case liveStreamScreen = "Live Stream"
-        case multiSelectionScreen = "Multi-selection"
-        case holyPlacesMapScreen = "Holy Places Map"
+        case bibleReadingScreen = "bible_reading" // Home work : Add AIDs for all casesshere
+        case profileScreen = "profile" //aid
+        case donationScreen = "donation"
+        case liveStreamScreen = "live_stream"
+        case multiSelectionScreen = "multi_selection"
+        case holyPlacesMapScreen = "holy_places_map"
     }
     //MARK: When
     @discardableResult // func of enum when

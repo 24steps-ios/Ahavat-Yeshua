@@ -14,7 +14,7 @@ struct SquareView: View {
     var foregroundColor: Color? = .blue
     var overlayText: String? = nil
     
-    var aid: String?
+    var aid: String? //add Accessebility Identifier
 
     var body: some View {
         ZStack {
@@ -29,7 +29,7 @@ struct SquareView: View {
                 Text(label)
                     .font(.headline)
                     .multilineTextAlignment(.center)
-                    .accessibilityIdentifier(aid ?? "N/A")
+                    .accessibilityIdentifier(aid ?? "N/A") // add Accessebility Identifier
             }
             .frame(width: 180, height: 180)
             .foregroundColor(foregroundColor)
