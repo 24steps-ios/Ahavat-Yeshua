@@ -62,16 +62,28 @@ final class MyProfileScreen: BaseScreen {
     }
     
     @discardableResult
-    func givenIInputEmail(_ user: TestUser) -> Self {
+    func givenIInputEmail(
+        _ user: TestUser,
+        isErrorMessageAppears: Bool = false
+    ) -> Self {
         whenIEditMyProfileScreen {
             emailField.assertExistenceAndTap()
             emailField.cleanText()
             emailField.typeText(user.email ?? "N/A")
+            if isErrorMessageAppears {
+                thenEmailFieldErrorMessageAppears()
+            }
         }
         return self
     }
     
     //MARK: Then
+    @discardableResult
+    func thenEmailFieldErrorMessageAppears() -> Self {
+        errorMassage.assertExistence()
+        return self
+    }
+    
     @discardableResult
     func thenScreenAppears() -> Self {
         title.assertExistence()
