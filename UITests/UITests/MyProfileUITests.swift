@@ -24,24 +24,17 @@ class MyProfileUITests: UITests {
             .thenEmailMatch(.userJonny)
     }
     
-    
-//    func testEmailInputErrorMessage() {
-//      // assert appears of static text "Please enter valid email address"
-//        homeScreen
-//            .thenScreenAppears()
-//            .whenINavigate(to: .profileScreen)
-//        profileScreen
-//            .thenScreenAppears()
-//            .whenINavigate(to: .personal)
-//        myProfileScreen
-//            .thenScreenAppears()
-//            .whenITapEditButton()
-////           .whenNavigateToPlaceholderEmail()
-//            .givenEmail(invalidEmail)
-//            .thenErrorMassageAppears()
-//            .whenITapSaveButton() X
-//            .thenErrorMassageAppears() X
-//    }
+    func testEmailInputErrorMessage() {
+        homeScreen
+            .thenScreenAppears()
+            .whenINavigate(to: .profileScreen)
+        profileScreen
+            .thenScreenAppears()
+            .whenINavigate(to: .personal)
+        myProfileScreen
+            .thenScreenAppears()
+            .givenIInputEmail(.userAnonymous, isErrorMessageAppears: true)
+    }
     
     // func testIncorectEmailNotSave() {}
  }
