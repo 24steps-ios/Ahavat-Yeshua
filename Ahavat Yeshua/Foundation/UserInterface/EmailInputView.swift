@@ -10,6 +10,8 @@ import SwiftUI
 struct EmailInputView: View {
     @Binding var email: String
     @State private var isValidEmail = true // Track email validation
+    
+    var aid: String?
 
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
@@ -22,9 +24,12 @@ struct EmailInputView: View {
                 .cornerRadius(5)
             
             if !isValidEmail {
-                Text("Please enter a valid email address.")
+                Text("Please enter a valid email address.!") // CLEAR "!" AFTER TESTING
                     .foregroundColor(.red)
                     .font(.caption)
+                    .accessibilityIdentifier("please_enter_a_valid_email_address")
+               
+                
             }
         }
     }
