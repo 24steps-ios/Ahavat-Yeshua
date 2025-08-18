@@ -34,18 +34,22 @@ struct HomeView: View {
                             )
                         }
                     }
-
+                    
                     HStack(spacing: 16) {
                         NavigationLink(destination: DonationView()) {
                             SquareView(iconName: "creditcard",
                                        label: "Donation",
-                                       foregroundColor: .orange)
+                                       foregroundColor: .orange,
+                                       aid: "donation"
+                            )
                         }
 
                         NavigationLink(destination: LiveStreamView()) {
                             SquareView(iconName: "play.circle",
                                        label: "Live Stream",
-                                       foregroundColor: .red)
+                                       foregroundColor: .red,
+                                       aid: "live_stream"
+                            )
                         }
                     }
                     
@@ -53,13 +57,17 @@ struct HomeView: View {
                         NavigationLink(destination: MultiSelectionView()) {
                             SquareView(iconName: "square.stack.3d.down.forward",
                                        label: "Multi-selection",
-                                       foregroundColor: .black)
+                                       foregroundColor: .black,
+                                       aid: "multi_selection"
+                            )
                         }
 
                         NavigationLink(destination: HolyPlacesMapView()) {
                             SquareView(iconName: "map",
                                        label: "Holy Places Map",
-                                       foregroundColor: .black)
+                                       foregroundColor: .black,
+                                       aid: "holy_places_map"
+                            )
                         }
                     }
 

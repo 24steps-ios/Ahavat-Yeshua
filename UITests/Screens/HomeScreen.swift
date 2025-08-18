@@ -17,10 +17,10 @@ final class HomeScreen: BaseScreen {
     enum Group: String {
         case bibleReadingScreen = "bible_reading"
         case profileScreen = "profile"
-        case donationScreen = "Donation"
-        case liveStreamScreen = "Live Stream"
-        case multiSelectionScreen = "Multi-selection"
-        case holyPlacesMapScreen = "Holy Places Map"
+        case donationScreen = "donation"
+        case liveStreamScreen = "live_stream"
+        case multiSelectionScreen = "multi_selection"
+        case holyPlacesMapScreen = "holy_places_map"
     }
     
     // MARK: When
