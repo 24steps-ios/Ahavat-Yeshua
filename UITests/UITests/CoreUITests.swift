@@ -89,6 +89,5 @@ class CoreUITests: UITests {
         homeScreen
             .thenIAssert(.holyPlacesMapScreen)
     }
-    
 }
 

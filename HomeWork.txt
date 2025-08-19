@@ -6,6 +6,10 @@
 //
 
 /// HOME WORK
-/// 1 - Add Aids! to errorMassage in MyProfileScreen
-/// 2 - Add aids to Group enum on the Home Screen
-/// 3 - ALL aids should be in AccessibilityIdentifiers enum
+/// MARS 3
+/// [x]1 - Add Aids! to errorMassage in MyProfileScreen
+/// [x]2 - Add aids to Group enum on the Home Screen
+/// []3 - ALL aids should be in AccessibilityIdentifiers enum
+
+/// MARS 4
+/// []4 - Explain how launch arguments works in the app

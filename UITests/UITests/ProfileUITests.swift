@@ -7,6 +7,10 @@
 import XCTest
 
 class ProfileUITests: UITests {
+    // MARK: Preconditions
+    override func setPreconditions() {
+        flags = ["-ResetUserName"]
+    }
     
     // MARK: Tests
     func testMyProfileScreenNavigation() {
@@ -14,7 +18,7 @@ class ProfileUITests: UITests {
             .whenINavigate(to: .profileScreen)
         profileScreen
             .thenScreenAppears()
-            .whenINavigate(to: .personal)// TO DO:HOMEWORK - add enum MyChurch AND MyPersonal
+            .whenINavigate(to: .personal)
         myProfileScreen
             .thenScreenAppears()
             .whenTapProfileBackButton()
@@ -25,8 +29,7 @@ class ProfileUITests: UITests {
             .thenScreenAppears()
     }
     
-    // TODO: HOMEWORK
-    func testUserDOB() {              //Array:
+    func testUserDOB() {
         let users: [TestUser] = [.userEve, .userJonny, .userAnonymous]
         
         homeScreen
@@ -39,13 +42,6 @@ class ProfileUITests: UITests {
                 .thenUserDOBAppears(for: $0)
         }
     }
-//        myProfile
-//            .givenISetDOB(for: .userJonny)
-//            .thenUserDOBAppears(for: .userJonny)
-//        myProfile
-//            .givenISetDOB(for: .userAnonymous)
-//            .thenUserDOBAppears(for: .userAnonymous)
-//    }
     
     func testUserNameInput() {
         homeScreen
@@ -54,9 +50,18 @@ class ProfileUITests: UITests {
             .whenINavigate(to: .personal)
         userNameMatchMultipleScreens(.userJonny)
     }
+        
+    func testDefaultUserName() {
+        homeScreen
+            .thenBannerTextShowDefault()
+            .whenINavigate(to: .profileScreen)
+        profileScreen
+            .thenDefaultUserNameAppears()
+    }
 }
+
 extension ProfileUITests {
-    func userNameMatchMultipleScreens(_ username: TestUser){
+    func userNameMatchMultipleScreens(_ username: TestUser) {
         myProfileScreen
         .givenISetName(username)
         .whenTapProfileBackButton()
@@ -65,20 +70,5 @@ extension ProfileUITests {
             . whenITapBackButton()
         homeScreen
             .thenUserNameMatch(username)
-    }
-    
-    func testDefaultUserName() {
-        homeScreen
-            .whenINavigate(to: .profileScreen)
-        profileScreen
-            .whenINavigate(to: .personal)
-        myProfileScreen
-            .whenITapClearAllButton()
-            .whenTapProfileBackButton()
-        profileScreen
-            .thenDefaultUserNameAppears()
-            .whenITapBackButton()
-        homeScreen
-            .thenBannerTextShowDefault()
     }
 }

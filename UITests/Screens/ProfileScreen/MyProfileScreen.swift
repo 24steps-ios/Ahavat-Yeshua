@@ -32,8 +32,7 @@ final class MyProfileScreen: BaseScreen {
     lazy var yearPickerWheel: XCUIElement = app.pickerWheels.element(boundBy: 2)
     
     // MARK: Static Texts
-    // HOME WORK  ADD AID:
-    lazy var errorMassage : XCUIElement = app.staticTexts["please_enter_a_valid_email_address"]
+    lazy var errorMassage: XCUIElement = app.staticTexts["please_enter_a_valid_email_address"]
     
     // MARK: Given
     @discardableResult
