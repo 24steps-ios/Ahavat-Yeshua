@@ -13,3 +13,13 @@
 
 /// MARS 4
 /// []4 - Explain how launch arguments works in the app
+
+/// MARS FINAL 1
+
+xcodebuild \
+  -scheme "UITests" \
+  -destination 'platform=iOS Simulator,name=iPhone 16 Pro,OS=latest' \
+  -testPlan PR_UITests \
+  test | xcpretty
+  
+  

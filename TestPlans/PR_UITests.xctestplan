@@ -1,0 +1,29 @@
+{
+  "configurations" : [
+    {
+      "id" : "05AA9548-D388-48F2-B40F-625298960A22",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "testTimeoutsEnabled" : true
+  },
+  "testTargets" : [
+    {
+      "selectedTests" : [
+        "CoreUITests\/testHomeScreenNavigation()",
+        "CoreUITests\/testMainTabs()",
+        "ProfileUITests\/testMyProfileScreenNavigation()"
+      ],
+      "target" : {
+        "containerPath" : "container:Ahavat Yeshua.xcodeproj",
+        "identifier" : "081715AB2B87DEAA00CBC667",
+        "name" : "UITests"
+      }
+    }
+  ],
+  "version" : 1
+}

@@ -76,6 +76,7 @@
 		08E629262ADF6B8C00891626 /* Fetching.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E629252ADF6B8C00891626 /* Fetching.swift */; };
 		08F4AC412E4EE13E00666F22 /* AccessibilityIdentifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08F4AC402E4EE13000666F22 /* AccessibilityIdentifiers.swift */; };
 		08F4AC422E4EE1C400666F22 /* AccessibilityIdentifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08F4AC402E4EE13000666F22 /* AccessibilityIdentifiers.swift */; };
+		08F891632EA728FA002C196C /* Profile_UITests.xctestplan in Resources */ = {isa = PBXBuildFile; fileRef = 08F891622EA728FA002C196C /* Profile_UITests.xctestplan */; };
 		D7A64FF82E0DEC9400359022 /* BibleReadingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A64FF72E0DEC7800359022 /* BibleReadingScreen.swift */; };
 		D7A650022E15C6FA00359022 /* DonationScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A650012E15C6E900359022 /* DonationScreen.swift */; };
 		D7A650042E17183100359022 /* LiveStreamScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A650032E17181D00359022 /* LiveStreamScreen.swift */; };
@@ -195,6 +196,8 @@
 		08E629252ADF6B8C00891626 /* Fetching.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fetching.swift; sourceTree = "<group>"; };
 		08F4AC402E4EE13000666F22 /* AccessibilityIdentifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibilityIdentifiers.swift; sourceTree = "<group>"; };
 		08F4AC432E4EE2D600666F22 /* HomeWork.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = HomeWork.txt; sourceTree = "<group>"; };
+		08F8915F2EA72415002C196C /* PR_UITests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = PR_UITests.xctestplan; sourceTree = "<group>"; };
+		08F891622EA728FA002C196C /* Profile_UITests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = Profile_UITests.xctestplan; sourceTree = "<group>"; };
 		D7A64FF72E0DEC7800359022 /* BibleReadingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BibleReadingScreen.swift; sourceTree = "<group>"; };
 		D7A650012E15C6E900359022 /* DonationScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonationScreen.swift; sourceTree = "<group>"; };
 		D7A650032E17181D00359022 /* LiveStreamScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveStreamScreen.swift; sourceTree = "<group>"; };
@@ -308,8 +311,8 @@
 		08AB17292ABBCCE300813AA4 = {
 			isa = PBXGroup;
 			children = (
+				08F891602EA72465002C196C /* TestPlans */,
 				08F4AC432E4EE2D600666F22 /* HomeWork.txt */,
-				08B494C12E02282B00827AF9 /* Ahavat Yeshua.xctestplan */,
 				08AB17342ABBCCE300813AA4 /* Ahavat Yeshua */,
 				081715AD2B87DEAA00CBC667 /* UITests */,
 				086EE07A2DB1E86C007515C6 /* Ahavat Yeshua Widget */,
@@ -507,6 +510,16 @@
 			path = Aids;
 			sourceTree = "<group>";
 		};
+		08F891602EA72465002C196C /* TestPlans */ = {
+			isa = PBXGroup;
+			children = (
+				08F891622EA728FA002C196C /* Profile_UITests.xctestplan */,
+				08F8915F2EA72415002C196C /* PR_UITests.xctestplan */,
+				08B494C12E02282B00827AF9 /* Ahavat Yeshua.xctestplan */,
+			);
+			path = TestPlans;
+			sourceTree = "<group>";
+		};
 		D7A64FF62E0DEC4B00359022 /* HomeScreen */ = {
 			isa = PBXGroup;
 			children = (
@@ -654,6 +667,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				08F891632EA728FA002C196C /* Profile_UITests.xctestplan in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,0 +1,32 @@
+{
+  "configurations" : [
+    {
+      "id" : "C93B69E1-8E19-4FA7-ABFA-803E0F5E8F35",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "testTimeoutsEnabled" : true
+  },
+  "testTargets" : [
+    {
+      "selectedTests" : [
+        "MyProfileUITests\/testEmailInput()",
+        "MyProfileUITests\/testEmailInputErrorMessage()",
+        "ProfileUITests\/testDefaultUserName()",
+        "ProfileUITests\/testMyProfileScreenNavigation()",
+        "ProfileUITests\/testUserDOB()",
+        "ProfileUITests\/testUserNameInput()"
+      ],
+      "target" : {
+        "containerPath" : "container:Ahavat Yeshua.xcodeproj",
+        "identifier" : "081715AB2B87DEAA00CBC667",
+        "name" : "UITests"
+      }
+    }
+  ],
+  "version" : 1
+}

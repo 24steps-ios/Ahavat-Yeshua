@@ -18,6 +18,7 @@
   },
   "testTargets" : [
     {
+      "parallelizable" : true,
       "target" : {
         "containerPath" : "container:Ahavat Yeshua.xcodeproj",
         "identifier" : "081715AB2B87DEAA00CBC667",
