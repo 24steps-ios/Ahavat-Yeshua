@@ -43,25 +43,24 @@ class UITests: Runner {
     }
     
     func testNavigationTabBar() {
-        // homeTab isSelected
-        // app.tabBars.count == 4
+        XCTAssertEqual(app.tabBars.buttons.count, 4)
+        XCTAssertTrue(homeTab.isSelected)
         
-        // bibleStudyTab.tap()
-        // app.tabBars.count == 4
-        //bibleStudyTab button is Selected
+        bibleStudyTab.tap()
+        XCTAssertEqual(app.tabBars.buttons.count, 4)
+        XCTAssertTrue(bibleStudyTab.isSelected)
         
-        // feedTab.tap()
-        // app.tabBars.count == 4
-        //feed button is Selected
+        feedTab.tap()
+        XCTAssertEqual(app.tabBars.buttons.count, 4)
+        XCTAssertTrue(feedTab.isSelected)
         
-        // explore.tap()
-        // app.tabBars.count == 4
-        //bibleStudyTab button is Selected
+        exploreTab.tap()
+        XCTAssertEqual(app.tabBars.buttons.count, 4)
+        XCTAssertTrue(exploreTab.isSelected)
         
-        //homeTab.tap()
-        //app.tabBars.count == 4
-        // homeTab isSelected
-        
+        homeTab.tap()
+        XCTAssertEqual(app.tabBars.buttons.count, 4)
+        XCTAssertTrue(homeTab.isSelected)
     }
 }
 
