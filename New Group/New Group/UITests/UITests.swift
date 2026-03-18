@@ -4,7 +4,7 @@
 //
 //  Created by Ilya Sheynblat on 2/19/26.
 //NavigationTabBar Testing!:
-
+// Test
 import XCTest
 
 class UITests: Runner {
@@ -17,8 +17,6 @@ class UITests: Runner {
     
     // MARK: Common Components
     lazy var navigationTabBar: NavigationTabBar = .init(app: app)
-    
-    
     
     // MARK: Tests
     func testMainScreens() {
@@ -36,5 +34,4 @@ class UITests: Runner {
         navigationTabBar.whenINavigateToHomeTab()
         homeScreen.thenIAssertScreen()
     }
-    
 }
