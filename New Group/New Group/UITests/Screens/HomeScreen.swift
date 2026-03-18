@@ -6,9 +6,9 @@
 //
 import XCTest
 
-class HomeScreen: Runner {
+final class HomeScreen: BaseScreen {
     
-    // MARK: Buttons
+   // MARK: Buttons
     lazy var bibleReading: XCUIElement = app.buttons["Bible Reading"]
     lazy var backButton: XCUIElement = app.buttons["Back"]
     lazy var profile: XCUIElement = app.buttons["Profile"]
@@ -26,21 +26,19 @@ class HomeScreen: Runner {
     lazy var holyPlacesMapIcon: XCUIElement = app.images["map"]
     lazy var liveStreamIcon: XCUIElement = app.images["play.circle"]
     
-    
     // MARK: TextFields
     lazy var bibleReadingSearchField: XCUIElement = app.textFields.firstMatch
     
     // MARK: Static Texts
-    lazy var homeScreenTitle: XCUIElement = app.staticTexts["homeView_title"]
-    //lazy var donationTitle: XCUIElement = app.staticTexts["Total Amount: $0.00"]
+    //lazy var homeScreenTitle: XCUIElement = app.staticTexts["homeView_title"]
     lazy var donationTitle: XCUIElement = app.staticTexts
         .matching(NSPredicate(format: "label BEGINSWITH 'Total Amount'"))
         .element
     lazy var multiSelectionTitle: XCUIElement = app.staticTexts["Select Activities"]
     
-    
     // MARK: NavigationBars
     lazy var navigationBarTitle: XCUIElement = app.navigationBars["Profile"]
+    
     
     func testNavigationHomeScreen() {
         bibleReadingIcon.assertExistence()
@@ -80,4 +78,17 @@ class HomeScreen: Runner {
         backButton.tap()
         homeScreenTitle.assertExistence()
     }
-}
+   
+    lazy var homeScreenTitle: XCUIElement = app.staticTexts["homeView_title"]
+    lazy var bibleStudyScreenTitle: XCUIElement = app.staticTexts[" Growth in Faith"]
+    
+    // MARK: Then
+     func thenIAssertScreen() {
+         homeScreenTitle.assertExistence()
+         
+    }
+    // MARK: When
+    
+    }
+    
+
