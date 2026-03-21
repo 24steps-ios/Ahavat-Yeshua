@@ -18,6 +18,10 @@ class UITests: Runner {
     // MARK: Common Components
     lazy var navigationTabBar: NavigationTabBar = .init(app: app)
     
+    //    //MARK: TabBar elements
+    //    let tabBar = app.tabBars.firstMatch
+    //       let bibleStudyTab = app.tabBars.buttons["BibleStudy"]
+    
     // MARK: Tests
     func testMainScreens() {
         homeScreen.thenIAssertScreen()
@@ -34,27 +38,35 @@ class UITests: Runner {
         navigationTabBar.whenINavigateToHomeTab()
         homeScreen.thenIAssertScreen()
     }
-   // func testNavigationTabBar() {
-   //     XCTAssertEqual(app.tabBars.buttons.count, 4)
-   //     XCTAssertTrue(homeTab.isSelected)
+    
+    func testNavigationTabBar() {
+        navigationTabBar.thenHomeTabAppears()
+        navigationTabBar.thenHomeTabSelected()
+        navigationTabBar.thenAllTabsAppears()
         
-   //     bibleStudyTab.tap()
-   //     XCTAssertEqual(app.tabBars.buttons.count, 4)
-   //     XCTAssertTrue(bibleStudyTab.isSelected)
-   //
-     //   feedTab.tap()
-    //    XCTAssertEqual(app.tabBars.buttons.count, 4)
-    //    XCTAssertTrue(feedTab.isSelected)
+        navigationTabBar.whenINavigateToBibleStudyTab()
+        navigationTabBar.thenBibleStudyTabSelected()
+        navigationTabBar.thenAllTabsAppears()
         
-    //    exploreTab.tap()
-    //    XCTAssertEqual(app.tabBars.buttons.count, 4)
-     //   XCTAssertTrue(exploreTab.isSelected)
+        navigationTabBar.whenINavigateToFeedTab()
+        navigationTabBar.thenFeedTabSelected()
+        navigationTabBar.thenAllTabsAppears()
         
-      //  homeTab.tap()
-     //   XCTAssertEqual(app.tabBars.buttons.count, 4)
-     //   XCTAssertTrue(homeTab.isSelected)
-   // }
+        navigationTabBar.whenINavigateExploreTab()
+        navigationTabBar.thenExploreTabSelected()
+        navigationTabBar.thenAllTabsAppears()
+        
+        navigationTabBar.whenINavigateToHomeTab()
+       // XCTAssertTrue(navigationTabBar.homeTab.isSelected)
+        navigationTabBar.thenHomeTabSelected()
+       // XCTAssertTrue(app.tabBars.buttons.count == 4)
+       // app.tabBars.buttons.assertEqual(4)
+        navigationTabBar.thenAllTabsAppears()
+    }
 }
+// b4
+// assert(element, error massage)
+//  XCTAssertEqual(app.tabBars.buttons.count, 4)
 
-
-
+// After
+// given, then,when contains -> element.assert()
