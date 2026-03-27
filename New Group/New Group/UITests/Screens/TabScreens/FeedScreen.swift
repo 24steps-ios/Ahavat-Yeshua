@@ -10,8 +10,9 @@ final class FeedScreen: BaseScreen {
     lazy var feedScreenSearchField: XCUIElement = app.textFields["Search users or posts"]
     
     // MARK: Then
-    func thenIAssertScreen() {
+    @discardableResult
+    func thenIAssertScreen() -> Self {
         feedScreenSearchField.assertExistence()
-        
+     return self
     }
 }

@@ -59,10 +59,6 @@
 		08E629222ADF64C100891626 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E629212ADF64C100891626 /* NetworkError.swift */; };
 		08E629242ADF687F00891626 /* RequestSending.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E629232ADF687F00891626 /* RequestSending.swift */; };
 		08E629262ADF6B8C00891626 /* Fetching.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E629252ADF6B8C00891626 /* Fetching.swift */; };
-		D7B0864D2F64B49900B15504 /* BIbleStudyScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B086442F64B49900B15504 /* BIbleStudyScreen.swift */; };
-		D7B0864E2F64B49900B15504 /* ExploreScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B086452F64B49900B15504 /* ExploreScreen.swift */; };
-		D7B0864F2F64B49900B15504 /* FeedScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B086462F64B49900B15504 /* FeedScreen.swift */; };
-		D7B086502F64B49900B15504 /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B086472F64B49900B15504 /* HomeScreen.swift */; };
 		D7B086512F64B49900B15504 /* Extansion+XCUIElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B086492F64B49900B15504 /* Extansion+XCUIElement.swift */; };
 		D7B086522F64B49900B15504 /* Runner.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B0864A2F64B49900B15504 /* Runner.swift */; };
 		D7B086532F64B49900B15504 /* UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B0864B2F64B49900B15504 /* UITests.swift */; };
@@ -166,10 +162,6 @@
 		08E629232ADF687F00891626 /* RequestSending.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestSending.swift; sourceTree = "<group>"; };
 		08E629252ADF6B8C00891626 /* Fetching.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fetching.swift; sourceTree = "<group>"; };
 		D7ABDB352F158F9A00F348A0 /* Ahavat YeshuaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Ahavat YeshuaUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		D7B086442F64B49900B15504 /* BIbleStudyScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BIbleStudyScreen.swift; sourceTree = "<group>"; };
-		D7B086452F64B49900B15504 /* ExploreScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreScreen.swift; sourceTree = "<group>"; };
-		D7B086462F64B49900B15504 /* FeedScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedScreen.swift; sourceTree = "<group>"; };
-		D7B086472F64B49900B15504 /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
 		D7B086492F64B49900B15504 /* Extansion+XCUIElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extansion+XCUIElement.swift"; sourceTree = "<group>"; };
 		D7B0864A2F64B49900B15504 /* Runner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Runner.swift; sourceTree = "<group>"; };
 		D7B0864B2F64B49900B15504 /* UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITests.swift; sourceTree = "<group>"; };
@@ -180,6 +172,8 @@
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		D7ABDB362F158F9A00F348A0 /* Ahavat YeshuaUITests */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = "Ahavat YeshuaUITests"; sourceTree = "<group>"; };
+		D7CEE7372F71C25C00D61E3C /* HomeScreens */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = HomeScreens; sourceTree = "<group>"; };
+		D7CEE73C2F74874000D61E3C /* TabScreens */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = TabScreens; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -453,10 +447,8 @@
 		D7B086482F64B49900B15504 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				D7B086442F64B49900B15504 /* BIbleStudyScreen.swift */,
-				D7B086452F64B49900B15504 /* ExploreScreen.swift */,
-				D7B086462F64B49900B15504 /* FeedScreen.swift */,
-				D7B086472F64B49900B15504 /* HomeScreen.swift */,
+				D7CEE73C2F74874000D61E3C /* TabScreens */,
+				D7CEE7372F71C25C00D61E3C /* HomeScreens */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -556,6 +548,10 @@
 			);
 			dependencies = (
 				D7D6203F2F47F1590057314B /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				D7CEE7372F71C25C00D61E3C /* HomeScreens */,
+				D7CEE73C2F74874000D61E3C /* TabScreens */,
 			);
 			name = UITests;
 			packageProductDependencies = (
@@ -717,10 +713,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D7B0864D2F64B49900B15504 /* BIbleStudyScreen.swift in Sources */,
-				D7B0864E2F64B49900B15504 /* ExploreScreen.swift in Sources */,
-				D7B0864F2F64B49900B15504 /* FeedScreen.swift in Sources */,
-				D7B086502F64B49900B15504 /* HomeScreen.swift in Sources */,
 				D7B086512F64B49900B15504 /* Extansion+XCUIElement.swift in Sources */,
 				D7B086562F64B56C00B15504 /* NavigationTabBar.swift in Sources */,
 				D7B086522F64B49900B15504 /* Runner.swift in Sources */,

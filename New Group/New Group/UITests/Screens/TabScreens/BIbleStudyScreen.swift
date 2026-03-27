@@ -10,9 +10,10 @@ final class BibleStudyScreen: BaseScreen {
     lazy var bibleStudyScreenTitle: XCUIElement = app.staticTexts[" Growth in Faith"]
     
     // MARK: Then
-    func thenIAssertScreen() {
+    @discardableResult
+    func thenIAssertScreen() -> Self  {
         bibleStudyScreenTitle.assertExistence()
-        
+     return self
     }
 }
 

@@ -9,137 +9,128 @@ import XCTest
 
 class UITests: Runner {
     
-    // MARK: Screens // CUSTOM
+    // MARK: TAbScreens
     lazy var homeScreen: HomeScreen = .init(app: app)
     lazy var bibleStudyScreen: BibleStudyScreen = .init(app: app)
     lazy var feedScreen: FeedScreen = .init(app: app)
     lazy var exploreScreen: ExploreScreen = .init(app: app)
     
+    // MARK: HomeScreens
+    lazy var bibleReadingScreen: BibleReadingScreen = .init(app: app)
+    lazy var profileScreen: ProfileScreen = .init(app: app)
+    lazy var donationScreen: DonationScreen = .init(app: app)
+    lazy var liveStreamScreen: LiveStreamScreen = .init(app: app)
+    lazy var multiSelectionScreen: MultiSelectionScreen = .init(app: app)
+    lazy var holyPlacesMapScreen: HolyPlacesMapScreen = .init(app: app)
+    
     // MARK: Common Components
     lazy var navigationTabBar: NavigationTabBar = .init(app: app)
     
-    //    //MARK: TabBar elements
-    //    let tabBar = app.tabBars.firstMatch
-    //       let bibleStudyTab = app.tabBars.buttons["BibleStudy"]
     
     // MARK: Tests
     func testMainScreens() {
-        homeScreen.thenIAssertScreen()
+        homeScreen
+            .thenIAssertScreen()
         
-        navigationTabBar.whenINavigateToBibleStudyTab()
-        bibleStudyScreen.thenIAssertScreen()
+        navigationTabBar
+            .whenINavigateToBibleStudyTab()
+        bibleStudyScreen
+            .thenIAssertScreen()
         
-        navigationTabBar.whenINavigateToFeedTab()
-        feedScreen.thenIAssertScreen()
+        navigationTabBar
+            .whenINavigateToFeedTab()
+        feedScreen
+            .thenIAssertScreen()
         
-        navigationTabBar.whenINavigateExploreTab()
-        exploreScreen.thenIAssertScreen()
+        navigationTabBar
+            .whenINavigateExploreTab()
+        exploreScreen
+            .thenIAssertScreen()
         
-        navigationTabBar.whenINavigateToHomeTab()
-        homeScreen.thenIAssertScreen()
+        navigationTabBar
+            .whenINavigateToHomeTab()
+        homeScreen
+            .thenIAssertScreen()
     }
     
-    
-    func testNavigationTabBar() {
-        navigationTabBar.thenHomeTabAppears()
-        navigationTabBar.thenHomeTabSelected()
-        navigationTabBar.thenAllTabsAppears()
+    func testNavigationTabBar() { //chaining
+        navigationTabBar
+            .thenHomeTabAppears()
+            .thenHomeTabSelected()
+            .thenAllTabsAppear()
         
-        navigationTabBar.whenINavigateToBibleStudyTab()
-        navigationTabBar.thenBibleStudyTabSelected()
-        navigationTabBar.thenAllTabsAppears()
+            .whenINavigateToBibleStudyTab()
+            .thenBibleStudyTabSelected()
+            .thenAllTabsAppear()
         
-        navigationTabBar.whenINavigateToFeedTab()
-        navigationTabBar.thenFeedTabSelected()
-        navigationTabBar.thenAllTabsAppears()
+            .whenINavigateToFeedTab()
+            .thenFeedTabSelected()
+            .thenAllTabsAppear()
         
-        navigationTabBar.whenINavigateExploreTab()
-        navigationTabBar.thenExploreTabSelected()
-        navigationTabBar.thenAllTabsAppears()
+            .whenINavigateExploreTab()
+            .thenExploreTabSelected()
+            .thenAllTabsAppear()
         
-        navigationTabBar.whenINavigateToHomeTab()
-        navigationTabBar.thenHomeTabSelected()
-        navigationTabBar.thenAllTabsAppears()
+            .whenINavigateToHomeTab()
+            .thenHomeTabSelected()
+            .thenAllTabsAppear()
     }
     
-    // b4
-    // assert(element, error massage)
-    //  XCTAssertEqual(app.tabBars.buttons.count, 4)
-    
-    // After
-    // given, then,when contains -> element.assert()
-    
-    
-    
-    // MARK: Buttons
-    lazy var bibleReading: XCUIElement = app.buttons["Bible Reading"]
-    lazy var backButton: XCUIElement = app.buttons["Back"]
-    lazy var profile: XCUIElement = app.buttons["Profile"]
-    lazy var donation: XCUIElement = app.buttons["Donation"]
-    lazy var multiSelection: XCUIElement = app.buttons["Multi-selection"]
-    lazy var holyPlacesMap: XCUIElement = app.buttons["Holy Places Map"]
-    lazy var plusCircle: XCUIElement = app.buttons["plus.circle.fill"]
-    lazy var liveStream: XCUIElement = app.buttons["Live Stream"]
-    
-    // MARK: Images
-    lazy var bibleReadingIcon: XCUIElement = app.images["book"]
-    lazy var profileIcon: XCUIElement = app.images["person.circle"]
-    lazy var donationIcon: XCUIElement = app.images["creditcard"]
-    lazy var multiSelectionIcon: XCUIElement = app.images["square.stack.3d.down.forward"]
-    lazy var holyPlacesMapIcon: XCUIElement = app.images["map"]
-    lazy var liveStreamIcon: XCUIElement = app.images["play.circle"]
-    
-    // MARK: TextFields
-    lazy var bibleReadingSearchField: XCUIElement = app.textFields.firstMatch
-    
-    // MARK: Static Texts
-    lazy var homeScreenTitle: XCUIElement = app.staticTexts["homeView_title"]
-    lazy var donationTitle: XCUIElement = app.staticTexts
-        .matching(NSPredicate(format: "label BEGINSWITH 'Total Amount'"))
-        .element
-    lazy var multiSelectionTitle: XCUIElement = app.staticTexts["Select Activities"]
-    
-    // MARK: NavigationBars
-    lazy var navigationBarTitle: XCUIElement = app.navigationBars["Profile"]
-    
-    
-    func testNavigationHomeScreen() {
-       // homeScreenTitle.assertExistence()
-        homeScreen.thenIAssertScreen()
-        bibleReadingIcon.assertExistence()
-        bibleReading.tap()
-        bibleReadingSearchField.assertExistence()
-        backButton.tap()
-        homeScreenTitle.assertExistence()
+    func testHomeScreenNavigation1() {
+        // WHEN I navigate to bible Reading
+        homeScreen.whenINavigateBibleReadingScreen()
+        // THEN BibleReadingScreen() appears
+        bibleReadingScreen.thenScreenAppears()
+        // WHEN I Assert and tap backButton.tap()
+        bibleReadingScreen.whenITapBackButton()
+        // THEN IAssertBibleReadingGroup appears
+        // app.staticTexts["Bible Reading"].assertExistence()
+        homeScreen.thenIAssertBibleReadingGroupAppears()
         
-        profileIcon.assertExistence()
-        profile.tap()
-        navigationBarTitle.assertExistence()
-        backButton.tap()
-        homeScreenTitle.assertExistence()
+        // WHEN I navigate to profileScreen
+        homeScreen.whenINavigateProfileScreen()
+        // THEN profile screen appears
+        profileScreen.thenProfileScreenAppears()
+        // WHEN I TAP BACK BUTTON
+        profileScreen.whenITapBackButton()
+        // THEN IAssertProfileGroupAppears()
+        homeScreen.thenIAssertProfileGroupAppears()
         
-        donationIcon.assertExistence()
-        donation.tap()
-        donationTitle.assertExistence()
-        backButton.tap()
-        homeScreenTitle.assertExistence()
         
-        liveStreamIcon.assertExistence()
-        liveStream.tap()
-        backButton.assertExistence()
-        backButton.tap()
-        homeScreenTitle.assertExistence()
+        homeScreen.whenINavigateDonationScreen()
+        //donation.assertExistenceAndTap()
+        donationScreen.thenDonationScreenAppears()
+        //donationTitle.assertExistence()
+        donationScreen.whenITapBackButton()
+        //   backButton.assertExistenceAndTap()
+        // thenIAssertDonationGroupAppears()
+        homeScreen.thenIAssertDonationGroupAppears()
         
-        multiSelectionIcon.assertExistence()
-        multiSelection.tap()
-        multiSelectionTitle.assertExistence()
-        backButton.tap()
-        homeScreenTitle.assertExistence()
+        homeScreen.whenINavigateLiveStreamScreen()
+        // liveStream.assertExistenceAndTap(timeout: 30) //loading page stuck
+        liveStreamScreen.thenLiveStreamScreenAppears()
+        //        searchYouTube.assertExistence()
+        liveStreamScreen.whenITapBackButton()
+        //        backButton.assertExistenceAndTap()
+        // thenIAssertLiveStreamGroupAppears()
+        homeScreen.thenIAssertLiveStreamGroupAppears()
         
-        holyPlacesMapIcon.assertExistence()
-        holyPlacesMap.tap()
-        plusCircle.assertExistence()
-        backButton.tap()
-        homeScreenTitle.assertExistence()
+        homeScreen.whenINavigateMultiSelectionScreen()
+        //        multiSelection.assertExistenceAndTap()
+        multiSelectionScreen.thenMultiSelectionScreenAppears()
+        //        multiSelectionTitle.assertExistence()
+        multiSelectionScreen.whenITapBackButton()
+        //        backButton.assertExistenceAndTap()
+        // thenIAssertMultiSelectionGroupAppears()
+        homeScreen.thenIAssertMultiSelectionGroupAppears()
+        
+        homeScreen.whenINavigateHolyPlacesMapScreen()
+        //        holyPlacesMap.assertExistenceAndTap()
+        holyPlacesMapScreen.thenHolyPlacesMapScreenAppears()
+        //        plusCircle.assertExistence()
+        holyPlacesMapScreen.whenITapBackButton()
+        //        backButton.assertExistenceAndTap()
+        // thenIAssertHolyPlacesMapGroupAppears()
+        homeScreen.thenIAssertHolyPlacesMapGroupAppears()
     }
 }
