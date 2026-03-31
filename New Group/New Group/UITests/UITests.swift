@@ -33,22 +33,22 @@ class UITests: Runner {
             .thenIAssertScreen()
         
         navigationTabBar
-            .whenINavigateToBibleStudyTab()
+            .whenINavigate(to: .bibleStudyTab)
         bibleStudyScreen
             .thenIAssertScreen()
         
         navigationTabBar
-            .whenINavigateToFeedTab()
+            .whenINavigate(to: .feedTab)
         feedScreen
             .thenIAssertScreen()
         
         navigationTabBar
-            .whenINavigateExploreTab()
+            .whenINavigate(to: .exploreTab)
         exploreScreen
             .thenIAssertScreen()
         
         navigationTabBar
-            .whenINavigateToHomeTab()
+            .whenINavigate(to: .homeTab)
         homeScreen
             .thenIAssertScreen()
     }
@@ -59,78 +59,67 @@ class UITests: Runner {
             .thenHomeTabSelected()
             .thenAllTabsAppear()
         
-            .whenINavigateToBibleStudyTab()
+            .whenINavigate(to: .bibleStudyTab)
             .thenBibleStudyTabSelected()
             .thenAllTabsAppear()
         
-            .whenINavigateToFeedTab()
+            .whenINavigate(to: .feedTab)
             .thenFeedTabSelected()
             .thenAllTabsAppear()
         
-            .whenINavigateExploreTab()
+            .whenINavigate(to: .exploreTab)
             .thenExploreTabSelected()
             .thenAllTabsAppear()
         
-            .whenINavigateToHomeTab()
+            .whenINavigate(to: .homeTab)
             .thenHomeTabSelected()
             .thenAllTabsAppear()
     }
     
     func testHomeScreenNavigation1() {
-        // WHEN I navigate to bible Reading
-        homeScreen.whenINavigateBibleReadingScreen()
-        // THEN BibleReadingScreen() appears
-        bibleReadingScreen.thenScreenAppears()
-        // WHEN I Assert and tap backButton.tap()
-        bibleReadingScreen.whenITapBackButton()
-        // THEN IAssertBibleReadingGroup appears
-        // app.staticTexts["Bible Reading"].assertExistence()
-        homeScreen.thenIAssertBibleReadingGroupAppears()
+        homeScreen
+            .whenINavigate(to: .bibleReading)
+        bibleReadingScreen
+            .thenScreenAppears()
+        bibleReadingScreen
+            .whenITapBackButton()
+        homeScreen
+            .thenIAssertGroupAppears(.bibleReading)
         
-        // WHEN I navigate to profileScreen
-        homeScreen.whenINavigateProfileScreen()
-        // THEN profile screen appears
-        profileScreen.thenProfileScreenAppears()
-        // WHEN I TAP BACK BUTTON
-        profileScreen.whenITapBackButton()
-        // THEN IAssertProfileGroupAppears()
-        homeScreen.thenIAssertProfileGroupAppears()
+        homeScreen
+            .whenINavigate(to: .profile)
+        profileScreen
+            .thenProfileScreenAppears()
+        profileScreen
+            .whenITapBackButton()
+        homeScreen
+            .thenIAssertGroupAppears(.profile)
         
+        homeScreen
+            .whenINavigate(to: .donation)
+        donationScreen
+            .thenDonationScreenAppears()
+        donationScreen
+            .whenITapBackButton()
+        homeScreen
+            .thenIAssertGroupAppears(.donation)
         
-        homeScreen.whenINavigateDonationScreen()
-        //donation.assertExistenceAndTap()
-        donationScreen.thenDonationScreenAppears()
-        //donationTitle.assertExistence()
-        donationScreen.whenITapBackButton()
-        //   backButton.assertExistenceAndTap()
-        // thenIAssertDonationGroupAppears()
-        homeScreen.thenIAssertDonationGroupAppears()
+        homeScreen
+            .whenINavigate(to: .multiSelection)
+        multiSelectionScreen
+            .thenMultiSelectionScreenAppears()
+        multiSelectionScreen
+            .whenITapBackButton()
+        homeScreen
+            .thenIAssertGroupAppears(.multiSelection)
         
-        homeScreen.whenINavigateLiveStreamScreen()
-        // liveStream.assertExistenceAndTap(timeout: 30) //loading page stuck
-        liveStreamScreen.thenLiveStreamScreenAppears()
-        //        searchYouTube.assertExistence()
-        liveStreamScreen.whenITapBackButton()
-        //        backButton.assertExistenceAndTap()
-        // thenIAssertLiveStreamGroupAppears()
-        homeScreen.thenIAssertLiveStreamGroupAppears()
-        
-        homeScreen.whenINavigateMultiSelectionScreen()
-        //        multiSelection.assertExistenceAndTap()
-        multiSelectionScreen.thenMultiSelectionScreenAppears()
-        //        multiSelectionTitle.assertExistence()
-        multiSelectionScreen.whenITapBackButton()
-        //        backButton.assertExistenceAndTap()
-        // thenIAssertMultiSelectionGroupAppears()
-        homeScreen.thenIAssertMultiSelectionGroupAppears()
-        
-        homeScreen.whenINavigateHolyPlacesMapScreen()
-        //        holyPlacesMap.assertExistenceAndTap()
-        holyPlacesMapScreen.thenHolyPlacesMapScreenAppears()
-        //        plusCircle.assertExistence()
-        holyPlacesMapScreen.whenITapBackButton()
-        //        backButton.assertExistenceAndTap()
-        // thenIAssertHolyPlacesMapGroupAppears()
-        homeScreen.thenIAssertHolyPlacesMapGroupAppears()
+        homeScreen
+            .whenINavigate(to: .holyPlacesMap)
+        holyPlacesMapScreen
+            .thenHolyPlacesMapScreenAppears()
+        holyPlacesMapScreen
+            .whenITapBackButton()
+        homeScreen
+            .thenIAssertGroupAppears(.holyPlacesMap)
     }
 }
