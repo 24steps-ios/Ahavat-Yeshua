@@ -8,16 +8,6 @@ import XCTest
 
 final class HomeScreen: BaseScreen {
     
-    // MARK: StaticTexts
-    /// ID's better to do like staticTexts instead buttons
-    //    lazy var homeScreenTitle: XCUIElement = app.staticTexts["homeView_title"]
-    //        lazy var bibleReading: XCUIElement = app.staticTexts["Bible Reading"]
-    //        lazy var profile: XCUIElement = app.staticTexts["Profile"]
-    //        lazy var donation: XCUIElement = app.staticTexts["Donation"]
-    //        lazy var liveStream: XCUIElement = app.staticTexts["Live Stream"]
-    //        lazy var multiSelection: XCUIElement = app.staticTexts["Multi-selection"]
-    //        lazy var holyPlacesMap: XCUIElement = app.staticTexts["Holy Places Map"]
-    
     //MARK: Enums
     enum Screen: String {
         case homeScreenTitle = "homeView_title"
@@ -30,6 +20,7 @@ final class HomeScreen: BaseScreen {
     }
     
     // MARK: Then
+    /// func erase all thenIAssertHomeScreens() ; ALL  SCREENS!
     @discardableResult
     func thenIAssert(_ screen: Screen) -> Self {
         let screen: XCUIElement = app.staticTexts[screen.rawValue]
