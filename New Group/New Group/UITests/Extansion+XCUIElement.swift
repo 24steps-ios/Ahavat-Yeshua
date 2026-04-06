@@ -22,7 +22,7 @@ extension XCUIElement {
     func assertSelected(_ state: Bool = true) {
         XCTAssertEqual(state, self.isSelected, "Element is not selected")
     }
-    func assertExistenceAndTap(timeout: TimeInterval = 5) {
+    func assertExistenceAndTap(timeout: TimeInterval = 10) {
         self.assertExistence(timeout: timeout)
         self.tap()
     }

@@ -26,11 +26,14 @@ class UITests: Runner {
     // MARK: Common Components
     lazy var navigationTabBar: NavigationTabBar = .init(app: app)
     
+    lazy var myProfile: MyProfile = .init(app: app)
+    lazy var myChurch: MyChurch = .init(app: app)
+    
     
     // MARK: Tests
     func testMainScreens() {
         homeScreen
-            .thenIAssertScreen()
+            .thenIAssert(.homeScreenTitle)
         
         navigationTabBar
             .whenINavigate(to: .bibleStudyTab)
@@ -50,7 +53,7 @@ class UITests: Runner {
         navigationTabBar
             .whenINavigate(to: .homeTab)
         homeScreen
-            .thenIAssertScreen()
+            .thenIAssert(.homeScreenTitle)
     }
     
     func testNavigationTabBar() { //chaining
@@ -78,48 +81,57 @@ class UITests: Runner {
     
     func testHomeScreenNavigation1() {
         homeScreen
-            .whenINavigate(to: .bibleReading)
+            .whenINavigate(to: .bibleReadingScreen)
         bibleReadingScreen
             .thenScreenAppears()
-        bibleReadingScreen
             .whenITapBackButton()
         homeScreen
-            .thenIAssertGroupAppears(.bibleReading)
-        
-        homeScreen
-            .whenINavigate(to: .profile)
+            .thenIAssert(.bibleReadingScreen)
+            .whenINavigate(to: .profileScreen)
         profileScreen
-            .thenProfileScreenAppears()
-        profileScreen
+            .thenScreenAppears()
             .whenITapBackButton()
         homeScreen
-            .thenIAssertGroupAppears(.profile)
-        
-        homeScreen
-            .whenINavigate(to: .donation)
+            .thenIAssert(.profileScreen)
+            .whenINavigate(to: .donationScreen)
         donationScreen
             .thenDonationScreenAppears()
-        donationScreen
             .whenITapBackButton()
         homeScreen
-            .thenIAssertGroupAppears(.donation)
-        
+            .thenIAssert(.donationScreen)
+            .whenINavigate(to: .liveStreamScreen)
+        liveStreamScreen
+            .whenITapBackButton()
         homeScreen
-            .whenINavigate(to: .multiSelection)
+            .thenIAssert(.liveStreamScreen)
+            .whenINavigate(to: .multiSelectionScreen)
         multiSelectionScreen
             .thenMultiSelectionScreenAppears()
-        multiSelectionScreen
             .whenITapBackButton()
         homeScreen
-            .thenIAssertGroupAppears(.multiSelection)
-        
-        homeScreen
-            .whenINavigate(to: .holyPlacesMap)
+            .thenIAssert(.multiSelectionScreen)
+            .whenINavigate(to: .holyPlacesMapScreen)
         holyPlacesMapScreen
             .thenHolyPlacesMapScreenAppears()
-        holyPlacesMapScreen
             .whenITapBackButton()
         homeScreen
-            .thenIAssertGroupAppears(.holyPlacesMap)
+            .thenIAssert(.holyPlacesMapScreen)
+    }
+    
+    func testMyProfileScreenNavigation() {
+        let userName: String = "Boby"
+        homeScreen.whenINavigate(to: .profileScreen)
+        profileScreen.thenScreenAppears()
+        profileScreen.whenINavigateToMyProfile()
+        myProfile.thenMyProfileTitleAppears()
+        myProfile.whenITapEditButton()
+        
+        myProfile.givenISetName(userName)
+        myProfile.whenITapBackProfileButton()
+        profileScreen.thenUserNameMatch(userName)
+        //profileScreen.whenTapBackButton()
+        //homeScreen.thenUserNameMatch()   bannerHasSameUserName()
+        print("")
+        
     }
 }

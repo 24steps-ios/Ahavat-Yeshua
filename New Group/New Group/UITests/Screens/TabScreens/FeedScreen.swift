@@ -7,6 +7,8 @@
 import XCTest
 
 final class FeedScreen: BaseScreen {
+    
+    // MARK: Text Fields
     lazy var feedScreenSearchField: XCUIElement = app.textFields["Search users or posts"]
     
     // MARK: Then
