@@ -122,4 +122,30 @@ class UITests: Runner {
         homeScreen
             .thenIAssertGroupAppears(.holyPlacesMap)
     }
+    //MARK: TabBar
+    lazy var homeTab: XCUIElement = app.tabBars.buttons["Home"]
+    lazy var bibleStudyTab: XCUIElement = app.tabBars.buttons["Bible Study"]
+    lazy var feedTab: XCUIElement = app.tabBars.buttons["Feed"]
+    lazy var exploreTab: XCUIElement = app.tabBars.buttons["Explore"]
+    
+    func testNavigationTabBar() {
+        XCTAssertEqual(app.tabBars.buttons.count, 4)
+        XCTAssertTrue(homeTab.isSelected)
+        
+        bibleStudyTab.tap()
+        XCTAssertEqual(app.tabBars.buttons.count, 4)
+        XCTAssertTrue(bibleStudyTab.isSelected)
+        
+        feedTab.tap()
+        XCTAssertEqual(app.tabBars.buttons.count, 4)
+        XCTAssertTrue(feedTab.isSelected)
+        
+        exploreTab.tap()
+        XCTAssertEqual(app.tabBars.buttons.count, 4)
+        XCTAssertTrue(exploreTab.isSelected)
+        
+        homeTab.tap()
+        XCTAssertEqual(app.tabBars.buttons.count, 4)
+        XCTAssertTrue(homeTab.isSelected)
+    }
 }
