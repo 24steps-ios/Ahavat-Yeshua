@@ -69,34 +69,3 @@ final class NavigationTabBar: BaseScreen {
         return self
         }
     }
-// instead: use enum Tab and change UITests .rowValue = homeTab, feedTab etc
-
-    // MARK: When (-> delete those code)
-//    @discardableResult
-//    func whenINavigateToHomeTab() -> Self  {
-//        homeTab.assertExistence(isElementStatic: true)
-//        homeTab.tap()
-//        return self
-//    }
-//    
-//    @discardableResult
-//    func whenINavigateToBibleStudyTab() -> Self  {
-//        bibleStudyTab.assertExistence(isElementStatic: true)
-//        bibleStudyTab.tap()
-//        return self
-//    }
-//    
-//    @discardableResult
-//    func whenINavigateToFeedTab() -> Self  {
-//        feedTab.assertExistence(isElementStatic: true)
-//        feedTab.tap()
-//        return self
-//    }
-//    
-//    @discardableResult
-//    func whenINavigateExploreTab() -> Self  {
-//        exploreTab.assertExistence(isElementStatic: true)
-//        exploreTab.tap()
-//        return self
-//    }
-//}
