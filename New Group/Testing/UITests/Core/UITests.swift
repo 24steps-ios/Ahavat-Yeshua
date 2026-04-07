@@ -26,6 +26,7 @@ class UITests: Runner {
     // MARK: Common Components
     lazy var navigationTabBar: NavigationTabBar = .init(app: app)
     
+    // MARK: ProfileScreens
     lazy var myProfile: MyProfile = .init(app: app)
     lazy var myChurch: MyChurch = .init(app: app)
     
