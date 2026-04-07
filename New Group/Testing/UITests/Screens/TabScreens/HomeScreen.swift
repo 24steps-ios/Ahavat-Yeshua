@@ -7,10 +7,12 @@
 import XCTest
 
 final class HomeScreen: BaseScreen {
+    //MARK: Images
+  //  lazy var bannerImage: XCUIElement = app.images["Account"]
     
     //MARK: Enums
-    enum Screen: String {
-        case homeScreenTitle = "homeView_title"
+    enum Group: String {
+        case homeScreen = "homeView_title"
         case bibleReadingScreen = "Bible Reading"
         case profileScreen = "Profile"
         case donationScreen = "Donation"
@@ -22,16 +24,28 @@ final class HomeScreen: BaseScreen {
     // MARK: Then
     /// func erase all thenIAssertHomeScreens() ; ALL  SCREENS!
     @discardableResult
-    func thenIAssert(_ screen: Screen) -> Self {
+    func thenIAssert(_ screen: Group) -> Self {
         let screen: XCUIElement = app.staticTexts[screen.rawValue]
-        screen.assertExistence()
+       screen.assertExistence()
         return self
     }
+    
+    @discardableResult
+    func thenUserNameMatch(_ userName: String) -> Self {
+        let userName: XCUIElement = app.staticTexts[userName]
+        userName.assertExistence()
+        return self
+    }
+    
+    ///func for homeScreen with banner (feature not exists)
+//    func thenScreenAppears() {
+//        bannerImage.assertExistence()
+//    }
     
     // MARK: When
     /// Enum func screen
     @discardableResult
-    func whenINavigate(to screen: Screen) -> Self {
+    func whenINavigate(to screen: Group) -> Self {
         let screen: XCUIElement = app.staticTexts[screen.rawValue]
         screen.assertExistenceAndTap()
         return self

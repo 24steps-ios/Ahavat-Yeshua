@@ -1,39 +1,16 @@
 //
-//  UITests.swift
-//  UITests
+//  CoreUITests.swift
+//  Ahavat Yeshua
 //
-//  Created by Ilya Sheynblat on 2/19/26.
-//NavigationTabBar Testing!:
-// Test
+//  Created by Ilya Sheynblat on 4/6/26.
+//
 import XCTest
 
-class UITests: Runner {
-    
-    // MARK: TAbScreens
-    lazy var homeScreen: HomeScreen = .init(app: app)
-    lazy var bibleStudyScreen: BibleStudyScreen = .init(app: app)
-    lazy var feedScreen: FeedScreen = .init(app: app)
-    lazy var exploreScreen: ExploreScreen = .init(app: app)
-    
-    // MARK: HomeScreens
-    lazy var bibleReadingScreen: BibleReadingScreen = .init(app: app)
-    lazy var profileScreen: ProfileScreen = .init(app: app)
-    lazy var donationScreen: DonationScreen = .init(app: app)
-    lazy var liveStreamScreen: LiveStreamScreen = .init(app: app)
-    lazy var multiSelectionScreen: MultiSelectionScreen = .init(app: app)
-    lazy var holyPlacesMapScreen: HolyPlacesMapScreen = .init(app: app)
-    
-    // MARK: Common Components
-    lazy var navigationTabBar: NavigationTabBar = .init(app: app)
-    
-    lazy var myProfile: MyProfile = .init(app: app)
-    lazy var myChurch: MyChurch = .init(app: app)
-    
-    
-    // MARK: Tests
-    func testMainScreens() {
+// Base for smoke tests
+class CoreUITests: UITests {
+    func testMainTabs() {
         homeScreen
-            .thenIAssert(.homeScreenTitle)
+            .thenIAssert(.homeScreen)
         
         navigationTabBar
             .whenINavigate(to: .bibleStudyTab)
@@ -53,7 +30,7 @@ class UITests: Runner {
         navigationTabBar
             .whenINavigate(to: .homeTab)
         homeScreen
-            .thenIAssert(.homeScreenTitle)
+            .thenIAssert(.homeScreen)
     }
     
     func testNavigationTabBar() { //chaining
@@ -79,7 +56,7 @@ class UITests: Runner {
             .thenAllTabsAppear()
     }
     
-    func testHomeScreenNavigation1() {
+    func testHomeScreenNavigation() {
         homeScreen
             .whenINavigate(to: .bibleReadingScreen)
         bibleReadingScreen
@@ -116,22 +93,5 @@ class UITests: Runner {
             .whenITapBackButton()
         homeScreen
             .thenIAssert(.holyPlacesMapScreen)
-    }
-    
-    func testMyProfileScreenNavigation() {
-        let userName: String = "Boby"
-        homeScreen.whenINavigate(to: .profileScreen)
-        profileScreen.thenScreenAppears()
-        profileScreen.whenINavigateToMyProfile()
-        myProfile.thenMyProfileTitleAppears()
-        myProfile.whenITapEditButton()
-        
-        myProfile.givenISetName(userName)
-        myProfile.whenITapBackProfileButton()
-        profileScreen.thenUserNameMatch(userName)
-        //profileScreen.whenTapBackButton()
-        //homeScreen.thenUserNameMatch()   bannerHasSameUserName()
-        print("")
-        
     }
 }
