@@ -8,20 +8,16 @@ import XCTest
 
 final class BibleReadingScreen: BaseScreen {
     
-    // MARK: Buttons
-    lazy var bibleReadingButton: XCUIElement = app.buttons["Bible Reading"]
-    lazy var backButton: XCUIElement = app.buttons["Back"]
+    //MARK: StaticTexts
+    lazy var bibleReading: XCUIElement = app.staticTexts["Bible Reading"]
     
     // MARK: TextFields
     lazy var bibleReadingSearchField: XCUIElement = app.textFields.firstMatch
     
     // MARK: Then
-    func thenScreenAppears() {
+    @discardableResult
+    func thenScreenAppears() -> Self {
         bibleReadingSearchField.assertExistence()
-    }
-    
-    // MARK: When
-    func  whenITapBackButton() {
-        backButton.assertExistenceAndTap()
+        return self
     }
 }
