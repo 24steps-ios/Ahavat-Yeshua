@@ -8,7 +8,7 @@ import XCTest
 
 final class HomeScreen: BaseScreen {
     //MARK: Images
-  //  lazy var bannerImage: XCUIElement = app.images["Account"]
+    lazy var bannerImage: XCUIElement = app.images["Account"]
     
     //MARK: Enums
     enum Group: String {
@@ -38,9 +38,9 @@ final class HomeScreen: BaseScreen {
     }
     
     ///func for homeScreen with banner (feature not exists)
-//    func thenScreenAppears() {
-//        bannerImage.assertExistence()
-//    }
+    func thenScreenAppears() {
+        bannerImage.assertExistence()
+    }
     
     // MARK: When
     /// Enum func screen
