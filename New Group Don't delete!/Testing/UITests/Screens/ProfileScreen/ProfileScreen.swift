@@ -17,11 +17,19 @@ final class ProfileScreen: BaseScreen {
     // MARK: Static Texts
     lazy var profileTitel: XCUIElement =
     app.staticTexts["Profile"]
+    lazy var defaultUserName: XCUIElement = app.staticTexts["Michaela"]
+    
 
     // MARK: Then
     @discardableResult
     func thenScreenAppears() -> Self {
         profileTitel.assertExistence()
+        return self
+    }
+    
+    @discardableResult
+    func thenDefaultUserNameAppears() -> Self {
+        defaultUserName.assertExistence()
         return self
     }
     

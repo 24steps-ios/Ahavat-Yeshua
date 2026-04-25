@@ -19,6 +19,8 @@ extension XCUIElement {
         }
     }
     
+    
+    
     func assertSelected(_ state: Bool = true) {
         XCTAssertEqual(state, self.isSelected, "Element \(self) is not selected")
     }

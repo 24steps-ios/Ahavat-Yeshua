@@ -33,38 +33,42 @@ class ProfileUITests: UITests {
             .thenIAssert(.homeScreen)
     }
     
-    func testDefaultUserName() { // tap Clear all. button Create manual TC's for email
+    func testDefaultUserName() {
         homeScreen
             .whenINavigate(to: .profileScreen)
         profileScreen
-            .thenScreenAppears()
             .whenINavigate(to: .personal)
         myProfile
-            .thenScreenAppears()
-            .givenISetEmail(.userJonny)
+            .givenISetName( .userJonny)
+            .whenITapClearAllButton()
             .whenITapBackProfileButton()
         profileScreen
-            .whenINavigate(to: .personal)
-        //   myProfile
-        //          .thenUserEmailMatch(.userJonny)
-        //  .whenITapClearAllButton()
-    }
+            .thenDefaultUserNameAppears()
+            .whenITapBackButton()
+        homeScreen
+            .thenBannerTextShowsDefault()
+         }
     
-    func testUserDOB() { // TO DO: TAP ON Clear All
+    func testUserDOB() {
+     //   let userEva: TestUser = .userEva   // escape mistake (optional)
+        let users: [TestUser] = [.userEva, .userJonny, .userAnonymous]   // Array(List)
+        
         homeScreen
             .whenINavigate(to: .profileScreen)
         profileScreen
-            .thenScreenAppears()
             .whenINavigate(to: .personal)
-        myProfile
-            .whenITapEditButton()
-            .whenITapDateOfBirthButton()
-            .givenISetDOB(for: .userJonny)
-            .whenITapDoneButton()
-            .thenDOBAppears()
-            .whenITapSaveButton()
-            .thenFieldContainsDOB()
+        users.forEach {                   //closure
+            myProfile
+                .givenISetDOB(for: $0)
+                .thenUserDOBAppears(for: $0)
+        }
     }
+   // B4
+//    users.forEach { testUser in        // closure
+//        myProfile                //$0
+//            .givenISetDOB(for: testUser) //$0
+//            .thenUserDOBAppears(for: testUser)
+//    }
     
     func testUserNameInput() {
         homeScreen
@@ -74,16 +78,41 @@ class ProfileUITests: UITests {
         userNameMatchMultipleScreens( .userJonny)
     }
 }
-    extension ProfileUITests {
-        func userNameMatchMultipleScreens(_ username: TestUser) {
-            myProfile
-                .givenISetName(username)
-                .whenITapBackProfileButton()
-            //      profileScreen
-            //          .thenUserNameMatch(username)
-            //          .whenITapBackButton()
-            //      homeScreen
-            //          .thenUserNameMatch(username)
-        }
+extension ProfileUITests {
+    func userNameMatchMultipleScreens(_ username: TestUser) {
+        myProfile
+            .givenISetName(username)
+            .whenITapBackProfileButton()
+        //      profileScreen
+        //          .thenUserNameMatch(username)
+        //          .whenITapBackButton()
+        //      homeScreen
+        //          .thenUserNameMatch(username)
     }
+    
+    func testUpdateEmailWithValidEmail() {
+        homeScreen
+            .whenINavigate(to: .profileScreen)
+        profileScreen
+            .whenINavigate(to: .personal)
+        myProfile
+            .givenISetEmail(for: .userEva)
+            .thenUserEmailAppears()
+            .thenValidateErrorMessage()
+        profileScreen
+            .thenScreenAppears()
+            .whenINavigate(to: .personal)
+        myProfile
+            .thenUserEmailAppears()
+    }
+    
+    func testUpdateEmailWithInvalidEmail() {
+        homeScreen
+            .whenINavigate(to: .profileScreen)
+        profileScreen
+            .whenINavigate(to: .personal)
+        myProfile
+            .givenISetEmail(for: .userAnonymous)
+    }
+}
 

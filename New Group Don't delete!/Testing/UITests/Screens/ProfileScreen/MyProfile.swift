@@ -12,10 +12,11 @@ final class MyProfile: BaseScreen {
     lazy var clearAllButton: XCUIElement = app.buttons["Clear All"]
     lazy var saveButton: XCUIElement = app.buttons["Save"]
     lazy var doneButton: XCUIElement = app.buttons["Done"]
-    lazy var dateOfBirthButton: XCUIElement = app.buttons.matching(dateOfBirthPredicate).firstMatch
+    lazy var dobButton: XCUIElement = app.buttons.matching(dobFieldPredicate).firstMatch
+  
     
     //MARK: Predicates
-   let dateOfBirthPredicate: NSPredicate = .init(format: "label CONTAINS 'Date of Birth:'")
+    let dobFieldPredicate: NSPredicate = .init(format: "label CONTAINS 'Date of Birth:'")
     
     // MARK: Navigation Bar Elements
     lazy var title: XCUIElement = app.navigationBars.staticTexts["My Profile"]
@@ -32,35 +33,53 @@ final class MyProfile: BaseScreen {
     
     //MARK: Static Texts
     lazy var dobField: XCUIElement = app.staticTexts["Date of Birth: August 7, 1976"]
+    lazy var emailField: XCUIElement = app.staticTexts["Email: eva@gmail.com"]
+    lazy var errorMassage: XCUIElement = app.staticTexts["Please enter a valid email address."]
+    lazy var errorMessage: XCUIElement = app.staticTexts["Please enter a valid email address."]
     
     
     // MARK: Given
     @discardableResult
     func givenISetDOB(for user: TestUser) -> Self {
-        if let dob = user.dob {
-            monthPickerWheel.adjust(toPickerWheelValue: dob.month)
-            dayPickerWheel.adjust(toPickerWheelValue: dob.day)
-            yearPickerWheel.adjust(toPickerWheelValue: dob.year)
+        if let dob = user.dob {  // if user has dob then execute code ,if dob = nil don't do nothing
+            whenIEditMyProfile {
+                dobButton.assertExistenceAndTap()
+                
+                monthPickerWheel.adjust(toPickerWheelValue: dob.month)
+                dayPickerWheel.adjust(toPickerWheelValue: dob.day)
+                yearPickerWheel.adjust(toPickerWheelValue: dob.year)
+                
+                doneButton.assertExistenceAndTap()
+            }
         }
-        return self
-    }
-   
-    @discardableResult
-    func givenISetName(_ user: TestUser) -> Self {
-        whenITapEditButton()
-        nameTextField.assertExistenceAndTap()
-        cleanNameText()
-        nameTextField.typeText(user.userName)
-        whenITapSaveButton()
         return self
     }
     
     @discardableResult
-    func givenISetEmail(_ user: TestUser) -> Self  {
+    func givenISetName(_ user: TestUser) -> Self {
+        whenIEditMyProfile {
+            nameTextField.assertExistenceAndTap()
+            cleanNameText()
+            nameTextField.typeText(user.userName)
+        }
+        return self
+    }
+    
+    /// Closure
+    private func  whenIEditMyProfile(action: () -> Void) {
+        whenITapEditButton()
+        action()
+        whenITapSaveButton()
+    }
+    
+    @discardableResult
+    
+    func givenISetEmail(for email: TestUser) -> Self  {
         whenITapEditButton()
         emailTextField.assertExistenceAndTap()
         cleanEmailText()
-       // emailTextField.typeText(user.email)
+        emailTextField.typeText(email.email!)
+        thenValidateErrorMessage()
         whenITapSaveButton()
         return self
     }
@@ -73,28 +92,45 @@ final class MyProfile: BaseScreen {
     }
     
     @discardableResult
-    func thenDOBAppears() -> Self {
-        dateOfBirthButton.assertExistence()
+    func thenUserDOBAppears(for user: TestUser) -> Self {
+        if let dob = user.dob {
+            let dobId: String = "Date of Birth: \(dob.month) \(dob.day), \(dob.year)"
+            let dobLabel: XCUIElement = app.staticTexts[dobId]
+            dobLabel.assertExistence()
+        }
         return self
     }
     
     @discardableResult
-    func thenFieldContainsDOB() -> Self {
-        dobField.assertExistence()
+    func thenUserEmailAppears() -> Self {
+        emailField.assertExistence()
+        thenValidateErrorMessage()
         return self
     }
-    
-  // MARK: When
+      
+    @discardableResult
+    func thenValidateErrorMessage() -> Self {
+        if errorMessage.exists {
+            errorMessage.assertExistence()
+            cleanEmailText()
+            emailTextField.typeText(_ : "Wrong email")
+            } else {
+                backProfileButton.assertExistenceAndTap()
+        }
+        return self
+    }
+
+    // MARK: When
 //    @discardableResult
-//    func thenUserEmailMatch(_ user: TestUser) -> Self {
-//        let email: XCUIElement = app.staticTexts[user.email]
+//    func thenUserEmailMatch(for email: TestUser) -> Self {
+//        let email: XCUIElement = app.staticTexts[email.email!]
 //        email.assertExistence()
 //        return self
-//    }
+// }
     
       @discardableResult
     func whenITapDateOfBirthButton() -> Self {
-        dateOfBirthButton.assertExistenceAndTap()
+        dobButton.assertExistenceAndTap()
         return self
     }
         
@@ -127,7 +163,7 @@ final class MyProfile: BaseScreen {
             backProfileButton.assertExistenceAndTap()
             return self
         }
-        
+ 
         // MARK: Helpers
         func cleanNameText() {
             if let currentValue = nameTextField.value as? String {

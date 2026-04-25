@@ -39,7 +39,12 @@ extension TestUser {
             userName: "Eva",
             email: "eva@gmail.com",
             address: "456 Elm St",
-            phone: "+0987654321"
+            phone: "+0987654321",
+            dob: .init(
+                month: "May",
+                day: "1",
+                year: "2000"
+            )
         )
     }
     
@@ -54,8 +59,10 @@ extension TestUser {
     
     static var userAnonymous: TestUser {
         .init(
-            userName: "Anonymous"
-            
+            userName: "Anonymous",
+            email: "anonymous@gmail.",
+            address: "789 Oak St",
+            phone: "+1122334455"
         )
     }
 }
