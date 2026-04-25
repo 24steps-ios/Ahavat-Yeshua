@@ -50,7 +50,7 @@ class ProfileUITests: UITests {
          }
     
     func testUserDOB() {
-     //   let userEva: TestUser = .userEva   // escape mistake (optional)
+     //   let userEva: TestUser = .userEva   // escape mistake
         let users: [TestUser] = [.userEva, .userJonny, .userAnonymous]   // Array(List)
         
         homeScreen

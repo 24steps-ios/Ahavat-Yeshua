@@ -39,9 +39,10 @@ final class MyProfile: BaseScreen {
     
     
     // MARK: Given
+    /// if user has dob then execute code ,if dob = nil don't do nothing
     @discardableResult
     func givenISetDOB(for user: TestUser) -> Self {
-        if let dob = user.dob {  // if user has dob then execute code ,if dob = nil don't do nothing
+        if let dob = user.dob {
             whenIEditMyProfile {
                 dobButton.assertExistenceAndTap()
                 
