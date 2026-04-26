@@ -50,7 +50,6 @@ class ProfileUITests: UITests {
          }
     
     func testUserDOB() {
-     //   let userEva: TestUser = .userEva   // escape mistake
         let users: [TestUser] = [.userEva, .userJonny, .userAnonymous]   // Array(List)
         
         homeScreen
@@ -59,16 +58,10 @@ class ProfileUITests: UITests {
             .whenINavigate(to: .personal)
         users.forEach {                   //closure
             myProfile
-                .givenISetDOB(for: $0)
+                .givenISetDOB(for: $0)  //  $0 - every user
                 .thenUserDOBAppears(for: $0)
         }
     }
-   // B4
-//    users.forEach { testUser in        // closure
-//        myProfile                //$0
-//            .givenISetDOB(for: testUser) //$0
-//            .thenUserDOBAppears(for: testUser)
-//    }
     
     func testUserNameInput() {
         homeScreen

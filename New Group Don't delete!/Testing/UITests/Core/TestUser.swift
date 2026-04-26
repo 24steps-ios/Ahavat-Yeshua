@@ -60,7 +60,7 @@ extension TestUser {
     static var userAnonymous: TestUser {
         .init(
             userName: "Anonymous",
-            email: "anonymous@gmail.",
+            email: "anonymous@gmail",
             address: "789 Oak St",
             phone: "+1122334455"
         )

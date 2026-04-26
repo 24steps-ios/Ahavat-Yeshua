@@ -13,7 +13,7 @@ final class MyProfile: BaseScreen {
     lazy var saveButton: XCUIElement = app.buttons["Save"]
     lazy var doneButton: XCUIElement = app.buttons["Done"]
     lazy var dobButton: XCUIElement = app.buttons.matching(dobFieldPredicate).firstMatch
-  
+    
     
     //MARK: Predicates
     let dobFieldPredicate: NSPredicate = .init(format: "label CONTAINS 'Date of Birth:'")
@@ -35,8 +35,6 @@ final class MyProfile: BaseScreen {
     lazy var dobField: XCUIElement = app.staticTexts["Date of Birth: August 7, 1976"]
     lazy var emailField: XCUIElement = app.staticTexts["Email: eva@gmail.com"]
     lazy var errorMassage: XCUIElement = app.staticTexts["Please enter a valid email address."]
-    lazy var errorMessage: XCUIElement = app.staticTexts["Please enter a valid email address."]
-    
     
     // MARK: Given
     /// if user has dob then execute code ,if dob = nil don't do nothing
@@ -55,6 +53,12 @@ final class MyProfile: BaseScreen {
         }
         return self
     }
+    /// Closure
+    private func  whenIEditMyProfile(action: () -> Void) {
+        whenITapEditButton()
+        action()
+        whenITapSaveButton()
+    }
     
     @discardableResult
     func givenISetName(_ user: TestUser) -> Self {
@@ -66,22 +70,15 @@ final class MyProfile: BaseScreen {
         return self
     }
     
-    /// Closure
-    private func  whenIEditMyProfile(action: () -> Void) {
-        whenITapEditButton()
-        action()
-        whenITapSaveButton()
-    }
-    
     @discardableResult
-    
-    func givenISetEmail(for email: TestUser) -> Self  {
-        whenITapEditButton()
-        emailTextField.assertExistenceAndTap()
-        cleanEmailText()
-        emailTextField.typeText(email.email!)
-        thenValidateErrorMessage()
-        whenITapSaveButton()
+    func givenISetEmail(for user: TestUser) -> Self  {
+        if let email = user.email {   //unwrap
+            whenIEditMyProfile {
+                emailTextField.assertExistenceAndTap()
+                cleanEmailText()
+                emailTextField.typeText(email)
+            }
+        }
         return self
     }
     
@@ -97,6 +94,8 @@ final class MyProfile: BaseScreen {
         if let dob = user.dob {
             let dobId: String = "Date of Birth: \(dob.month) \(dob.day), \(dob.year)"
             let dobLabel: XCUIElement = app.staticTexts[dobId]
+            /// if line too long change to 2 lines⬆️
+//let dobLabel: XCUIElement = app.staticTexts["Date of Birth: \(dob.month) \(dob.day), \(dob.year)"]
             dobLabel.assertExistence()
         }
         return self
@@ -105,84 +104,83 @@ final class MyProfile: BaseScreen {
     @discardableResult
     func thenUserEmailAppears() -> Self {
         emailField.assertExistence()
-        thenValidateErrorMessage()
         return self
     }
-      
+    
     @discardableResult
     func thenValidateErrorMessage() -> Self {
-        if errorMessage.exists {
-            errorMessage.assertExistence()
-            cleanEmailText()
+        if errorMassage.exists {
+         errorMassage.assertExistence()
+           // cleanEmailText()
             emailTextField.typeText(_ : "Wrong email")
-            } else {
-                backProfileButton.assertExistenceAndTap()
+        } else {
+            backProfileButton.assertExistenceAndTap()
         }
         return self
     }
-
-    // MARK: When
-//    @discardableResult
-//    func thenUserEmailMatch(for email: TestUser) -> Self {
-//        let email: XCUIElement = app.staticTexts[email.email!]
-//        email.assertExistence()
-//        return self
-// }
     
-      @discardableResult
+    // MARK: When
+    //    @discardableResult
+    //    func thenUserEmailMatch(for email: TestUser) -> Self {
+    //        let email: XCUIElement = app.staticTexts[email.email!]
+    //        email.assertExistence()
+    //        return self
+    // }
+    
+    @discardableResult
     func whenITapDateOfBirthButton() -> Self {
         dobButton.assertExistenceAndTap()
         return self
     }
-        
-        @discardableResult
-        func whenITapClearAllButton() -> Self {
-            clearAllButton.assertExistenceAndTap()
-            return self
-        }
-        
-        @discardableResult
-        func whenITapEditButton() -> Self {
-            editButton.assertExistenceAndTap()
-            return self
-        }
-        
-        @discardableResult
-        func whenITapSaveButton() -> Self {
-            saveButton.assertExistenceAndTap()
-            return self
-        }
-        
-        @discardableResult
-        func whenITapDoneButton() -> Self {
-            doneButton.assertExistenceAndTap()
-            return self
-        }
-        
-        @discardableResult
-        func whenITapBackProfileButton() -> Self {
-            backProfileButton.assertExistenceAndTap()
-            return self
-        }
- 
-        // MARK: Helpers
-        func cleanNameText() {
-            if let currentValue = nameTextField.value as? String {
-                let deleteString = String(
-                    repeating: XCUIKeyboardKey.delete.rawValue,
-                    count: currentValue.count
-                )
-                nameTextField.typeText(deleteString)
-            }
-        }
-        
-        func cleanEmailText() {
-            if let currentValue = emailTextField.value as? String {
-                let deleteString = String(
-                    repeating: XCUIKeyboardKey.delete.rawValue,
-                    count: currentValue.count
-                )
-                emailTextField.typeText(deleteString)
-            }
+    
+    @discardableResult
+    func whenITapClearAllButton() -> Self {
+        clearAllButton.assertExistenceAndTap()
+        return self
+    }
+    
+    @discardableResult
+    func whenITapEditButton() -> Self {
+        editButton.assertExistenceAndTap()
+        return self
+    }
+    
+    @discardableResult
+    func whenITapSaveButton() -> Self {
+        saveButton.assertExistenceAndTap()
+        return self
+    }
+    
+    @discardableResult
+    func whenITapDoneButton() -> Self {
+        doneButton.assertExistenceAndTap()
+        return self
+    }
+    
+    @discardableResult
+    func whenITapBackProfileButton() -> Self {
+        backProfileButton.assertExistenceAndTap()
+        return self
+    }
+    
+    // MARK: Helpers
+    func cleanNameText() {
+        if let currentValue = nameTextField.value as? String {
+            let deleteString = String(
+                repeating: XCUIKeyboardKey.delete.rawValue,
+                count: currentValue.count
+            )
+            nameTextField.typeText(deleteString)
         }
     }
+    
+    func cleanEmailText() {
+        if let currentValue = emailTextField.value as? String {
+            let deleteString = String(
+                repeating: XCUIKeyboardKey.delete.rawValue,
+                count: currentValue.count
+            )
+            emailTextField.typeText(deleteString)
+        }
+    }
+}
