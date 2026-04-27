@@ -20,7 +20,7 @@ struct TestUser {         /// ?- optional
 }
 
 extension TestUser {
-    static var userJonny: TestUser {// static let use like enum
+    static var userJonny: TestUser {
         .init(
             userName: "Jonny",
             email: "jonny@gmail.com",
@@ -38,7 +38,7 @@ extension TestUser {
         .init(
             userName: "Eva",
             email: "eva@gmail.com",
-            address: "456 Elm St",
+           // address: "456 Elm St",
             phone: "+0987654321",
             dob: .init(
                 month: "May",
@@ -61,7 +61,7 @@ extension TestUser {
         .init(
             userName: "Anonymous",
             email: "anonymous@gmail",
-            address: "789 Oak St",
+            address: "",
             phone: "+1122334455"
         )
     }

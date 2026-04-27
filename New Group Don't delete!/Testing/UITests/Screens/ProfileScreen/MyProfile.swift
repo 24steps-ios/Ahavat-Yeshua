@@ -17,6 +17,7 @@ final class MyProfile: BaseScreen {
     
     //MARK: Predicates
     let dobFieldPredicate: NSPredicate = .init(format: "label CONTAINS 'Date of Birth:'")
+    let addressFieldPredicate: NSPredicate = .init(format: "label CONTAINS 'Address:'")
     
     // MARK: Navigation Bar Elements
     lazy var title: XCUIElement = app.navigationBars.staticTexts["My Profile"]
@@ -25,6 +26,8 @@ final class MyProfile: BaseScreen {
     //MARK: Text Fields
     lazy var nameTextField: XCUIElement = app.textFields.element(boundBy: 0)
     lazy var emailTextField: XCUIElement = app.textFields.element(boundBy: 1)
+    lazy var addressTextField: XCUIElement = app.textFields["Address"]
+    lazy var phoneTextField: XCUIElement = app.textFields["Phone"]
     
     // MARK: Picker Wheels
     lazy var monthPickerWheel: XCUIElement = app.pickerWheels.element(boundBy: 0) //.adjust(toPickerWheelValue: "May")
@@ -35,6 +38,8 @@ final class MyProfile: BaseScreen {
     lazy var dobField: XCUIElement = app.staticTexts["Date of Birth: August 7, 1976"]
     lazy var emailField: XCUIElement = app.staticTexts["Email: eva@gmail.com"]
     lazy var errorMassage: XCUIElement = app.staticTexts["Please enter a valid email address."]
+    lazy var addressField: XCUIElement = app.staticTexts.matching(addressFieldPredicate).firstMatch
+    
     
     // MARK: Given
     /// if user has dob then execute code ,if dob = nil don't do nothing
@@ -71,12 +76,24 @@ final class MyProfile: BaseScreen {
     }
     
     @discardableResult
-    func givenISetEmail(for user: TestUser) -> Self  {
+    func givenISetEmail(for user: TestUser) -> Self {
         if let email = user.email {   //unwrap
             whenIEditMyProfile {
                 emailTextField.assertExistenceAndTap()
                 cleanEmailText()
                 emailTextField.typeText(email)
+            }
+        }
+        return self
+    }
+    
+    @discardableResult
+    func givenISetAddress(for user: TestUser) -> Self {
+        if let address = user.address {
+            whenIEditMyProfile {
+                clearAllButton.assertExistenceAndTap()
+                addressTextField.assertExistenceAndTap()
+                addressTextField.typeText(address)
             }
         }
         return self
@@ -94,10 +111,24 @@ final class MyProfile: BaseScreen {
         if let dob = user.dob {
             let dobId: String = "Date of Birth: \(dob.month) \(dob.day), \(dob.year)"
             let dobLabel: XCUIElement = app.staticTexts[dobId]
-            /// if line too long change to 2 lines⬆️
-//let dobLabel: XCUIElement = app.staticTexts["Date of Birth: \(dob.month) \(dob.day), \(dob.year)"]
             dobLabel.assertExistence()
         }
+        return self
+    }
+    
+    @discardableResult
+    func thenUserAddressAppears(for user: TestUser) -> Self {
+        if let address = user.address {
+        let  userAddress: XCUIElement = app.staticTexts["Address: \(address)"]
+            userAddress.assertExistence()
+        }
+        return self
+    }
+    
+    @discardableResult
+    func thenUserEmailAppears(for user: TestUser) -> Self {
+            let userEmail: XCUIElement = app.staticTexts["Email: eva@gmail.com"]
+            userEmail.assertExistence()
         return self
     }
     
@@ -108,10 +139,16 @@ final class MyProfile: BaseScreen {
     }
     
     @discardableResult
+    func thenUserAddressAppears() -> Self {
+        addressField.assertExistence()
+        return self
+    }
+    
+    @discardableResult
     func thenValidateErrorMessage() -> Self {
         if errorMassage.exists {
-         errorMassage.assertExistence()
-           // cleanEmailText()
+            errorMassage.assertExistence()
+            cleanEmailText()
             emailTextField.typeText(_ : "Wrong email")
         } else {
             backProfileButton.assertExistenceAndTap()
@@ -120,13 +157,6 @@ final class MyProfile: BaseScreen {
     }
     
     // MARK: When
-    //    @discardableResult
-    //    func thenUserEmailMatch(for email: TestUser) -> Self {
-    //        let email: XCUIElement = app.staticTexts[email.email!]
-    //        email.assertExistence()
-    //        return self
-    // }
-    
     @discardableResult
     func whenITapDateOfBirthButton() -> Self {
         dobButton.assertExistenceAndTap()
@@ -163,7 +193,7 @@ final class MyProfile: BaseScreen {
         return self
     }
     
-    // MARK: Helpers
+   // MARK: Helpers
     func cleanNameText() {
         if let currentValue = nameTextField.value as? String {
             let deleteString = String(

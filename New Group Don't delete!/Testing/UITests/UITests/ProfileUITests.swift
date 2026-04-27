@@ -8,7 +8,7 @@ import XCTest
 
 class ProfileUITests: UITests {
     // MARK: Test data
-  //  let  userJonny: TestUser = .userJonny // for escape mistake
+    //  let  userJonny: TestUser = .userJonny // for escape mistake
     
     // MARK: Tests
     func testProfileScreenNavigation() {
@@ -47,7 +47,7 @@ class ProfileUITests: UITests {
             .whenITapBackButton()
         homeScreen
             .thenBannerTextShowsDefault()
-         }
+    }
     
     func testUserDOB() {
         let users: [TestUser] = [.userEva, .userJonny, .userAnonymous]   // Array(List)
@@ -64,10 +64,7 @@ class ProfileUITests: UITests {
     }
     
     func testUserNameInput() {
-        homeScreen
-            .whenINavigate(to: .profileScreen)
-        profileScreen
-            .whenINavigate(to: .personal)
+        whenINavigateToMyProfile()
         userNameMatchMultipleScreens( .userJonny)
     }
 }
@@ -84,10 +81,7 @@ extension ProfileUITests {
     }
     
     func testUpdateEmailWithValidEmail() {
-        homeScreen
-            .whenINavigate(to: .profileScreen)
-        profileScreen
-            .whenINavigate(to: .personal)
+        whenINavigateToMyProfile()
         myProfile
             .givenISetEmail(for: .userEva)
             .thenUserEmailAppears()
@@ -96,7 +90,7 @@ extension ProfileUITests {
             .thenScreenAppears()
             .whenINavigate(to: .personal)
         myProfile
-            .thenUserEmailAppears()
+            .thenUserEmailAppears(for: .userEva)
     }
     
     func testUpdateEmailWithInvalidEmail() {
@@ -107,5 +101,37 @@ extension ProfileUITests {
         myProfile
             .givenISetEmail(for: .userAnonymous)
     }
+    
+    func testUserAddressInput() {
+        whenINavigateToMyProfile()
+        myProfile
+            .givenISetAddress(for: .userJonny)
+            .thenUserAddressAppears(for: .userJonny)
+            .whenITapBackProfileButton()
+        profileScreen
+            .whenINavigate(to: .personal)
+        myProfile
+            .thenUserAddressAppears(for: .userJonny)
+    }
 }
+
+extension ProfileUITests {
+    func whenINavigateToMyProfile() {
+        homeScreen
+            .whenINavigate(to: .profileScreen)
+        profileScreen
+            .whenINavigate(to: .personal)
+    }
+    
+    func testInputMultipleUsersAddresses() {
+        let users: [TestUser] = [.userJonny, .userEva, .userBoby, .userAnonymous]
+        whenINavigateToMyProfile()
+        users.forEach {
+            myProfile
+                .givenISetAddress(for: $0)
+                .thenUserAddressAppears(for: $0)
+        }
+    }
+}
+
 
