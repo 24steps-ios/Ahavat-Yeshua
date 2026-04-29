@@ -33,8 +33,10 @@ final class HomeScreen: BaseScreen {
     
     @discardableResult
     func thenUserNameMatch(_ user: TestUser) -> Self {
-        let userName: XCUIElement = app.staticTexts[user.userName]
-        userName.assertExistence()
+        if let userName = user.userName {
+            let userName: XCUIElement = app.staticTexts[userName]
+            userName.assertExistence()
+        }
         return self
     }
     

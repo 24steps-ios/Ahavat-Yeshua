@@ -12,7 +12,7 @@ struct DOB {
 }
 
 struct TestUser {         /// ?- optional
-    var userName: String
+    var userName: String?
     var email: String?
     var address: String?
     var phone: String?
@@ -38,7 +38,7 @@ extension TestUser {
         .init(
             userName: "Eva",
             email: "eva@gmail.com",
-           // address: "456 Elm St",
+            address: "456 Elm St",
             phone: "+0987654321",
             dob: .init(
                 month: "May",
@@ -62,7 +62,7 @@ extension TestUser {
             userName: "Anonymous",
             email: "anonymous@gmail",
             address: "",
-            phone: "+1122334455"
+            phone: ""
         )
     }
 }

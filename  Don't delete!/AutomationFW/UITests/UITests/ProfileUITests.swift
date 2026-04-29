@@ -50,7 +50,7 @@ class ProfileUITests: UITests {
     }
     
     func testUserDOB() {
-        let users: [TestUser] = [.userEva, .userJonny, .userAnonymous]   // Array(List)
+        let users: [TestUser] = [.userEva, .userJonny, .userAnonymous]
         
         homeScreen
             .whenINavigate(to: .profileScreen)
@@ -84,7 +84,7 @@ extension ProfileUITests {
         whenINavigateToMyProfile()
         myProfile
             .givenISetEmail(for: .userEva)
-            .thenUserEmailAppears()
+            .thenUserEmailAppears(for: .userEva)
             .thenValidateErrorMessage()
         profileScreen
             .thenScreenAppears()
@@ -132,6 +132,67 @@ extension ProfileUITests {
                 .thenUserAddressAppears(for: $0)
         }
     }
+    
+    func testUserPhoneInput() {
+        whenINavigateToMyProfile()
+        myProfile
+            .givenISetPhone(for: .userJonny)
+            .thenUserPhoneAppears(for: .userJonny)
+            .whenITapBackProfileButton()
+        profileScreen
+            .whenINavigate(to: .personal)
+        myProfile
+            .thenUserPhoneMatch(for: .userJonny)
+    }
+    
+    func testMultipleUsersPhonesInput() {
+        let users: [TestUser] = [.userJonny, .userEva, .userBoby, .userAnonymous]
+        whenINavigateToMyProfile()
+        users.forEach {
+            myProfile
+                .givenISetPhone(for: $0)
+                .thenUserPhoneAppears(for: $0)
+        }
+    }
+    
+    func testUserFullDataInput() {
+        whenINavigateToMyProfile()
+        myProfile
+            .givenISetName( .userEva)
+            .thenUserNamesAppears(for: .userEva)
+        
+            .givenISetEmail(for: .userEva)
+            .thenUserEmailAppears(for: .userEva)
+        
+            .givenISetAddress(for: .userEva)
+            .thenUserAddressAppears(for: .userEva)
+        
+            .givenISetPhone(for: .userEva)
+            .thenUserPhoneAppears(for: .userEva)
+        
+            .givenISetDOB(for: .userEva)
+            .thenUserDOBAppears(for: .userEva)
+    }
+    
+    func testMultipleUsersFullDataInput() {
+        let users: [TestUser] = [.userEva, .userJonny, .userAnonymous]
+        whenINavigateToMyProfile()
+        users.forEach {
+            myProfile
+                .givenISetName( $0)
+                .thenUserNamesAppears(for: $0)
+            
+                .givenISetEmail(for: $0)
+                .thenUserEmailAppears(for: $0)
+            
+                .givenISetAddress(for: $0)
+                .thenUserAddressAppears(for: $0)
+            
+                .givenISetPhone(for: $0)
+                .thenUserPhoneAppears(for: $0)
+            
+                .givenISetDOB(for: $0)
+                .thenUserDOBAppears(for: $0)
+        }
+    }
 }
-
-

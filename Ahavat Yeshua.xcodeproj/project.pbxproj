@@ -289,7 +289,7 @@
 				08AB17342ABBCCE300813AA4 /* Ahavat Yeshua */,
 				086EE07A2DB1E86C007515C6 /* Ahavat Yeshua Widget */,
 				D7ABDB362F158F9A00F348A0 /* Ahavat YeshuaUITests */,
-				D7B0862F2F64B2C700B15504 /* New Group Don't delete! */,
+				D7B0862F2F64B2C700B15504 /*  Don't delete! */,
 				086EE0752DB1E86C007515C6 /* Frameworks */,
 				08AB17332ABBCCE300813AA4 /* Products */,
 			);
@@ -442,20 +442,20 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
-		D7B0862F2F64B2C700B15504 /* New Group Don't delete! */ = {
+		D7B0862F2F64B2C700B15504 /*  Don't delete! */ = {
 			isa = PBXGroup;
 			children = (
-				D7B086302F64B3D700B15504 /* Testing */,
+				D7B086302F64B3D700B15504 /* AutomationFW */,
 			);
-			path = "New Group Don't delete!";
+			path = " Don't delete!";
 			sourceTree = "<group>";
 		};
-		D7B086302F64B3D700B15504 /* Testing */ = {
+		D7B086302F64B3D700B15504 /* AutomationFW */ = {
 			isa = PBXGroup;
 			children = (
 				D7B0864C2F64B49900B15504 /* UITests */,
 			);
-			path = Testing;
+			path = AutomationFW;
 			sourceTree = "<group>";
 		};
 		D7B086482F64B49900B15504 /* Screens */ = {
