@@ -5,6 +5,7 @@
 //  Created by Ilya Sheynblat on 4/6/26.
 //
 import XCTest
+import Foundation
 
 class ProfileUITests: UITests {
     // MARK: Test data
@@ -50,7 +51,7 @@ class ProfileUITests: UITests {
     }
     
     func testUserDOB() {
-        let users: [TestUser] = [.userEva, .userJonny, .userAnonymous]
+        let users: [TestUser] = [.userJonny, .userEva, .userAnonymous]
         
         homeScreen
             .whenINavigate(to: .profileScreen)
@@ -175,13 +176,13 @@ extension ProfileUITests {
     }
     
     func testMultipleUsersFullDataInput() {
-        let users: [TestUser] = [.userEva, .userJonny, .userAnonymous]
+        let users: [TestUser] = [ .userJonny, .userEva, .userAnonymous]
         whenINavigateToMyProfile()
         users.forEach {
             myProfile
                 .givenISetName( $0)
                 .thenUserNamesAppears(for: $0)
-            
+         
                 .givenISetEmail(for: $0)
                 .thenUserEmailAppears(for: $0)
             

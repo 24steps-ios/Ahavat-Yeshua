@@ -64,6 +64,7 @@
 		D7B086522F64B49900B15504 /* Runner.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B0864A2F64B49900B15504 /* Runner.swift */; };
 		D7B086532F64B49900B15504 /* UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B0864B2F64B49900B15504 /* UITests.swift */; };
 		D7B086562F64B56C00B15504 /* NavigationTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B086552F64B54B00B15504 /* NavigationTabBar.swift */; };
+		D7CE91B22FA542070015FE43 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7CE91B12FA541E00015FE43 /* Date.swift */; };
 		D7CEE6482F64CA1B00D61E3C /* BaseScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7CEE6472F64CA0B00D61E3C /* BaseScreen.swift */; };
 		D7CEE7DB2F7DF32F00D61E3C /* ProfileScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7CEE7D52F7DF32F00D61E3C /* ProfileScreen.swift */; };
 		D7CEE7DE2F8052D900D61E3C /* MyProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7CEE7DD2F8052C800D61E3C /* MyProfile.swift */; };
@@ -174,6 +175,7 @@
 		D7B0864A2F64B49900B15504 /* Runner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Runner.swift; sourceTree = "<group>"; };
 		D7B0864B2F64B49900B15504 /* UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITests.swift; sourceTree = "<group>"; };
 		D7B086552F64B54B00B15504 /* NavigationTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationTabBar.swift; sourceTree = "<group>"; };
+		D7CE91B12FA541E00015FE43 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		D7CEE6472F64CA0B00D61E3C /* BaseScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseScreen.swift; sourceTree = "<group>"; };
 		D7CEE7D52F7DF32F00D61E3C /* ProfileScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreen.swift; sourceTree = "<group>"; };
 		D7CEE7DD2F8052C800D61E3C /* MyProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfile.swift; sourceTree = "<group>"; };
@@ -510,6 +512,7 @@
 		D7EAB4AB2F8444D300F99A52 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				D7CE91B12FA541E00015FE43 /* Date.swift */,
 				D79BE0532F8709B7009C1EB8 /* TestUser.swift */,
 				D7CEE6472F64CA0B00D61E3C /* BaseScreen.swift */,
 				D7B0864A2F64B49900B15504 /* Runner.swift */,
@@ -777,6 +780,7 @@
 				D79BE0542F8709D1009C1EB8 /* TestUser.swift in Sources */,
 				D7B086532F64B49900B15504 /* UITests.swift in Sources */,
 				D7CEE6482F64CA1B00D61E3C /* BaseScreen.swift in Sources */,
+				D7CE91B22FA542070015FE43 /* Date.swift in Sources */,
 				D7EAB4B02F84483700F99A52 /* Extension+XCUIElementQuery.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
