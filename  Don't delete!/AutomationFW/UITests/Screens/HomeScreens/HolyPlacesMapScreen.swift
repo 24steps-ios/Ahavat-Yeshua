@@ -9,18 +9,16 @@ import XCTest
 final class HolyPlacesMapScreen: BaseScreen {
     
     // MARK: Buttons
-    lazy var holyPlacesMap: XCUIElement = app.buttons["Holy Places Map"]
     lazy var plusCircle: XCUIElement = app.buttons["plus.circle.fill"]
-    lazy var backButton: XCUIElement = app.buttons["Back"]
     
+    //MARK: StaticTexts
+    lazy var holyPlacesMap: XCUIElement = app.staticTexts["Holy Places Map"]
     
     // MARK: Then
-    func thenHolyPlacesMapScreenAppears() {
+    @discardableResult
+    func thenHolyPlacesMapScreenAppears() -> Self {
         plusCircle.assertExistence()
-    }
-    
-    // MARK: When
-    func  whenITapBackButton() {
-        backButton.assertExistenceAndTap()
+        return self
     }
 }
+   

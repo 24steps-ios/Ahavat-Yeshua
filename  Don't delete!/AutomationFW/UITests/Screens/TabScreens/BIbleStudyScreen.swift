@@ -7,6 +7,8 @@
 import XCTest
 
 final class BibleStudyScreen: BaseScreen {
+    
+    //MARK: Static Texts
     lazy var bibleStudyScreenTitle: XCUIElement = app.staticTexts[" Growth in Faith"]
     
     // MARK: Then
