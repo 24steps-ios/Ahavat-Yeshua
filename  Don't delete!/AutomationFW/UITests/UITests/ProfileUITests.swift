@@ -94,6 +94,20 @@ extension ProfileUITests {
             .thenUserEmailAppears(for: .userEva)
     }
     
+//    func updateEmailWithInvalidEmail() {
+//        whenINavigateToMyProfile()
+//        myProfile()
+//            .givenISetEmail(for: .userAnonymous)
+//            .thenUserEmailAppears(for: .userAnonymous)
+//            .thenValidateErrorMessage()
+//        profileScreen
+//            .thenScreenAppears()
+//            .whenINavigate(to: .personal)
+//        myProfile
+//            .thenUserEmailAppears(for: .userAnonymous)
+//        
+//        }
+    
     func testUpdateEmailWithInvalidEmail() {
         homeScreen
             .whenINavigate(to: .profileScreen)
