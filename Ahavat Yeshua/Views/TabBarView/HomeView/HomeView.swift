@@ -23,6 +23,7 @@ struct HomeView: View {
                             SquareView(iconName: "book",
                                        label: "Bible Reading",
                                        foregroundColor: .green)
+                            .accessibilityIdentifier("bible_reading_id") //A11y ID
                         }
                         
                         NavigationLink(destination: ProfileMainView()) {

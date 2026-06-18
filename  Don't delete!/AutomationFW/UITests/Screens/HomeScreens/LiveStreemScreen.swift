@@ -9,18 +9,16 @@ import XCTest
 final class LiveStreamScreen: BaseScreen {
     
     // MARK: Buttons
-    lazy var liveStream: XCUIElement = app.buttons["Live Stream"]
-    lazy var backButton: XCUIElement = app.buttons["Back"]
     lazy var searchYouTube: XCUIElement = app.buttons["Search YouTube"]
-   
+    
+    //MARK: StaticTexts
+    lazy var liveStream: XCUIElement = app.staticTexts["Live Stream"]
     
     // MARK: Then
-    func thenLiveStreamScreenAppears(timeout: TimeInterval = 30) {
+    @discardableResult
+    func thenLiveStreamScreenAppears() -> Self {
         searchYouTube.assertExistence()
-    }
-    
-    // MARK: When
-    func  whenITapBackButton() {
-        backButton.assertExistenceAndTap()
+        return self
     }
 }
+
