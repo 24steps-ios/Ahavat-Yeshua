@@ -1,0 +1,37 @@
+{
+  "configurations" : [
+    {
+      "id" : "91799473-C3BD-4835-9D37-155282ADB861",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "testTimeoutsEnabled" : true
+  },
+  "testTargets" : [
+    {
+      "skippedTests" : [
+        "Ahavat_YeshuaUITests",
+        "Ahavat_YeshuaUITests\/testExample()",
+        "Ahavat_YeshuaUITests\/testLaunchPerformance()",
+        "Ahavat_YeshuaUITestsLaunchTests",
+        "Ahavat_YeshuaUITestsLaunchTests\/testLaunch()",
+        "CoreUITests",
+        "CoreUITests\/testHomeScreenNavigation()",
+        "CoreUITests\/testMainTabs()",
+        "CoreUITests\/testNavigationTabBar()",
+        "Runner",
+        "UITests"
+      ],
+      "target" : {
+        "containerPath" : "container:Ahavat Yeshua.xcodeproj",
+        "identifier" : "D7ABDB342F158F9A00F348A0",
+        "name" : "Ahavat YeshuaUITests"
+      }
+    }
+  ],
+  "version" : 1
+}

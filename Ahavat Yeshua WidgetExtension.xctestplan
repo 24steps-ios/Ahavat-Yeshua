@@ -1,0 +1,44 @@
+{
+  "configurations" : [
+    {
+      "id" : "1D953792-6A5D-47FE-92F3-8060F8ABC3E0",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "environmentVariableEntries" : [
+      {
+        "key" : "_XCWidgetKind",
+        "value" : ""
+      },
+      {
+        "key" : "_XCWidgetDefaultView",
+        "value" : "timeline"
+      },
+      {
+        "key" : "_XCWidgetFamily",
+        "value" : "systemMedium"
+      }
+    ],
+    "performanceAntipatternCheckerEnabled" : true,
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:Ahavat Yeshua.xcodeproj",
+      "identifier" : "08AB17312ABBCCE300813AA4",
+      "name" : "Ahavat Yeshua"
+    }
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:Ahavat Yeshua.xcodeproj",
+        "identifier" : "D7ABDB342F158F9A00F348A0",
+        "name" : "Ahavat YeshuaUITests"
+      }
+    }
+  ],
+  "version" : 1
+}
