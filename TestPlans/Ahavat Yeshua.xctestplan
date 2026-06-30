@@ -1,0 +1,25 @@
+{
+  "configurations" : [
+    {
+      "id" : "768E1004-3333-40B1-A8BD-16CF853B9898",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:Ahavat Yeshua.xcodeproj",
+        "identifier" : "D7ABDB342F158F9A00F348A0",
+        "name" : "Ahavat YeshuaUITests"
+      }
+    }
+  ],
+  "version" : 1
+}

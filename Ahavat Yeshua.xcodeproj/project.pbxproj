@@ -59,6 +59,9 @@
 		08E629222ADF64C100891626 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E629212ADF64C100891626 /* NetworkError.swift */; };
 		08E629242ADF687F00891626 /* RequestSending.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E629232ADF687F00891626 /* RequestSending.swift */; };
 		08E629262ADF6B8C00891626 /* Fetching.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E629252ADF6B8C00891626 /* Fetching.swift */; };
+		D7B1F30E2FEA305A00811C32 /* Profile_UITests.xctestplan in Resources */ = {isa = PBXBuildFile; fileRef = D7B1F30D2FEA305A00811C32 /* Profile_UITests.xctestplan */; };
+		D7B1F3262FF334F100811C32 /* PR_UITests1.xctestplan in Resources */ = {isa = PBXBuildFile; fileRef = D7B1F3252FF334F100811C32 /* PR_UITests1.xctestplan */; };
+		D7B1F3452FF3591800811C32 /* CoreTests.xctestplan in Resources */ = {isa = PBXBuildFile; fileRef = D7B1F3442FF3591800811C32 /* CoreTests.xctestplan */; };
 		D7D8736F2FE3951C0003436C /* ProfileUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7EAB4A62F8442AB00F99A52 /* ProfileUITests.swift */; };
 		D7D873702FE3953C0003436C /* CoreUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7EAB4A42F84407A00F99A52 /* CoreUITests.swift */; };
 		D7D873762FE396610003436C /* NavigationTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B086552F64B54B00B15504 /* NavigationTabBar.swift */; };
@@ -156,7 +159,6 @@
 		08AB17812ABD357800813AA4 /* BibleNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BibleNetwork.swift; sourceTree = "<group>"; };
 		08AB17832ABD360900813AA4 /* BibleVerseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BibleVerseView.swift; sourceTree = "<group>"; };
 		08AB17852ABD397800813AA4 /* BibleVerseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BibleVerseViewModel.swift; sourceTree = "<group>"; };
-		08B494C12E02282B00827AF9 /* Ahavat Yeshua.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Ahavat Yeshua.xctestplan"; sourceTree = "<group>"; };
 		08E6291D2ADF646000891626 /* RequestMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestMaker.swift; sourceTree = "<group>"; };
 		08E6291F2ADF649100891626 /* RequestMaking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestMaking.swift; sourceTree = "<group>"; };
 		08E629212ADF64C100891626 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
@@ -168,6 +170,12 @@
 		D7B0864A2F64B49900B15504 /* Runner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Runner.swift; sourceTree = "<group>"; };
 		D7B0864B2F64B49900B15504 /* UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITests.swift; sourceTree = "<group>"; };
 		D7B086552F64B54B00B15504 /* NavigationTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationTabBar.swift; sourceTree = "<group>"; };
+		D7B1F2AB2FEA12F800811C32 /* Ahavat Yeshua WidgetExtension.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Ahavat Yeshua WidgetExtension.xctestplan"; sourceTree = "<group>"; };
+		D7B1F2DB2FEA1A1F00811C32 /* Ahavat Yeshua.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Ahavat Yeshua.xctestplan"; sourceTree = "<group>"; };
+		D7B1F2DD2FEA203E00811C32 /* PR2_UITests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = PR2_UITests.xctestplan; sourceTree = "<group>"; };
+		D7B1F30D2FEA305A00811C32 /* Profile_UITests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = Profile_UITests.xctestplan; sourceTree = "<group>"; };
+		D7B1F3252FF334F100811C32 /* PR_UITests1.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = PR_UITests1.xctestplan; sourceTree = "<group>"; };
+		D7B1F3442FF3591800811C32 /* CoreTests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = CoreTests.xctestplan; sourceTree = "<group>"; };
 		D7CE91B12FA541E00015FE43 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		D7CEE6472F64CA0B00D61E3C /* BaseScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseScreen.swift; sourceTree = "<group>"; };
 		D7CEE7D52F7DF32F00D61E3C /* ProfileScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreen.swift; sourceTree = "<group>"; };
@@ -285,7 +293,9 @@
 		08AB17292ABBCCE300813AA4 = {
 			isa = PBXGroup;
 			children = (
-				08B494C12E02282B00827AF9 /* Ahavat Yeshua.xctestplan */,
+				D7B1F30D2FEA305A00811C32 /* Profile_UITests.xctestplan */,
+				D7B1F30C2FEA2AA500811C32 /* TestPlans */,
+				D7B1F2AB2FEA12F800811C32 /* Ahavat Yeshua WidgetExtension.xctestplan */,
 				08AB17342ABBCCE300813AA4 /* Ahavat Yeshua */,
 				086EE07A2DB1E86C007515C6 /* Ahavat Yeshua Widget */,
 				D7ABDB362F158F9A00F348A0 /* Ahavat YeshuaUITests */,
@@ -487,6 +497,17 @@
 			path = CommonComponents;
 			sourceTree = "<group>";
 		};
+		D7B1F30C2FEA2AA500811C32 /* TestPlans */ = {
+			isa = PBXGroup;
+			children = (
+				D7B1F3252FF334F100811C32 /* PR_UITests1.xctestplan */,
+				D7B1F2DD2FEA203E00811C32 /* PR2_UITests.xctestplan */,
+				D7B1F3442FF3591800811C32 /* CoreTests.xctestplan */,
+				D7B1F2DB2FEA1A1F00811C32 /* Ahavat Yeshua.xctestplan */,
+			);
+			path = TestPlans;
+			sourceTree = "<group>";
+		};
 		D7CEE7DC2F80528100D61E3C /* ProfileScreen */ = {
 			isa = PBXGroup;
 			children = (
@@ -654,6 +675,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D7B1F30E2FEA305A00811C32 /* Profile_UITests.xctestplan in Resources */,
+				D7B1F3262FF334F100811C32 /* PR_UITests1.xctestplan in Resources */,
+				D7B1F3452FF3591800811C32 /* CoreTests.xctestplan in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

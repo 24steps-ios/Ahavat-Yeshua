@@ -1,0 +1,28 @@
+{
+  "configurations" : [
+    {
+      "id" : "0C009EB9-59CC-4EB9-8E03-9F388E90A4A9",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "testTimeoutsEnabled" : true
+  },
+  "testTargets" : [
+    {
+      "selectedTests" : [
+        "CoreUITests\/testMainTabs()",
+        "CoreUITests\/testNavigationTabBar()"
+      ],
+      "target" : {
+        "containerPath" : "container:Ahavat Yeshua.xcodeproj",
+        "identifier" : "D7ABDB342F158F9A00F348A0",
+        "name" : "Ahavat YeshuaUITests"
+      }
+    }
+  ],
+  "version" : 1
+}

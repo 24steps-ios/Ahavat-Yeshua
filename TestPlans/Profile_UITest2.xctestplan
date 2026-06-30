@@ -1,0 +1,43 @@
+{
+  "configurations" : [
+    {
+      "id" : "3C16D985-1296-46A6-B83D-0C3DA29E6397",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "testTimeoutsEnabled" : true
+  },
+  "testTargets" : [
+    {
+      "skippedTests" : [
+        "CoreUITests",
+        "CoreUITests\/testHomeScreenNavigation()",
+        "CoreUITests\/testMainTabs()",
+        "CoreUITests\/testNavigationTabBar()",
+        "ProfileUITests\/testDefaultUserName()",
+        "ProfileUITests\/testInputMultipleUsersAddresses()",
+        "ProfileUITests\/testMultipleUsersFullDataInput()",
+        "ProfileUITests\/testMultipleUsersPhonesInput()",
+        "ProfileUITests\/testProfileScreenNavigation()",
+        "ProfileUITests\/testUpdateEmailWithInvalidEmail()",
+        "ProfileUITests\/testUpdateEmailWithValidEmail()",
+        "ProfileUITests\/testUserAddressInput()",
+        "ProfileUITests\/testUserFullDataInput()",
+        "ProfileUITests\/testUserNameInput()",
+        "ProfileUITests\/testUserPhoneInput()",
+        "Runner",
+        "UITests"
+      ],
+      "target" : {
+        "containerPath" : "container:Ahavat Yeshua.xcodeproj",
+        "identifier" : "D7ABDB342F158F9A00F348A0",
+        "name" : "Ahavat YeshuaUITests"
+      }
+    }
+  ],
+  "version" : 1
+}

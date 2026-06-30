@@ -1,0 +1,34 @@
+{
+  "configurations" : [
+    {
+      "id" : "7F7FB046-D7F5-4217-B5B0-1D0EC965989D",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "testTimeoutsEnabled" : true
+  },
+  "testTargets" : [
+    {
+      "skippedTests" : [
+        "Ahavat_YeshuaUITests",
+        "Ahavat_YeshuaUITests\/testExample()",
+        "Ahavat_YeshuaUITests\/testLaunchPerformance()",
+        "Ahavat_YeshuaUITestsLaunchTests",
+        "Ahavat_YeshuaUITestsLaunchTests\/testLaunch()",
+        "ProfileUITests",
+        "Runner",
+        "UITests"
+      ],
+      "target" : {
+        "containerPath" : "container:Ahavat Yeshua.xcodeproj",
+        "identifier" : "D7ABDB342F158F9A00F348A0",
+        "name" : "Ahavat YeshuaUITests"
+      }
+    }
+  ],
+  "version" : 1
+}
