@@ -36,19 +36,7 @@
          <TestPlanReference
             reference = "container:PullRequest.xctestplan">
          </TestPlanReference>
-        
-         <TestPlanReference
-            reference = "container:../../Ahavat-Yeshua/PR3_UITests.xctestplan">
-         </TestPlanReference>
-         <TestPlanReference
-            reference = "container:Profile_UITests.xctestplan">
-         </TestPlanReference>
-         <TestPlanReference
-            reference = "container:PR_UITests1.xctestplan">
-         </TestPlanReference>
-         <TestPlanReference
-            reference = "container:PullRequest.xctestplan">
-         </TestPlanReference>
+         
       </TestPlans>
       <Testables>
          <TestableReference
