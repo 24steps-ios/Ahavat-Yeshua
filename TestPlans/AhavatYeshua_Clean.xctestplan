@@ -1,7 +1,7 @@
 {
   "configurations" : [
     {
-      "id" : "3C16D985-1296-46A6-B83D-0C3DA29E6397",
+      "id" : "329E24EC-1494-46F7-B6F1-BA84382EE8E3",
       "name" : "Configuration 1",
       "options" : {
 
@@ -18,19 +18,15 @@
         "CoreUITests\/testHomeScreenNavigation()",
         "CoreUITests\/testMainTabs()",
         "CoreUITests\/testNavigationTabBar()",
-        "ProfileUITests\/testDefaultUserName()",
         "ProfileUITests\/testInputMultipleUsersAddresses()",
         "ProfileUITests\/testMultipleUsersFullDataInput()",
         "ProfileUITests\/testMultipleUsersPhonesInput()",
-        "ProfileUITests\/testProfileScreenNavigation()",
         "ProfileUITests\/testUpdateEmailWithInvalidEmail()",
         "ProfileUITests\/testUpdateEmailWithValidEmail()",
         "ProfileUITests\/testUserAddressInput()",
         "ProfileUITests\/testUserFullDataInput()",
         "ProfileUITests\/testUserNameInput()",
-        "ProfileUITests\/testUserPhoneInput()",
-        "Runner",
-        "UITests"
+        "ProfileUITests\/testUserPhoneInput()"
       ],
       "target" : {
         "containerPath" : "container:Ahavat Yeshua.xcodeproj",
