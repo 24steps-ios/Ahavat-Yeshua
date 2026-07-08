@@ -14,20 +14,8 @@
       shouldUseLaunchSchemeArgsEnv = "YES">
       <TestPlans>
          <TestPlanReference
-            reference = "container:TestPlans1/PR_UITests1.xctestplan">
-         </TestPlanReference>
-         <TestPlanReference
-            reference = "container:TestPlans1/Ahavat Yeshua.xctestplan"
+            reference = "container:TestPlans/AhavatYeshua_Clean.xctestplan"
             default = "YES">
-         </TestPlanReference>
-         <TestPlanReference
-            reference = "container:Profile_UITest2.xctestplan">
-         </TestPlanReference>
-         <TestPlanReference
-            reference = "container:Core_UITest.xctestplan">
-         </TestPlanReference>
-         <TestPlanReference
-            reference = "container:CoreTests.xctestplan">
          </TestPlanReference>
       </TestPlans>
       <Testables>

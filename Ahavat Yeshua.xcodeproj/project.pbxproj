@@ -60,7 +60,6 @@
 		08E629242ADF687F00891626 /* RequestSending.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E629232ADF687F00891626 /* RequestSending.swift */; };
 		08E629262ADF6B8C00891626 /* Fetching.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E629252ADF6B8C00891626 /* Fetching.swift */; };
 		D7B1F30E2FEA305A00811C32 /* Profile_UITests.xctestplan in Resources */ = {isa = PBXBuildFile; fileRef = D7B1F30D2FEA305A00811C32 /* Profile_UITests.xctestplan */; };
-		D7B1F3262FF334F100811C32 /* PR_UITests1.xctestplan in Resources */ = {isa = PBXBuildFile; fileRef = D7B1F3252FF334F100811C32 /* PR_UITests1.xctestplan */; };
 		D7B1F3452FF3591800811C32 /* CoreTests.xctestplan in Resources */ = {isa = PBXBuildFile; fileRef = D7B1F3442FF3591800811C32 /* CoreTests.xctestplan */; };
 		D7D8736F2FE3951C0003436C /* ProfileUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7EAB4A62F8442AB00F99A52 /* ProfileUITests.swift */; };
 		D7D873702FE3953C0003436C /* CoreUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7EAB4A42F84407A00F99A52 /* CoreUITests.swift */; };
@@ -75,6 +74,7 @@
 		D7D873832FE397010003436C /* MyProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7CEE7DD2F8052C800D61E3C /* MyProfile.swift */; };
 		D7D873842FE3970B0003436C /* ProfileScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7CEE7D52F7DF32F00D61E3C /* ProfileScreen.swift */; };
 		D7D873852FE3978E0003436C /* TestUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79BE0532F8709B7009C1EB8 /* TestUser.swift */; };
+		D7E895A72FFAD30700D097AB /* AhavatYeshua_Clean.xctestplan in Resources */ = {isa = PBXBuildFile; fileRef = D7E895A62FFAD30700D097AB /* AhavatYeshua_Clean.xctestplan */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -171,16 +171,14 @@
 		D7B0864B2F64B49900B15504 /* UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITests.swift; sourceTree = "<group>"; };
 		D7B086552F64B54B00B15504 /* NavigationTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationTabBar.swift; sourceTree = "<group>"; };
 		D7B1F2AB2FEA12F800811C32 /* Ahavat Yeshua WidgetExtension.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Ahavat Yeshua WidgetExtension.xctestplan"; sourceTree = "<group>"; };
-		D7B1F2DB2FEA1A1F00811C32 /* Ahavat Yeshua.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Ahavat Yeshua.xctestplan"; sourceTree = "<group>"; };
-		D7B1F2DD2FEA203E00811C32 /* PR2_UITests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = PR2_UITests.xctestplan; sourceTree = "<group>"; };
 		D7B1F30D2FEA305A00811C32 /* Profile_UITests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = Profile_UITests.xctestplan; sourceTree = "<group>"; };
-		D7B1F3252FF334F100811C32 /* PR_UITests1.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = PR_UITests1.xctestplan; sourceTree = "<group>"; };
 		D7B1F3442FF3591800811C32 /* CoreTests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = CoreTests.xctestplan; sourceTree = "<group>"; };
 		D7CE91B12FA541E00015FE43 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		D7CEE6472F64CA0B00D61E3C /* BaseScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseScreen.swift; sourceTree = "<group>"; };
 		D7CEE7D52F7DF32F00D61E3C /* ProfileScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreen.swift; sourceTree = "<group>"; };
 		D7CEE7DD2F8052C800D61E3C /* MyProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfile.swift; sourceTree = "<group>"; };
 		D7CEE7E12F80539600D61E3C /* MyChurch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyChurch.swift; sourceTree = "<group>"; };
+		D7E895A62FFAD30700D097AB /* AhavatYeshua_Clean.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = AhavatYeshua_Clean.xctestplan; sourceTree = "<group>"; };
 		D7EAB4A42F84407A00F99A52 /* CoreUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreUITests.swift; sourceTree = "<group>"; };
 		D7EAB4A62F8442AB00F99A52 /* ProfileUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileUITests.swift; sourceTree = "<group>"; };
 		D7EAB4AF2F84481500F99A52 /* Extension+XCUIElementQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+XCUIElementQuery.swift"; sourceTree = "<group>"; };
@@ -293,7 +291,6 @@
 		08AB17292ABBCCE300813AA4 = {
 			isa = PBXGroup;
 			children = (
-				D7B1F30D2FEA305A00811C32 /* Profile_UITests.xctestplan */,
 				D7B1F30C2FEA2AA500811C32 /* TestPlans */,
 				D7B1F2AB2FEA12F800811C32 /* Ahavat Yeshua WidgetExtension.xctestplan */,
 				08AB17342ABBCCE300813AA4 /* Ahavat Yeshua */,
@@ -500,10 +497,9 @@
 		D7B1F30C2FEA2AA500811C32 /* TestPlans */ = {
 			isa = PBXGroup;
 			children = (
-				D7B1F3252FF334F100811C32 /* PR_UITests1.xctestplan */,
-				D7B1F2DD2FEA203E00811C32 /* PR2_UITests.xctestplan */,
+				D7B1F30D2FEA305A00811C32 /* Profile_UITests.xctestplan */,
 				D7B1F3442FF3591800811C32 /* CoreTests.xctestplan */,
-				D7B1F2DB2FEA1A1F00811C32 /* Ahavat Yeshua.xctestplan */,
+				D7E895A62FFAD30700D097AB /* AhavatYeshua_Clean.xctestplan */,
 			);
 			path = TestPlans;
 			sourceTree = "<group>";
@@ -676,7 +672,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D7B1F30E2FEA305A00811C32 /* Profile_UITests.xctestplan in Resources */,
-				D7B1F3262FF334F100811C32 /* PR_UITests1.xctestplan in Resources */,
+				D7E895A72FFAD30700D097AB /* AhavatYeshua_Clean.xctestplan in Resources */,
 				D7B1F3452FF3591800811C32 /* CoreTests.xctestplan in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
