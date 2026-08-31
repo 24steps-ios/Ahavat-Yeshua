@@ -8,24 +8,19 @@ import XCTest
 
 final class DonationScreen: BaseScreen {
     
-    // MARK: Buttons
-    lazy var donation: XCUIElement = app.buttons["Donation"]
-    lazy var backButton: XCUIElement = app.buttons["Back"]
-    
     // MARK: Predicates
-    lazy var donationTitle: XCUIElement = app.staticTexts
-        .matching(NSPredicate(format: "label BEGINSWITH 'Total Amount'"))
-        .element
+    let totalAmountPredicate: NSPredicate = .init(format: "label CONTAINS 'Total Amount'")
     
+    //MARK: StaticTexts
+    lazy var donation: XCUIElement = app.staticTexts["Donation"]
+
+    // MARK: StaticTexts
+    lazy var totalAmountTitle: XCUIElement = app.staticTexts.matching(totalAmountPredicate).firstMatch
    
-    
     // MARK: Then
-    func thenDonationScreenAppears() {
-        donationTitle.assertExistence()
-    }
-    
-    // MARK: When
-    func  whenITapBackButton() {
-        backButton.assertExistenceAndTap()
+    @discardableResult
+    func thenDonationScreenAppears() -> Self {
+        totalAmountTitle.assertExistence()
+        return self
     }
 }
